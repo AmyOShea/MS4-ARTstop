@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+
+* {
+    margin: 0 !important;
+    padding: 0 !important;
+    }
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: 'Abel', sans-serif;
+    color: #3d3d3d;
+}
+
+a {
+    color: #3d3d3d !important;
+}
