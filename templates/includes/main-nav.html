@@ -5,9 +5,9 @@
                 Prints
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="prints-link">
-                <a href="" class="dropdown-item">By Price</a>
-                <a href="" class="dropdown-item ">By Rating</a>
-                <a href="" class="dropdown-item ">By Artist</a>
+                <a href="{% url 'products'%}?category=prints&sort=price&direction=asc" class="dropdown-item">By Price</a>
+                <a href="{% url 'products'%}?category=prints&sort=rating&direction=desc" class="dropdown-item ">By Rating</a>
+                <a href="{% url 'products'%}?category=prints&sort=artist&direction=asc" class="dropdown-item ">By Artist</a>
                 <a href="{% url 'products'%}?category=prints" class="dropdown-item">All Prints</a>
             </div>
         </li>
@@ -17,9 +17,9 @@
                 Originals
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="originals-link">
-                <a href="" class="dropdown-item">By Price</a>
-                <a href="" class="dropdown-item ">By Rating</a>
-                <a href="" class="dropdown-item ">By Artist</a>
+                <a href="{% url 'products'%}?category=originals&sort=price&direction=asc" class="dropdown-item">By Price</a>
+                <a href="{% url 'products'%}?category=originals&sort=rating&direction=desc" class="dropdown-item ">By Rating</a>
+                <a href="{% url 'products'%}?category=originals&sort=artist&direction=asc" class="dropdown-item ">By Artist</a>
                 <a href="{% url 'products'%}?category=originals" class="dropdown-item">All Originals</a>
             </div>
         </li>
