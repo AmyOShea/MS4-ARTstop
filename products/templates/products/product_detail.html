@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+<div class="container">
+    <a href="{{ product.image.url }}" target="blank">
+        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+    </a>
+
+    <p>{{ product.name }}</p>
+    <p>{{ product.artist }}</p>
+    <p>{{ product.description }}</p>
+
+    {% if product.rating %}
+        <p>{{ product.rating }} / 5</p>
+    {% endif %}
+
+    <p>{{ product.price }}</p>
+</div>
+{% endblock %}
