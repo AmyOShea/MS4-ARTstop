@@ -16,4 +16,38 @@ body {
 
 a {
     color: #3d3d3d !important;
+    text-decoration: none !important;
+}
+
+.card {
+    height: 300px;
+    width: 200px;
+    outline-offset: 6px;
+    outline: #D8B646 1px solid;
+    overflow: hidden;
+    text-align: center;
+    border-radius: 0;
+    border: 0;
+    margin: 15px !important;
+}
+
+.card-img {
+    height: 300px;
+    width: 200px;
+    object-fit: cover;
+    z-index: -1;
+    border-radius: 0;
+}
+
+.card-text {
+    background-color: rgba(0, 0, 0, .7);
+    box-shadow: 0 0 10px 15px rgba(0, 0, 0, .7);
+    color: #E1C2B7;
+    position: relative;
+    top: -60px;
+    padding-bottom: 15px !important;
+}
+
+.card-text:hover {
+    text-shadow: 0px 0px 1px #E1C2B7;
 }
