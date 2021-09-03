@@ -30,7 +30,6 @@ def all_products(request):
             products = products.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
 
-
     current_sorting = f'{sort}_{direction}'
 
     context = {
@@ -47,7 +46,7 @@ def product_detail(request, product_id):
     context = {
         'product': product,
     }
-    return render(request, 'products/products.html', context)
+    return render(request, 'products/product_detail.html', context)
 
 
 def add_product(request):

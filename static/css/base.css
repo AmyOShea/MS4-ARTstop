@@ -12,6 +12,9 @@ html {
 body {
     font-family: 'Abel', sans-serif;
     color: #3d3d3d;
+    background-image: url('/media/bg-image.png');
+    background-repeat: no-repeat;
+    background-size: 100% auto;
 }
 
 a {
@@ -48,6 +51,49 @@ a {
     padding-bottom: 15px !important;
 }
 
-.card-text:hover {
+.card:hover {
     text-shadow: 0px 0px 1px #E1C2B7;
+}
+
+.product-info-container {
+    width: 30vw;
+    margin-top: 50px !important;
+}
+
+.product-info-img {
+    border: 2px solid #D8B646;
+    outline-offset: 6px;
+    outline: #D8B646 1px solid;
+}
+
+.info-img-cont {
+    margin-right: 6px !important;
+}
+
+.product-info-text {
+    text-align: right;
+}
+
+
+/*MEDIA QUERIES*/
+@media only screen and (max-width: 992px) {
+    .product-info-container {
+        width: 50vw;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .product-info-container {
+        width: 70vw;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .product-info-container {
+        width: 92vw;
+    }
+
+    .info-img-cont {
+        margin-right: 0 !important;
+    }
 }
