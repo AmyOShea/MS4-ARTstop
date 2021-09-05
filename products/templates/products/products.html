@@ -22,6 +22,8 @@
         <option value="rating_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>Rating (high to low)</option>
         <option value="artist_asc" {% if current_sorting == 'artist_asc' %}selected{% endif %}>Artist (A-Z)</option>
         <option value="artist_desc" {% if current_sorting == 'artist_desc' %}selected{% endif %}>Artist (Z-A)</option>
+        <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
+        <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
     </select>
 </div>
 
@@ -57,4 +59,33 @@
 
 
 
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+<script type="text/javascript">
+    $('#sort-selector').change(function() {
+        var selector = $(this)
+        var currentUrl = new URL(window.location);
+
+        var selectedVal = selector.val();
+        if(selectedVal != "reset"){
+            var sort = selectedVal.split("_")[0];
+            var direction = selectedVal.split("_")[1];
+
+            currentUrl.searchParams.set("sort", sort);
+            currentUrl.searchParams.set("direction", direction);
+
+            window.location.replace(currentUrl);
+        } else {
+            currentUrl.searchParams.delete("sort");
+            currentUrl.searchParams.delete("direction");
+
+            window.location.replace(currentUrl);
+
+        }
+
+    })
+
+</script>
 {% endblock %}
