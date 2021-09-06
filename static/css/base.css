@@ -74,7 +74,6 @@ a {
     text-align: right;
 }
 
-
 /*MEDIA QUERIES*/
 @media only screen and (max-width: 992px) {
     .product-info-container {
@@ -96,4 +95,19 @@ a {
     .info-img-cont {
         margin-right: 0 !important;
     }
+}
+
+.bag-img {
+    max-width: 100px;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+tr>td {
+    border-top: 1px #D8B646 solid !important;
+    border-bottom: 1px #D8B646 solid !important;
+    padding: 10px !important;
+    text-align: center
 }

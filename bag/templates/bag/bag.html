@@ -5,14 +5,52 @@
 
 {% block content %}
 
-<div>
+<div class="row col-12 col-lg-8 col-xl-6 col-xxl-4 mx-auto bag-container table-responsive">
     {% if bag_items %}
-        {{ bag_items }}
+            <table class="table">
+                <tbody>
+                    {% for item in bag_items %}
+                        <tr>
+                            <td>
+                                <img src="{{ item.product.image.url }}" class="bag-img">
+                            </td>
+                            <td>
+                                <p>"{{ item.product.name }}"</p>
+                            </td>
+                            <td>
+                                <p>€{{ item.product.price }}</p>
+                            </td>
+                            <td>
+                                <p>{{ item.quantity }}</p>
+                            </td>
+                            <td>
+                                <p>€{{ item.product.price }}</p>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+
+
+<div class="ml-auto text-right">
+        <p>Subtotal: €{{ total|floatformat:2 }}</p>
+        <p>Delivery: €{{ delivery|floatformat:2 }}</p>
+        <p>Grand Total: €{{ total|floatformat:2 }}</p>
+        <a class="btn" href="{% url 'products' %}">Continue Shopping</a>
+        <a class="btn" href="#">Checkout</a>
+    </div>
+
+
+
+       
+
+
     {% else %}
         <p>Your bag is empty</p>
         <a class="btn" href="{% url 'products' %}">Shop Now!</a>
     {% endif %}
-
+    
 </div>
 
 
