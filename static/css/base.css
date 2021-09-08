@@ -154,13 +154,13 @@ footer a:hover {
     align-items: flex-end;
 }
 
-.bag-form {
+.update-form {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.update-link, .remove-link {
+.update-link, .remove-item {
     padding-left: 30px !important;
     cursor: pointer;
 }

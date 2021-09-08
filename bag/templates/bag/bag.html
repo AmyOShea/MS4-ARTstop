@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load bag_tools %}
 
 
 
@@ -22,21 +23,21 @@
                             </td>
                             <td>
                                 <a class="update-link">Update</a>
-                                <form class="bag-form" method="POST">
+                                <form class="update-form" method="POST" action="{% url 'edit_bag' item.item_id %}">
                                     {% csrf_token %}
                                     <div class="form-group qty-form">
                                         <div class="input-group">
                                             <p>Qty:</p>
-                                            <input class="form-control qty_input" type="number" name="quantity" value="{{ item.quantity }}" min="1"
+                                            <input class="form-control qty_input" type="number" name="quantity" value="{{ item.quantity }}" min="0"
                                             max="99" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
                                         </div>
                                     </div>
                                 </form>
                                 
-                                <a class="remove-link" id="remove_{{ item.item_id }}">Remove</a>
+                                <a class="remove-item" id="remove_{{ item.item_id }}">Remove</a>
                             </td>
                             <td>
-                                <p>€{{ item.product.price }}</p>
+                                <p>€{{ item.product.price | calc_subtotal:item.quantity }}</p>
                             </td>
                         </tr>
                     {% endfor %}
@@ -48,7 +49,7 @@
 <div class="ml-auto text-right">
         <p>Subtotal: €{{ total|floatformat:2 }}</p>
         <p>Delivery: €{{ delivery|floatformat:2 }}</p>
-        <p>Grand Total: €{{ total|floatformat:2 }}</p>
+        <p>Grand Total: €{{ grand_total|floatformat:2 }}</p>
         <a class="btn" href="{% url 'products' %}">Continue Shopping</a>
         <a class="btn" href="#">Checkout</a>
     </div>
@@ -74,7 +75,7 @@
 <script type="text/javascript">
     // Update quantity of item in bag
     $('.update-link').click(function(e) {
-        var form = $(this).prev('.update-form');
+        var form = $(this).next('.update-form');
         form.submit();
     })
 
@@ -82,7 +83,7 @@
     $('.remove-item').click(function(e) {
         var csrfToken = "{{ csrf_token }}";
         var itemId = $(this).attr('id').split('remove_')[1];
-        var url = `/bag/remove/${itemId}`;
+        var url = `/bag/remove/${itemId}/`;
         var data = {'csrfmiddlewaretoken': csrfToken};
 
         $.post(url, data)
