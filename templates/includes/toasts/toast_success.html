@@ -1,9 +1,54 @@
-<div class="toast" data-delay="5000">
+{% load bag_tools %}
+
+<div class="toast" data-autohide="false">
     <div class="toast-body bg-white">
-        <i class="fas fa-check"></i>
-        {{ message }}
-        <button type="button" class="ml-2 mb-1 close text-dark" data-dismiss="toast" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>       
+        <div class="row">
+            <div class="col-10">
+        <p><i class="fas fa-check"></i> {{ message }}</p>
+        </div>
+        <div class="col-2">
+        <button type="button" class="btn float-right" data-dismiss="toast" aria-label="Close">
+            <span aria-hidden="true">X</span>
+        </button>
+    </div>
+
+    </div>
+        {% if total %}
+        <hr class="toast-hr">
+            <p>Your Items: ({{ product_count }})</p>
+
+            {% for item in bag_items %}
+                <div class="row toast-row">
+                    <div class="col-4">
+                        <img class="toast-img" src="{{ item.product.image.url }}">
+                    </div>
+                    <div class="col-4">
+                        <p><strong>{{ item.product.name }}</strong></p>
+                        <p class="small">Qty: {{ item.quantity }}</p>
+                    </div>
+                    <div class="col-4">
+                        <p>€{{ item.product.price | calc_subtotal:item.quantity }}</p>
+                    </div>
+                </div>
+                <hr class="toast-hr">
+            {% endfor %}
+            <a href="{% url 'view_bag' %}" id="toast-viewbag-btn" class="btn">View Bag</a>
+            <a href="{% url 'products' %}" id="toast-cont-shopping-btn" class="btn">Continue Shoping</a>
+            <a href="{% url 'view_bag' %}" class="btn float-right">Checkout</a>
+        {% endif %}
     </div>
 </div>
+
+<script type="text/javascript">
+
+    const currentUrl = window.location.href;
+    const viewBag = document.getElementById("toast-viewbag-btn");
+    let contShopping = document.getElementById("toast-cont-shopping-btn");
+
+    if (currentUrl !== 'https://8000-tan-reptile-pak1u3u8.ws-eu16.gitpod.io/bag/' || 'https://ms4-artstop.herokuapp.com/bag/' ) {
+        contShopping.style.display = "none";
+    } else {
+        viewBag.style.display = "none";
+    };
+
+</script>
