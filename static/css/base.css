@@ -26,6 +26,11 @@ a {
     text-decoration: none !important;
 }
 
+.page-title-hr {
+    width: 100%;
+    border-top: 1px solid #D8B646;
+}
+
 .card {
     height: 300px;
     width: 200px;

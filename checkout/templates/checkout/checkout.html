@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bag_tools %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="checkout-container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-xl-8 col-xxl-6 mx-auto">
+            <div class="row">
+                <h1 class="page-title">Checkout</h1>
+                <hr class="page-title-hr">
+            </div>
+            <div class="row">
+                <div class="col-12 col-lg-5 mx-auto">
+
+
+                    <form action="{% url 'checkout' %}" method="POST" id="payment-form">
+                        {% csrf_token %}
+                        <fieldset>
+                            <legend>Personal Details</legend>
+                            {{ order_form.phone_number | as_crispy_field }}
+                            {{ order_form.email | as_crispy_field }}
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>Delivery Details</legend>
+                            {{ order_form.street_address1 | as_crispy_field }}
+                            {{ order_form.street_address2 | as_crispy_field }}
+                            {{ order_form.town_or_city | as_crispy_field }}
+                            {{ order_form.county | as_crispy_field }}
+                            {{ order_form.postcode | as_crispy_field }}
+                            {{ order_form.country | as_crispy_field }}
+                            <div class="form-check form-check-inline">
+                                {% if user.is_authenticated %}
+                                <label class="form-check-label" for="id-save-info">Save this delivery information to my
+                                    profile</label>
+                                <input class="form-check-input" type="checkbox" id="id-save-info" name="save-info"
+                                    checked>
+                                {% endif %}
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>Payment Details</legend>
+                            <div id="card-element"></div>
+                            <div id="card-errors" role="alert"></div>
+                        </fieldset>
+                        <div class="submit-button text-right">
+                            <a href="{% url 'view_bag' %}" class="btn">Adjust Bag</a>
+                            <button id="submit-button" class="btn">Complete Order</button>
+                            <p>Your card will be charged <strong>${{ grand_total|floatformat:2 }}</strong></p>
+                        </div>
+
+                    </form>
+                </div>
+
+
+                <div class="col-12 col-lg-5 mx-auto">
+                    <h2 class="checkout-sub-heading">Order Summary</h2>
+                    <hr class="checkout-hr">
+                    {% for item in bag_items %}
+                    <div class="row checkout-bag-row">
+
+
+                        <div class="col-2">
+                            <img src="{{ item.product.image.url }}" class="checkout-img">
+                        </div>
+                        <div class="col-8">
+                            <p>"{{ item.product.name }}"</p>
+                            <p>€{{ item.product.price }}</p>
+                            <p>Qty: {{ item.quantity }}</p>
+                        </div>
+                        <div class="col-2">
+                            <p>€{{ item.product.price | calc_subtotal:item.quantity }}</p>
+                        </div>
+                        <hr class="checkout-hr">
+
+
+                    </div>
+                    
+                    {% endfor %}
+                    <div class="ml-auto text-right">
+                        <p>Subtotal: €{{ total|floatformat:2 }}</p>
+                        <p>Delivery: €{{ delivery|floatformat:2 }}</p>
+                        <p>Grand Total: €{{ grand_total|floatformat:2 }}</p>
+                    </div>  
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+{% endblock %}
+
+
+<!--
+
+    <div class="ml-auto text-right">
+        <p>Subtotal: €{{ total|floatformat:2 }}</p>
+        <p>Delivery: €{{ delivery|floatformat:2 }}</p>
+        <p>Grand Total: €{{ grand_total|floatformat:2 }}</p>
+    </div>  
+-->
