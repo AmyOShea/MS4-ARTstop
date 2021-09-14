@@ -17,3 +17,7 @@ def checkout_view(request):
     }
 
     return render(request, template, context)
+
+
+def signin_guest(request):
+    return render(request, 'checkout/signin-or-guest.html')
