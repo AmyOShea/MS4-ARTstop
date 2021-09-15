@@ -12,7 +12,7 @@ import stripe
 
 
 def signin_guest(request):
-    return render(request, 'checkout/signin-or-guest.html')
+    return render(request, 'checkout/signin_or_guest.html')
 
 
 def checkout_view(request):
@@ -95,14 +95,11 @@ def checkout_success(request, order_number):
 
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
-    messages.success(request, f'Your order was placed successfully! \
-        Your order number is {order_number}. \
-        You will recieve an email at {order.email} to confirm.')
 
     if 'bag' in request.session:
         del request.session['bag']
 
-    template = 'checkout/checkout_sussess.html'
+    template = 'checkout/checkout_success.html'
     context = {
         'order': order
     }
