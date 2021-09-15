@@ -12,7 +12,7 @@ html {
 body {
     font-family: 'Abel', sans-serif;
     color: #3d3d3d;
-    background-image: url('/media/bg-image.png');
+    background-image: url("/media/bg-img.jpg");
     background-repeat: no-repeat;
     background-size: 100% auto;
 }

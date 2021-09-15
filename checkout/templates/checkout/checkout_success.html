@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bag_tools %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="checkout-container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-xl-8 col-xxl-6 mx-auto">
+            <div>
+                <h1 class="page-title">Order Confirmation</h1>
+                <hr class="page-title-hr">
+            </div>
+            <div class="row">
+                <div class="col-12 col-lg-6 order-info-container">
+                    <p><strong>Thank you for your order</strong></p>
+                    <p>A confirmation email has been sent to <strong>{{ order.email }}</strong></p>
+                    <p>Please find your order details below</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-lg-6 order-info-container">
+                    <h2>Order Details</h2>
+                    <p>Order Number: {{ order.order_number }}</p>
+                    <p>Order Date: {{ order.order_number }}</p>
+                    <p>Order Items:</p>
+                    {% for item in order.lineitems.all %}
+                        <p class="product-list-item">"{{ item.product.name }}"  x {{ item.quantity}}</p>
+                    {% endfor %}
+                    <p>Order Total: {{ order.order_total }}</p>
+                    {% if order.delivery_cost > 0 %}
+                        <p>Delivery: {{ order.delivery_cost }}</p>
+                    {% endif %}
+                    <p><strong>Grand Total: {{ order.grand_total }}</strong></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-lg-6 order-info-container">
+                    <h2>Delivery Details</h2>
+                    <p>{{ order.full_name }}</p>
+                    <p>{{ order.street_address1 }}</p>
+
+                    {% if order.street_address2 %}
+                        <p>{{ order.street_address2 }}</p>
+                    {% endif %}
+
+                    <p>{{ order.town_or_city }}</p>
+
+                    {% if order.county > 0 %}
+                        <p>{{ order.county }}</p>
+                    {% endif %}
+
+                    {% if order.postcode > 0 %}
+                        <p>{{ order.postcode }}</p>
+                    {% endif %}
+
+                    <p>{{ order.country }}</p>
+                    <p>{{ order.phone_number }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
