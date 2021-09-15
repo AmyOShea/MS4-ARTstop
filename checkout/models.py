@@ -33,9 +33,9 @@ class Order(models.Model):
     def update_total(self):
 
         self.order_total = self.lineitems.aggregate(
-            Sum('lineitem_total'))['lineitem_total__sum']
+            Sum('lineitem_total'))['lineitem_total__sum'] or 0
         if self.order_total < settings.FREE_DELIVERY_THRESHOLD:
-            self.delivery_cost = self.order_total + settings.STANDARD_DELIVERY
+            self.delivery_cost = settings.STANDARD_DELIVERY
         else:
             self.delivery_cost = 0
         self.grand_total = self.order_total + self.delivery_cost
