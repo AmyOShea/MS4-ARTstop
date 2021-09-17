@@ -22,8 +22,15 @@ fieldset {
     margin-bottom: 1rem !important;
 }
 
-input {
+input,
+select,
+select option {
     padding-left: 5px !important;
+    color: #000 !important;
+}
+
+select:invalid,
+select option[value=""] {
     color: #3D3D3D !important;
 }
 
