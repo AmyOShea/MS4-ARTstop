@@ -16,11 +16,18 @@
             <hr class="page-title-hr">
             <div class="row">
                 <div class="col-12 col-lg-5 mx-auto">
-                    {{ profile }}
+                    <h2 class="">Default Delivery Information</h2>
+                    <hr class="">
+                    <form action="{% url 'profile' %}" method="POST" id="update-profile-form">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <button id="submit-button" class="btn">Update</button>
+                    </form>
                 </div>
                 <div class="col-12 col-lg-5 mx-auto">
                     <h2 class="">Order History</h2>
                     <hr class="">
+                    {{ orders }}
                 </div>
             </div>
         </div>
