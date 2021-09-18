@@ -62,6 +62,13 @@
                     <p>{{ order.phone_number }}</p>
                 </div>
             </div>
+            {% if from_profile %}
+            <div class="row">
+                <div class="col-12 col-lg-6 order-info-container">
+                    <a href="{% url 'profile' %}">Back to Profile</a>
+                </div>
+            </div>
+            {% endif %}
         </div>
     </div>
 </div>

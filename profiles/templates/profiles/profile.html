@@ -27,7 +27,27 @@
                 <div class="col-12 col-lg-5 mx-auto">
                     <h2 class="">Order History</h2>
                     <hr class="">
-                    {{ orders }}
+                    <div class="order-history">
+                        {% for order in orders %}
+                            <div class="row">
+                                <div class="col-2">
+                                    <a href="">{{ order.order_number|truncatechars:6 }}</a>
+                                </div>
+                                <div class="col-3">
+                                    {{ order.date }}
+                                </div>
+                                <div class="col-5">
+                                    {% for item in order.lineitems.all %}
+                                        {{ item.product.name }} x {{ item.quantity }}
+                                    {% endfor %}
+                                </div>
+                                <div class="col-2">
+                                    {{ order.grand_total }}
+                                </div>
+                                <hr class="checkout-hr">
+                            </div>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
         </div>
