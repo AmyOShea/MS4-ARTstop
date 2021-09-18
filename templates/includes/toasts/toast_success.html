@@ -45,10 +45,12 @@
     const viewBag = document.getElementById("toast-viewbag-btn");
     let contShopping = document.getElementById("toast-cont-shopping-btn");
 
-    if (currentUrl !== 'https://8000-tan-reptile-pak1u3u8.ws-eu16.gitpod.io/bag/' || 'https://ms4-artstop.herokuapp.com/bag/' ) {
-        contShopping.style.display = "none";
-    } else {
+    if (currentUrl === 'https://8000-tan-reptile-pak1u3u8.ws-eu16.gitpod.io/bag/' || currentUrl === 'https://ms4-artstop.herokuapp.com/bag/' ) {
         viewBag.style.display = "none";
+        contShopping.style.display = "inline";
+    } else {
+        contShopping.style.display = "none";
+        viewBag.style.display = "inline";
     };
 
 </script>
