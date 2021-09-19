@@ -1,0 +1,33 @@
+Hello {{ order.full_name }},
+
+This is a confirmation of your order from ARTstop. 
+Your order information is below:
+
+Order Number: {{ order.order_number }}
+
+Order Total: {{ order.order_total }}
+{% if order.delivery_cost > 0 %}
+Delivery: {{ order.delivery_cost }}
+{% endif %}
+Grand Total: {{ order.grand_total }}
+
+Delivery Details: 
+
+{{ order.street_address1 }}
+{% if order.street_address2 %}
+    {{ order.street_address2 }}
+{% endif %}
+{{ order.town_or_city }}
+{% if order.county > 0 %}
+    {{ order.county }}
+{% endif %}
+{% if order.postcode > 0 %}
+    {{ order.postcode }}
+{% endif %}
+{{ order.country }}
+
+If you have any questions or issues with your order, please feel free to contact us. 
+
+Enjoy your new art! 
+
+ARTstop Team
