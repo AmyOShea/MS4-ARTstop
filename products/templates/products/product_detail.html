@@ -9,9 +9,6 @@
 
 <div class="container product-info-container mx-auto">
     <div class="row">
-
-
-
         <div class="col-12 col-md-6 lg-4">
             <div class="info-img-cont">
             <a href="{{ product.image.url }}" target="blank">
@@ -19,21 +16,14 @@
             </a>
         </div>
         </div>
-
-
-
-
         <div class="col-12 col-md-6 lg-4 product-info-text">
             <p class="info-text2">"{{ product.name }}"</p>
             <p class="info-text2">{{ product.artist }}</p>
             <p class="info-text2">{{ product.description }}</p>
-
             {% if product.rating %}
                 <p class="info-text2">{{ product.rating }} / 5</p>
             {% endif %}
-
             <p class="info-text2">€{{ product.price }}</p>
-
             <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                 {% csrf_token %}
                 <div class="form-row">
@@ -49,9 +39,15 @@
                     <a href="{% url 'products' %}" class="btn">Keep Shopping</a>
                     <input type="submit" class="btn" value="Add to Bag">
                 </div>
-
                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
             </form>
+                {% if request.user.is_superuser %}
+                    <div>
+                        <a href="{% url 'edit_product' product.id %}">Edit Product</a>
+                        <a href="{% url 'delete_product' product.id %}">Delete Product</a>
+
+                    </div>
+                {% endif %}
         </div>
     </div>
 </div>
