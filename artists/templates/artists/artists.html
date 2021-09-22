@@ -7,7 +7,7 @@
     {% for artist in artists %}
         <div class="col-12 col-sm-6 col-md-4 col-xl-3 d-flex justify-content-center">
             <div class="card">
-                <a href="#">
+                <a href="{% url 'artist_detail' artist.id %}">
                     <div>
                         <img src="{{ artist.image.url }}" class="card-img img-fluid">
                     </div>

@@ -198,6 +198,22 @@ footer a:hover {
     cursor: pointer;
 }
 
+/* ARTIST DETAILS PAGE*/
+
+.artist-img-cont {
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto !important;
+    border: 2px solid #D8B646;
+}
+.artist-info-img {
+    height: 100%;
+}
+
 /*MEDIA QUERIES*/
 @media only screen and (max-width: 992px) {
     .product-info-container {
