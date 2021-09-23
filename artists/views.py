@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Artist
 from products.models import Product
+from .forms import ArtistForm
 
 
 def all_artists(request):
@@ -24,3 +25,14 @@ def artist_detail(request, artist_id):
     }
 
     return render(request, 'artists/artist_detail.html', context)
+
+
+def add_artist(request):
+    form = ArtistForm
+    template = 'artists/add_artist.html'
+
+    context = {
+        'form': form
+    }
+
+    return render(request, template, context)
