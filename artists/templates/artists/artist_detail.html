@@ -7,21 +7,34 @@
     <div class="row">
         <div class="col-12 col-md-5">
             <div class="artist-img-cont">
-            <a href="{{ artist.image.url }}" target="blank">
-                <img src="{{ artist.image.url }}" alt="{{ artist.name }}" class="artist-info-img">
-            </a>
-        </div>
+                <a href="{{ artist.image.url }}" target="blank">
+                    <img src="{{ artist.image.url }}" alt="{{ artist.name }}" class="artist-info-img">
+                </a>
+            </div>
         </div>
         <div class="col-12 col-md-7">
             <p>{{ artist.name }}</p>
             <p>{{ artist.artist_statement }}</p>
         </div>
     </div>
-    <div class="row">
-        <div class="col-12">
-            <!-- gallery images to go here -->
-        </div>
+
+
+
+    <div class="card-columns">
+    {% for product in products %}
+        {% if product.artist|lower == artist.name|lower %}
+                <div class="card">
+                    <a href="{% url 'product_detail' product.id %}">
+                        <img src="{{ product.image.url }}" class="artist-gallery-img img-fluid">
+                    </a>
+                </div>
+            {% endif %}
+        {% endfor %}
     </div>
+
+
+
+
 </div>
 
 
