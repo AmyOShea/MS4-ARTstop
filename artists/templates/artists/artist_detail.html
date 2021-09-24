@@ -15,6 +15,10 @@
         <div class="col-12 col-md-7">
             <p>{{ artist.name }}</p>
             <p>{{ artist.artist_statement }}</p>
+            {% if request.user.is_superuser %}
+                <a href="{% url 'edit_artist' artist.id %}" class="btn">Edit Artist</a>
+                <a href="{% url 'delete_artist' artist.id %}" class="btn">Delete Artist</a>
+            {% endif %}
         </div>
     </div>
 

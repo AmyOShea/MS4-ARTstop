@@ -81,3 +81,16 @@ def edit_artist(request, artist_id):
     }
 
     return render(request, template, context)
+
+
+def delete_artist(request, artist_id):
+    
+    if not request.user.is_superuser:
+        messages.error(request, 'You are not authorized to do that.')
+        return redirect(reverse('home'))
+
+    artist = get_object_or_404(Artist, pk=artist_id)
+    artist.delete()
+    messages.success(request, 'Artist Deleted')
+
+    return redirect(reverse('artists'))
