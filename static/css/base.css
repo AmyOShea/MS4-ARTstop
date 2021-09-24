@@ -231,6 +231,43 @@ footer a:hover {
     outline: #D8B646 1px solid;
 }
 
+/* FAQS PAGE */
+
+.accordion {
+    margin: 30px auto !important;
+}
+
+.accordion .card {
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 2px solid #D8B646;
+    border-radius: 0;
+}
+
+.accordion .card-header {
+    background-color: #fff;
+    border-bottom: none;
+    padding: 5px !important;
+}
+
+.accordion .card-header:hover {
+    background-color: rgba(184, 110, 119, 0.1);
+}
+
+.accordion .card-body {
+    padding: 5px !important;
+}
+
+.accordion .btn {
+    width: 100%;
+    text-align: left;
+    vertical-align: left;
+}
+
+.accordion .btn:focus {
+    box-shadow: none;
+}
 
 /*MEDIA QUERIES*/
 @media only screen and (max-width: 992px) {
