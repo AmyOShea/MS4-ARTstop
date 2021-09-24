@@ -53,3 +53,31 @@ def add_artist(request):
     }
 
     return render(request, template, context)
+
+
+def edit_artist(request, artist_id):
+ 
+    if not request.user.is_superuser:
+        messages.error(request, 'You are not authorized to do that.')
+        return redirect(reverse('home'))
+
+    artist = get_object_or_404(Artist, pk=artist_id)
+    if request.method == 'POST':
+        form = ArtistForm(request.POST, request.FILES, instance=artist)
+        if form.is_valid():
+            artist = form.save()
+            messages.success(request, 'Artist Updated')
+            return redirect(reverse('artist_detail', args=[artist.id]))
+        else:
+            messages.error(request, 'Failed to update artist. \
+                Please ensure the form is valid.')
+    else:
+        form = ArtistForm(instance=artist)
+
+    template = 'artists/edit_artist.html'
+    context = {
+        'form': form,
+        'artist': artist,
+    }
+
+    return render(request, template, context)
