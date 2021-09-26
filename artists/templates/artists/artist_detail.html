@@ -49,15 +49,24 @@
                     </a>
                 </li>
                 {% endif %}
-                </ul>
-            
-            
-
-
-
+            </ul>
             {% if request.user.is_superuser %}
                 <a href="{% url 'edit_artist' artist.id %}" class="btn">Edit Artist</a>
-                <a href="{% url 'delete_artist' artist.id %}" class="btn">Delete Artist</a>
+                <button type="button" class="btn" data-toggle="modal" data-target="#delete_artist{{artist.id}}">
+                    Delete Artist
+                  </button>
+
+                <div class="modal" id="delete_artist{{artist.id}}">
+                    <div class="modal-content">
+                        <p>You are about to pemanantly delete this artist</p>
+                        <p>Once you have deleted it, you cannot get it back</p>
+                        <p>Are you sure that you wish to delete?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn" data-dismiss="modal">Cancel</button>
+                        <a href="{% url 'delete_artist' artist.id %}" class="btn">Delete</a>
+                    </div>
+                </div>
             {% endif %}
         </div>
     </div>

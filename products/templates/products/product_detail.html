@@ -41,13 +41,25 @@
                 </div>
                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
             </form>
-                {% if request.user.is_superuser %}
-                    <div>
-                        <a href="{% url 'edit_product' product.id %}">Edit Product</a>
-                        <a href="{% url 'delete_product' product.id %}">Delete Product</a>
-
+            {% if request.user.is_superuser %}
+                <div>
+                    <a href="{% url 'edit_product' product.id %}">Edit Product</a>
+                    <button type="button" class="btn" data-toggle="modal" data-target="#delete_product{{product.id}}">
+                        Delete Product
+                    </button>
+                </div>
+                <div class="modal" id="delete_product{{product.id}}">
+                    <div class="modal-content">
+                        <p>You are about to pemanantly delete this product</p>
+                        <p>Once you have deleted it, you cannot get it back</p>
+                        <p>Are you sure that you wish to delete?</p>
                     </div>
-                {% endif %}
+                    <div class="modal-footer">
+                        <button type="button" class="btn" data-dismiss="modal">Cancel</button>
+                        <a href="{% url 'delete_product' product.id %}" class="btn">Delete</a>
+                    </div>
+                </div>
+            {% endif %}
         </div>
     </div>
 </div>
