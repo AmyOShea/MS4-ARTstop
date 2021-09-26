@@ -15,6 +15,46 @@
         <div class="col-12 col-md-7">
             <p>{{ artist.name }}</p>
             <p>{{ artist.artist_statement }}</p>
+            <p>Contact the Artist</p>
+            <ul class="list-unstyled">
+                {% if artist.ig_url %}
+                <li>
+                    <a href="{{ artist.ig_url }}" target="_blank" title="Instagram link">
+                        <i class="fab fa-instagram-square"></i>
+                    </a>
+                </li>
+                {% endif %}
+                {% if artist.fb_url %}
+                <li>
+                    <a href="{{ artist.fb_url }}" target="_blank" title="Facebook link">
+                        <i class="fab fa-facebook-square"></i>
+                    </a>
+                </li>
+                {% endif %}
+                
+
+                {% if artist.linkedin_url %}
+                <li>
+                    <a href="{{ artist.linkedin_url }}" target="_blank" title="Linkedin link">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </li>
+                {% endif %}
+
+
+                {% if artist.website_url %}
+                <li>
+                    <a href="{{ artist.website_url }}" target="_blank" title="Website link">
+                        <i class="fas fa-globe"></i>
+                    </a>
+                </li>
+                {% endif %}
+                </ul>
+            
+            
+
+
+
             {% if request.user.is_superuser %}
                 <a href="{% url 'edit_artist' artist.id %}" class="btn">Edit Artist</a>
                 <a href="{% url 'delete_artist' artist.id %}" class="btn">Delete Artist</a>
