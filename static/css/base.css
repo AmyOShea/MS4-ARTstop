@@ -31,7 +31,9 @@ a {
     border-top: 1px solid #D8B646;
 }
 
-.products-cont .card {
+.products-cont .card,
+.artists-cont .card,
+.classes-cont .card {
     height: 300px;
     width: 200px;
     outline-offset: 6px;
@@ -51,13 +53,19 @@ a {
     border-radius: 0;
 }
 
-.card-text {
+.products-cont .card-text, 
+.artists-cont .card-text,
+.classes-cont .card-text {
     background-color: rgba(0, 0, 0, .7);
     box-shadow: 0 0 10px 15px rgba(0, 0, 0, .7);
     color: #E1C2B7;
     position: relative;
     top: -60px;
     padding-bottom: 15px !important;
+}
+
+.artists-cont .card-text {
+    top: -40px;
 }
 
 .card:hover {
