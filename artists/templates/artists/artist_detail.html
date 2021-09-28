@@ -16,18 +16,34 @@
             <p>{{ artist.name }}</p>
             <p>{{ artist.artist_statement }}</p>
             <p>Contact the Artist</p>
-            <ul class="list-unstyled">
-                {% if artist.ig_url %}
+            <ul class="list-unstyled artist-socials">
+
+                {% if artist.instagram_url %}
                 <li>
-                    <a href="{{ artist.ig_url }}" target="_blank" title="Instagram link">
+                    <a href="{{ artist.instagram_url }}" target="_blank" title="Instagram link">
                         <i class="fab fa-instagram-square"></i>
                     </a>
                 </li>
                 {% endif %}
-                {% if artist.fb_url %}
+                {% if artist.facebook_url %}
                 <li>
-                    <a href="{{ artist.fb_url }}" target="_blank" title="Facebook link">
+                    <a href="{{ artist.facebook_url }}" target="_blank" title="Facebook link">
                         <i class="fab fa-facebook-square"></i>
+                    </a>
+                </li>
+                {% endif %}
+
+                {% if artist.youtube_url %}
+                <li>
+                    <a href="{{ artist.youtube_url }}" target="_blank" title="youtube link">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </li>
+                {% endif %}
+                {% if artist.twitter_url %}
+                <li>
+                    <a href="{{ artist.twitter_url }}" target="_blank" title="twitter link">
+                        <i class="fab fa-twitter-square"></i>
                     </a>
                 </li>
                 {% endif %}
@@ -50,11 +66,13 @@
                 </li>
                 {% endif %}
             </ul>
+
+
             {% if request.user.is_superuser %}
                 <a href="{% url 'edit_artist' artist.id %}" class="btn">Edit Artist</a>
                 <button type="button" class="btn" data-toggle="modal" data-target="#delete_artist{{artist.id}}">
                     Delete Artist
-                  </button>
+                </button>
 
                 <div class="modal" id="delete_artist{{artist.id}}">
                     <div class="modal-content">

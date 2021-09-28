@@ -217,7 +217,6 @@ footer a:hover {
     border: 2px solid #D8B646;
 }
 
-
 .artist-info-img {
     height: 100%;
 }
@@ -237,6 +236,20 @@ footer a:hover {
 .artist-gallery-img {
     outline-offset: 6px;
     outline: #D8B646 1px solid;
+}
+
+.artist-socials li {
+    display: inline;
+    padding: 5px !important;
+    font-size: 2rem;
+}
+
+.artist-socials li a {
+    color: #B86E77 !important;
+}
+
+.artist-socials li a:hover {
+    color: #D8B646 !important;
 }
 
 /* FAQS PAGE */
