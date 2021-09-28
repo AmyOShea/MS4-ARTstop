@@ -43,7 +43,7 @@ def add_artist(request):
             return redirect(reverse('artist_detail', args=[artist.id]))
         else:
             messages.error(request, 'Failed to add Artist. \
-                Please endure form is valid')
+                Please ensure form is valid')
     else:
         form = ArtistForm()
 
