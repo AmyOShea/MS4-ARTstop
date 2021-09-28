@@ -20,8 +20,8 @@ class Class(models.Model):
     description = models.TextField()
     length = models.DecimalField(max_digits=6, decimal_places=2,
                                  blank=True, null=True)
-    cover_image_url = models.URLField(max_length=1024, null=True, blank=True)
     cover_image = models.ImageField(null=True, blank=True)
+    cover_image_url = models.URLField(max_length=1024, null=True, blank=True)
     video = models.FileField(null=True, blank=True,
                              validators=[FileExtensionValidator(
                                  allowed_extensions=['MOV', 'avi', 'mp4',

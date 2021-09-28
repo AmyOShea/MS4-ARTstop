@@ -13,7 +13,13 @@
                     <h2>Add Class</h2>
                     <form method="POST" action="{% url 'add_class' %}" enctype="multipart/form-data">
                         {% csrf_token %}
-                        {{ form|crispy }}
+                        {% for field in form %}
+                            {% if field.name != 'image' %}
+                                {{ field | as_crispy_field }}
+                            {% else %}
+                                {{ field }}
+                            {% endif %}
+                        {% endfor %}
                         <a class="btn" href="{% url 'classes' %}">Cancel</a>
                         <button type="submit">Add Class</button>
                     </form>

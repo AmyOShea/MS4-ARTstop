@@ -1,0 +1,12 @@
+{% if widget.is_initial %}
+    <p>{{ widget.initial_text }}:</p>
+    <a href="{{ widget.value.url }}">
+        <img width="100" src="{{ widget.value.url }}">
+    </a>
+    <br>
+    {{ widget.input_text }}
+{% endif %}
+<span class="btn btn-file">
+    Select Class Cover Image <input id="new-image" type="{{ widget.type }}" name="{{ widget.name }}"{% include "django/forms/widgets/attrs.html" %}>
+</span>
+<strong><p id="filename"></p></strong>
