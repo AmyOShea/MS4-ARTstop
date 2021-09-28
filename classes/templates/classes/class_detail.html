@@ -31,7 +31,12 @@
             <p class="info-text2">{{ class.name }}</p>
             <p class="info-text2">Level: {{ class.level }}</p>
             <p class="info-text2">{{ class.description }}</p>
+            {% if request.user.is_superuser %}
+                <a href="{% url 'edit_class' class.id %}" class="btn">Edit Class</a>
+                <a href="{% url 'delete_class' class.id %}" class="btn">Delete</a>
+            {% endif %}
         </div>
+        
     </div>
 </div>
 

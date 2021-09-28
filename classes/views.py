@@ -52,3 +52,44 @@ def add_class(request):
     }
 
     return render(request, template, context)
+
+
+def edit_class(request, class_id):
+
+    if not request.user.is_superuser:
+        messages.error(request, 'You are not authorized to do that.')
+        return redirect(reverse('home'))
+
+    a_class = get_object_or_404(Class, pk=class_id)
+    if request.method == 'POST':
+        form = ClassForm(request.POST, request.FILES, instance=a_class)
+        if form.is_valid():
+            a_class = form.save()
+            messages.success(request, 'Class Updated')
+            return redirect(reverse('class_detail', args=[a_class.id]))
+        else:
+            messages.error(request, 'Failed to update class. \
+                Please ensure the form is valid.')
+    else:
+        form = ClassForm(instance=a_class)
+
+    template = 'classes/edit_class.html'
+    context = {
+        'form': form,
+        'class': a_class,
+    }
+
+    return render(request, template, context)
+
+
+def delete_class(request, class_id):
+
+    if not request.user.is_superuser:
+        messages.error(request, 'You are not authorized to do that.')
+        return redirect(reverse('home'))
+
+    a_class = get_object_or_404(Class, pk=class_id)
+    a_class.delete()
+    messages.success(request, 'Class Deleted')
+
+    return redirect(reverse('classes'))
