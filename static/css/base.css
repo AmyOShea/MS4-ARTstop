@@ -269,6 +269,28 @@ footer a:hover {
     box-shadow: none;
 }
 
+/* CLASS DETAILS PAGE */
+
+.class-info-container {
+    margin-top: 30px !important;
+}
+
+.class-info-container iframe,
+.class-info-container video {
+    width: 80%;
+    outline-offset: 6px;
+    outline: #D8B646 1px solid;
+    border: 2px solid #D8B646; 
+}
+
+.class-info-container iframe {
+    height: 300px;
+}
+
+.video-container {
+    text-align: center;
+}
+
 /*MEDIA QUERIES*/
 @media only screen and (max-width: 992px) {
     .product-info-container {

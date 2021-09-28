@@ -20,7 +20,7 @@ class Class(models.Model):
     description = models.TextField()
     video = models.FileField(null=True, blank=True,
                              validators=[FileExtensionValidator(
-                                 allowed_extensions=['MOV','avi','mp4','webm','mkv'])])
+                                 allowed_extensions=['MOV', 'avi', 'mp4', 'webm', 'mkv'])])
     video_url = models.URLField(max_length=1024, null=True, blank=True)
 
     def __str__(self):

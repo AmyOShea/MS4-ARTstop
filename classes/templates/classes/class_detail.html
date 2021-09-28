@@ -5,7 +5,38 @@
 
 {% block content %}
 
-{{ class.name }}
+
+
+<div class="container class-info-container mx-auto">
+    <div class="row">
+        <div class="col-12 col-md-7">
+        {% if request.user.is_authenticated %}
+            <div class="video-container">
+                {% if class.video_url %}
+                    <iframe src="{{ class.video_url }}" allow="autoplay;" allowfullscreen></iframe>
+                {% endif %}
+
+                {% if class.video %}
+                    <video controls>
+                        <source src="{{ class.video.url }}" type="video/mp4">
+                    </video>
+                {% endif %}
+            </div>
+        {% else %}
+                <p>You need to be logged in in to view this classs.</p>
+        {% endif %}            
+        </div>
+
+        <div class="col-12 col-md-5">
+            <p class="info-text2">{{ class.name }}</p>
+            <p class="info-text2">Level: {{ class.level }}</p>
+            <p class="info-text2">{{ class.description }}</p>
+        </div>
+    </div>
+</div>
+
 
 
 {% endblock %}
+
+
