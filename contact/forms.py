@@ -1,14 +1,10 @@
 from django import forms
 
+from .models import Contact
 
-class Contact(forms.Form):
 
-    contact_type = (
-        ("1", "A Customer"),
-        ("2", "An Artist")
-    )
+class ContactForm(forms.ModelForm):
 
-    name = forms.CharField(required=True)
-    contact_email = forms.EmailField(required=True)
-    contact_as = forms.CharField(choices=contact_type)
-    message = forms.CharField(required=True)
+    class Meta:
+        model = Contact
+        fields = '__all__'
