@@ -1,0 +1,13 @@
+Dear ArtStop Admin,
+
+{% if contact.contact_as == 'ats' %} 
+An artist has sent you a message:
+{% else %}
+A customer has sent you a message:
+{% endif %}
+
+"{{ contact.message }}"
+
+Please review and respond to {{ contact.name }} at {{ contact.email }}.
+
+Thank you.
