@@ -127,7 +127,6 @@
                 <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#faqaccordion">
                     <div class="card-body">
                         Delivery times will depend on your location. Below is a delivery times guide to help:
-
                         <table>
                             <thead>
                                 <tr>
@@ -220,8 +219,8 @@
                 </div>
                 <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#faqaccordion">
                     <div class="card-body">
-                        If you are not 100% satisfied with the piece that you recieve, you can contact us for either a
-                        refund or an exchange.
+                        If you are not 100% satisfied with the piece that you recieve, <a href="{% url 'contact' %}">you can <strong>contact us</strong></a> for either a
+                        refund or an exchange.<br><br>Please note that exchanges are not always possible.
                     </div>
                 </div>
             </div>
@@ -236,7 +235,7 @@
                 </div>
                 <div id="collapseTen" class="collapse" aria-labelledby="headingTen" data-parent="#faqaccordion">
                     <div class="card-body">
-                        If your piece arrives damage, you can contact us straight away. We will arrange for either a
+                        If your piece arrives damage, <a href="{% url 'contact' %}">you can <strong>contact us</strong></a> straight away. We will arrange for either a
                         replacement or a refund.<br><br>
                         Our team may ask you for photgraphs of the damage.
                     </div>
@@ -246,6 +245,6 @@
     </div>
 </div>
 <div class="text-center">
-    <p>Still have questions? <a href="#">Contact us</a></p>
+    <p>Still have questions? <a href="{% url 'contact' %}">Contact us</a></p>
 </div>
 {% endblock %}
