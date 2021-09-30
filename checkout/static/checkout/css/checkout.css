@@ -136,3 +136,15 @@ select option[value=""] {
     left: calc(50vw - 67px);
     color: #E1C2B7;
 }
+
+.divider {
+    border-right: 1px solid #d8b646;
+}
+
+.checkout-container h2 {
+    font-size: 1.3rem;
+}
+
+.guest-content {
+    margin-top: 30px !important;
+}
