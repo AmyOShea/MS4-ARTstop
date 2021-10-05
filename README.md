@@ -88,8 +88,15 @@ I chose the [Abel](https://fonts.google.com/specimen/Abel) font for the text thr
 
 ### Imagery
 
+The imagery throughout the site will be primarily dictated by the products for sale.
+
+However, to add to the modern feel, the background image consists of line art hexagons in a muted colour. This will break the white up slightly without distracting from the work on sale. 
+
+The home page uses shapes in the accent colours and a few selected works to give the illusion of images hanging in a group on a wall - something that a customer could do if they had a few pieces to display.
+
 
 ## Wireframes and Initial Design
+
 ### Wireframes
 All Wireframes were designed for laptop/computer, iPad/tablet and phone display.
 + All wireframes [here](#)
