@@ -1,17 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
-
 {% block content %}
-<div>
-    {% for c in current_categories %}
-        <p>{{ c.friendly_name }}</p>
-        </a>
-    {% endfor %}
-</div>     
-
-
 
 <div>
     <select id="sort-selector">
@@ -27,13 +17,11 @@
     </select>
 </div>
 
-
 <div>
     <p>
-        {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
+        {{ products|length }} products
     </p>
 </div>
-
 
 <div class="row mx-auto products-cont">
     <div class="col-12 col-lg-8 mx-auto">

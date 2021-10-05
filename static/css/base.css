@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yaldevi:wght@300;400;500&display=swap');
 
 * {
     margin: 0 !important;
@@ -26,9 +27,32 @@ a {
     text-decoration: none !important;
 }
 
+.btn {
+    padding: 3px 6px !important;
+    margin-top: 4px !important;
+    border: 1px solid #D8B646;
+    border-radius: 0;
+}
+
+.btn:hover,
+.admin-edit-btn:hover,
+.admin-delete-btn:hover {
+    font-weight: 900;
+}
+
+.admin-delete-btn {
+    color: #ff0000;
+    border: none;
+    background-color: #FFF;
+}
+
 .page-title-hr {
     width: 100%;
     border-top: 1px solid #D8B646;
+}
+
+.top-text {
+    font-size: 1.2rem;
 }
 
 .products-cont .card,
@@ -104,6 +128,26 @@ tr>td {
     border-bottom: 1px #D8B646 solid !important;
     padding: 10px !important;
     text-align: center
+}
+
+/* HEADER */
+
+.logo-text {
+    font-family: 'Yaldevi', sans-serif;
+    font-size: 1.7rem;
+}
+
+.dropdown-menu {
+    border: 1px #D8B646 solid !important;
+    padding: 4px 0 4px 4px !important;
+}
+
+.dropdown-menu a:hover {
+    font-weight: 900;
+}
+
+#main-nav {
+    font-size: 1.2rem;
 }
 
 /* FOOTER */

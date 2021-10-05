@@ -1,25 +1,24 @@
 <div class="collapse navbar-collapse" id="main-nav">
-    <ul class="navbar-nav w-auto mx-auto">
-        <li class="nav-item">
+    <ul class="navbar-nav w-auto mx-auto mb-sm-2 mb-md-4">
+        <li class="nav-item mr-5">
             <a class="nav-link" href="{% url 'products' %}">All Products</a>
         </li>
         <li class="nav-item dropdown">
-            <a class="nav-link" href="#" id="prints-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link mr-5" href="#" id="prints-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Prints
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="prints-link">
+            <div class="dropdown-menu" aria-labelledby="prints-link">
                 <a href="{% url 'products'%}?category=photograph" class="dropdown-item">Photographs</a>
                 <a href="{% url 'products'%}?category=art-print" class="dropdown-item ">Art Prints</a>
                 <a href="{% url 'products'%}?category=digital-art" class="dropdown-item ">Digital Art</a>
                 <a href="{% url 'products'%}?category=photograph,art-print,digital-art" class="dropdown-item">All Prints</a>
             </div>
         </li>
-
         <li class="nav-item dropdown">
-            <a class="nav-link" href="#" id="originals-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link mr-5" href="#" id="originals-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Originals
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="originals-link">
+            <div class="dropdown-menu" aria-labelledby="originals-link">
                 <a href="{% url 'products'%}?category=watercolour-painting" class="dropdown-item">Watercolour Paintings</a>
                 <a href="{% url 'products'%}?category=acrylic-painting" class="dropdown-item ">Acrylic Paintings</a>
                 <a href="{% url 'products'%}?category=oil-painting" class="dropdown-item ">Oil Paintings</a>
@@ -27,20 +26,19 @@
                 <a href="{% url 'products'%}?category=watercolour-painting,acrylic-painting,oil-painting,mixed-media" class="dropdown-item">All Originals</a>
             </div>
         </li>
-
         <li class="nav-item dropdown">
-            <a class="nav-link" href="#" id="classes-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link mr-5" href="#" id="classes-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Classes
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="classes-link">
-                <a href="{% url 'products'%}?level=beginner" class="dropdown-item">Beginner</a>
-                <a href="{% url 'products'%}?level=intermediate" class="dropdown-item ">Intermediate</a>
-                <a href="{% url 'products'%}?level=advanced" class="dropdown-item ">Advanced</a>
-                <a href="{% url 'products'%}?level=beginner,intermediate,advanced" class="dropdown-item">All Classes</a>
+            <div class="dropdown-menu" aria-labelledby="classes-link">
+                <a href="{% url 'classes'%}?level=beginner" class="dropdown-item">Beginner</a>
+                <a href="{% url 'classes'%}?level=intermediate" class="dropdown-item ">Intermediate</a>
+                <a href="{% url 'classes'%}?level=advanced" class="dropdown-item ">Advanced</a>
+                <a href="{% url 'classes'%}?level=beginner,intermediate,advanced" class="dropdown-item">All Classes</a>
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{% url 'artists' %}">Artists</a>
+            <a class="nav-link mr-5" href="{% url 'artists' %}">Artists</a>
         </li>
     </ul>
 </div>

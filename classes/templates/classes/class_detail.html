@@ -23,14 +23,16 @@
         </div>
 
         <div class="col-12 col-md-5">
-            <p class="info-text2">{{ class.name }}</p>
-            <p class="info-text2">Level: {{ class.level }}</p>
-            <p class="info-text2">{{ class.description }}</p>
+            <p class="info-text2 mb-1 top-text">{{ class.name }}</p>
+            <p class="info-text2 mb-1">Level: {{ class.level }}</p>
+            <p class="info-text2 mb-1">{{ class.description }}</p>
             {% if request.user.is_superuser %}
-                <a href="{% url 'edit_class' class.id %}" class="btn">Edit Class</a>
-                <button type="button" class="btn" data-toggle="modal" data-target="#delete_class{{class.id}}">
-                    Delete Class
-                  </button>
+                <div class="mt-5">
+                    <a href="{% url 'edit_class' class.id %}" class="admin-edit-btn mr-2">Edit Class</a>
+                    <button type="button" class="admin-delete-btn" data-toggle="modal" data-target="#delete_class{{class.id}}">
+                        Delete Class
+                    </button>
+                </div>
 
                 <div class="modal" id="delete_class{{class.id}}">
                     <div class="modal-content">

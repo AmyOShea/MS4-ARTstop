@@ -13,11 +13,10 @@
             </div>
         </div>
         <div class="col-12 col-md-7">
-            <p>{{ artist.name }}</p>
-            <p>{{ artist.artist_statement }}</p>
-            <p>Contact the Artist</p>
+            <p class="mb-1 top-text">{{ artist.name }}</p>
+            <p class="mb-1">{{ artist.artist_statement }}</p>
+            <p class="mb-1">Contact the Artist</p>
             <ul class="list-unstyled artist-socials">
-
                 {% if artist.instagram_url %}
                 <li>
                     <a href="{{ artist.instagram_url }}" target="_blank" title="Instagram link">
@@ -32,7 +31,6 @@
                     </a>
                 </li>
                 {% endif %}
-
                 {% if artist.youtube_url %}
                 <li>
                     <a href="{{ artist.youtube_url }}" target="_blank" title="youtube link">
@@ -47,8 +45,6 @@
                     </a>
                 </li>
                 {% endif %}
-                
-
                 {% if artist.linkedin_url %}
                 <li>
                     <a href="{{ artist.linkedin_url }}" target="_blank" title="Linkedin link">
@@ -56,8 +52,6 @@
                     </a>
                 </li>
                 {% endif %}
-
-
                 {% if artist.website_url %}
                 <li>
                     <a href="{{ artist.website_url }}" target="_blank" title="Website link">
@@ -66,14 +60,13 @@
                 </li>
                 {% endif %}
             </ul>
-
-
             {% if request.user.is_superuser %}
-                <a href="{% url 'edit_artist' artist.id %}" class="btn">Edit Artist</a>
-                <button type="button" class="btn" data-toggle="modal" data-target="#delete_artist{{artist.id}}">
-                    Delete Artist
-                </button>
-
+                <div class="mt-5">
+                    <a href="{% url 'edit_artist' artist.id %}" class="admin-edit-btn mr-2">Edit Artist</a>
+                    <button type="button" class="admin-delete-btn" data-toggle="modal" data-target="#delete_artist{{artist.id}}">
+                        Delete Artist
+                    </button>
+                </div>
                 <div class="modal" id="delete_artist{{artist.id}}">
                     <div class="modal-content">
                         <p>You are about to pemanantly delete this artist</p>

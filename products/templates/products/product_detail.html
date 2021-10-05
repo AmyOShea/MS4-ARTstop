@@ -1,11 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
-
 {% block content %}
-
-
 
 <div class="container product-info-container mx-auto">
     <div class="row">
@@ -17,18 +13,18 @@
         </div>
         </div>
         <div class="col-12 col-md-6 lg-4 product-info-text">
-            <p class="info-text2">"{{ product.name }}"</p>
-            <p class="info-text2">{{ product.artist }}</p>
-            <p class="info-text2">{{ product.description }}</p>
-            {% if product.rating %}
-                <p class="info-text2">{{ product.rating }} / 5</p>
+            <p class="info-text2 mb-1 top-text">"{{ product.name }}"</p>
+            <p class="info-text2 mb-1">{{ product.artist }}</p>
+            <p class="info-text2 mb-1">{{ product.description }}</p>
+            {% if product.category %}
+                <p class="info-text2 mb-1">{{ product.category }}</p>
             {% endif %}
-            <p class="info-text2">€{{ product.price }}</p>
+            <p class="info-text2 mb-1">€{{ product.price }}</p>
             <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                 {% csrf_token %}
                 <div class="form-row">
                     <div class="form-group qty-form">
-                        <div class="input-group">
+                        <div class="input-group mb-3">
                             <p>Qty:</p>
                             <input class="form-control qty_input" type="number" name="quantity" value="1" min="1"
                             max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
@@ -42,9 +38,9 @@
                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
             </form>
             {% if request.user.is_superuser %}
-                <div>
-                    <a href="{% url 'edit_product' product.id %}">Edit Product</a>
-                    <button type="button" class="btn" data-toggle="modal" data-target="#delete_product{{product.id}}">
+                <div class="mt-5">
+                    <a href="{% url 'edit_product' product.id %}" class="admin-edit-btn mr-2">Edit Product</a>
+                    <button type="button" class="admin-delete-btn" data-toggle="modal" data-target="#delete_product{{product.id}}">
                         Delete Product
                     </button>
                 </div>
@@ -55,7 +51,7 @@
                         <p>Are you sure that you wish to delete?</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="admin-delete-btn" data-dismiss="modal">Cancel</button>
                         <a href="{% url 'delete_product' product.id %}" class="btn">Delete</a>
                     </div>
                 </div>
@@ -63,6 +59,5 @@
         </div>
     </div>
 </div>
-
 
 {% endblock %}
