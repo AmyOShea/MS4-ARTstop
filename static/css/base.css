@@ -92,8 +92,8 @@ a {
     top: -40px;
 }
 
-.card:hover {
-    text-shadow: 0px 0px 1px #E1C2B7;
+.item:hover {
+    box-shadow: 0px 0px 16px 8px #B86E77;
 }
 
 .product-info-container {
