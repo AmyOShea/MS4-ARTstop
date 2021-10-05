@@ -60,6 +60,10 @@
                 </li>
                 {% endif %}
             </ul>
+            <div>
+                <a href="{% url 'artists' %}" class="btn">All Artists</a>
+                <a href="{% url 'products' %}" class="btn">Shop Now!</a>
+            </div>
             {% if request.user.is_superuser %}
                 <div class="mt-5">
                     <a href="{% url 'edit_artist' artist.id %}" class="admin-edit-btn mr-2">Edit Artist</a>
@@ -81,9 +85,6 @@
             {% endif %}
         </div>
     </div>
-
-
-
     <div class="card-columns">
     {% for product in products %}
         {% if product.artist|lower == artist.name|lower %}

@@ -55,6 +55,10 @@ a {
     font-size: 1.2rem;
 }
 
+.divider {
+    border-right: 1px solid #d8b646;
+}
+
 .products-cont .card,
 .artists-cont .card,
 .classes-cont .card {
