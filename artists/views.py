@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 from .models import Artist
@@ -29,6 +30,7 @@ def artist_detail(request, artist_id):
     return render(request, 'artists/artist_detail.html', context)
 
 
+@login_required
 def add_artist(request):
 
     if not request.user.is_superuser:
@@ -55,8 +57,9 @@ def add_artist(request):
     return render(request, template, context)
 
 
+@login_required
 def edit_artist(request, artist_id):
- 
+
     if not request.user.is_superuser:
         messages.error(request, 'You are not authorized to do that.')
         return redirect(reverse('home'))
@@ -83,8 +86,9 @@ def edit_artist(request, artist_id):
     return render(request, template, context)
 
 
+@login_required
 def delete_artist(request, artist_id):
-    
+
     if not request.user.is_superuser:
         messages.error(request, 'You are not authorized to do that.')
         return redirect(reverse('home'))

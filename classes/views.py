@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 from .models import Class
@@ -29,6 +30,7 @@ def class_detail(request, class_id):
     return render(request, 'classes/class_detail.html', context)
 
 
+@login_required
 def add_class(request):
     if not request.user.is_superuser:
         messages.error(request, 'You are not authorized to do that.')
@@ -54,6 +56,7 @@ def add_class(request):
     return render(request, template, context)
 
 
+@login_required
 def edit_class(request, class_id):
 
     if not request.user.is_superuser:
@@ -82,6 +85,7 @@ def edit_class(request, class_id):
     return render(request, template, context)
 
 
+@login_required
 def delete_class(request, class_id):
 
     if not request.user.is_superuser:
