@@ -265,8 +265,12 @@ footer a:hover {
     border: 2px solid #D8B646;
 }
 
-.artist-info-img {
+.landscape {
     height: 100%;
+}
+
+.portrait {
+    width: 100%;
 }
 
 .card-columns {

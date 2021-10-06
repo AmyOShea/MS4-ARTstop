@@ -8,7 +8,7 @@
         <div class="col-12 col-md-5">
             <div class="artist-img-cont">
                 <a href="{{ artist.image.url }}" target="blank">
-                    <img src="{{ artist.image.url }}" alt="{{ artist.name }}" class="artist-info-img">
+                    <img src="{{ artist.image.url }}" alt="{{ artist.name }}" class="artist-info-img" id="artist-img">
                 </a>
             </div>
         </div>
@@ -103,4 +103,23 @@
 </div>
 
 
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+<script type="text/javascript">
+
+    const img = document.getElementById('artist-img')
+
+    let width = img.clientWidth;
+    let height = img.clientHeight;
+
+    if (width < height ) {
+        img.classList.add("portrait")
+    } else {
+        img.classList.add("landscape")
+    }
+    
+
+</script>
 {% endblock %}
