@@ -16,9 +16,9 @@
             <p class="info-text2 mb-1 top-text">"{{ product.name }}"</p>
             <p class="info-text2 mb-1">{{ product.artist }}</p>
             <p class="info-text2 mb-1">{{ product.description }}</p>
-            {% if product.category %}
-                <p class="info-text2 mb-1">{{ product.category }}</p>
-            {% endif %}
+
+                <p class="info-text2 mb-1">{{ product.category.friendly_name }}</p>
+
             <p class="info-text2 mb-1">€{{ product.price }}</p>
             <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                 {% csrf_token %}
