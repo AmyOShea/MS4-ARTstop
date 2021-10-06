@@ -31,7 +31,7 @@
                 <div class="card item">
                     <a href="{% url 'product_detail' product.id %}">
                         <div>
-                            <img src="{{ product.image.url }}" class="card-img img-fluid">
+                            <img src="{{ product.image.url }}" class="card-img img-fluid" alt="{{ product.name }}">
                         </div>
                         <div class="card-text">
                             <p>

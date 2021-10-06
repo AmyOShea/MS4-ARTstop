@@ -90,16 +90,12 @@
         {% if product.artist|lower == artist.name|lower %}
                 <div class="card">
                     <a href="{% url 'product_detail' product.id %}">
-                        <img src="{{ product.image.url }}" class="artist-gallery-img img-fluid item">
+                        <img src="{{ product.image.url }}" alt="{{ product.name }}" class="artist-gallery-img img-fluid item">
                     </a>
                 </div>
             {% endif %}
         {% endfor %}
     </div>
-
-
-
-
 </div>
 
 
@@ -107,19 +103,14 @@
 
 {% block postloadjs %}
     {{ block.super }}
-<script type="text/javascript">
-
-    const img = document.getElementById('artist-img')
-
-    let width = img.clientWidth;
-    let height = img.clientHeight;
-
-    if (width < height ) {
-        img.classList.add("portrait")
-    } else {
-        img.classList.add("landscape")
-    }
-    
-
-</script>
+        <script type="text/javascript">
+            const img = document.getElementById('artist-img')
+            let width = img.clientWidth;
+            let height = img.clientHeight;
+            if (width < height ) {
+                img.classList.add("portrait")
+            } else {
+                img.classList.add("landscape")
+            }
+        </script>
 {% endblock %}
