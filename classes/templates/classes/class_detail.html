@@ -30,8 +30,9 @@
         <div class="col-12 col-lg-1"></div>
         <div class="col-12 col-md-4">
             <p class="info-text2 mb-1 top-text">{{ class.name }}</p>
-            <p class="info-text2 mb-1">Level: {{ class.level }}</p>
+            <p class="info-text2 mb-1">Level: {{ class.level.friendly_name }}</p>
             <p class="info-text2 mb-1">{{ class.description }}</p>
+            <p class="info-text2 mb-1">Duration:{{ class.length }}</p>
             <div class="mt-2">
                 <a href="{% url 'classes' %}" class="btn">All Classes</a>
                 <a href="{% url 'products' %}" class="btn">Shop Now!</a>

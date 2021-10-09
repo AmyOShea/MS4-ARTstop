@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.db.models.functions import Lower
 
 from .models import Class, Level
 from .forms import ClassForm
@@ -10,15 +11,33 @@ def all_classes(request):
 
     classes = Class.objects.all()
     levels = None
+    sort = None
+    direction = None
+
+    if 'sort' in request.GET:
+        sortkey = request.GET['sort']
+        sort = sortkey
+        if sortkey == 'name':
+            sortkey = 'lower_name'
+            classes = classes.annotate(lower_name=Lower('name'))
+
+        if 'direction' in request.GET:
+            direction = request.GET['direction']
+            if direction == 'desc':
+                sortkey = f'-{sortkey}'
+        classes = classes.order_by(sortkey)
 
     if 'level' in request.GET:
         levels = request.GET['level'].split(',')
         classes = classes.filter(level__name__in=levels)
         levels = Level.objects.filter(name__in=levels)
 
+    current_sorting = f'{sort}_{direction}'
+
     context = {
         'classes': classes,
         'current_levels': levels,
+        'current_sorting': current_sorting,
     }
 
     return render(request, 'classes/classes.html', context)
