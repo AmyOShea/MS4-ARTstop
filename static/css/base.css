@@ -164,9 +164,13 @@ tr>td {
     margin-top: 30px !important;
     background-color: #fff;
 }
+.footer-container ul {
+    padding: 3px 6px !important;
+}
 
 footer h5 {
-    margin-bottom: 6px !important;
+    margin-bottom: 3px !important;
+    padding: 3px 6px !important;
 }
 
 footer a:hover {
@@ -402,6 +406,9 @@ footer a:hover {
     .card-columns {
         column-count: 3;
     }
+    .footer-container {
+        width: 90vh;
+    }
 }
 
 @media only screen and (max-width: 768px) {
@@ -411,18 +418,23 @@ footer a:hover {
     .card-columns {
         column-count: 2;
     }
+    .footer-container h5 {
+        margin-top: 6px !important;
+    }
 }
 
 @media only screen and (max-width: 576px) {
     .product-info-container {
         width: 92vw;
     }
-
     .info-img-cont {
         margin-right: 0 !important;
     }
-
     .card-columns {
         column-count: 1;
     }
+    .footer-container {
+        width: 100vw;
+    }
 }
+
