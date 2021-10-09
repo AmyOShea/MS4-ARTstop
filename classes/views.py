@@ -2,16 +2,23 @@ from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
-from .models import Class
+from .models import Class, Level
 from .forms import ClassForm
 
 
 def all_classes(request):
 
     classes = Class.objects.all()
+    levels = None
+
+    if 'level' in request.GET:
+        levels = request.GET['level'].split(',')
+        classes = classes.filter(level__name__in=levels)
+        levels = Level.objects.filter(name__in=levels)
 
     context = {
         'classes': classes,
+        'current_levels': levels,
     }
 
     return render(request, 'classes/classes.html', context)
