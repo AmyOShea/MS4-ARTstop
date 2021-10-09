@@ -41,7 +41,7 @@ a {
 }
 
 .admin-delete-btn {
-    color: #ff0000;
+    color: #B41717;
     border: none;
     background-color: #FFF;
 }
@@ -250,6 +250,36 @@ footer a:hover {
     min-height: 100%;
     opacity: 0;
     cursor: pointer;
+}
+
+/* MODALS */
+
+.modal-dialog {
+    max-width: 500px;
+    margin: auto !important;
+}
+
+.modal-content {
+    border: 1px solid #D8B646;
+}
+
+.modal-header,
+.modal-body,
+.modal-footer {
+    padding: 1rem !important;
+}
+
+.modal-header {
+    border-bottom: 1px solid #D8B646;
+}
+
+.modal-footer {
+    border-top: 1px solid #D8B646;;
+}
+
+.modal-del-btn:hover {
+    background-color: #B41717;
+    color: #FFF;
 }
 
 /* ARTIST DETAILS PAGE*/

@@ -65,52 +65,67 @@
                 <a href="{% url 'products' %}" class="btn">Shop Now!</a>
             </div>
             {% if request.user.is_superuser %}
-                <div class="mt-5">
-                    <a href="{% url 'edit_artist' artist.id %}" class="admin-edit-btn mr-2">Edit Artist</a>
-                    <button type="button" class="admin-delete-btn" data-toggle="modal" data-target="#delete_artist{{artist.id}}">
-                        Delete Artist
-                    </button>
-                </div>
-                <div class="modal" id="delete_artist{{artist.id}}">
+            <div class="mt-5">
+                <a href="{% url 'edit_artist' artist.id %}" class="admin-edit-btn mr-2">Edit Artist</a>
+                <button type="button" class="admin-delete-btn" data-toggle="modal"
+                    data-target="#delete_artist{{artist.id}}">
+                    Delete Artist
+                </button>
+            </div>
+            <div class="modal fade mt-5" id="delete_artist{{artist.id}}" tabindex="-1" role="dialog"
+                aria-labelledby="delete_artist{{artist.id}}Label" aria-hidden="true">
+                <div class="modal-dialog" role="document">
                     <div class="modal-content">
-                        <p>You are about to pemanantly delete this artist</p>
-                        <p>Once you have deleted it, you cannot get it back</p>
-                        <p>Are you sure that you wish to delete?</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn" data-dismiss="modal">Cancel</button>
-                        <a href="{% url 'delete_artist' artist.id %}" class="btn">Delete</a>
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="delete_artist{{artist.id}}Label">Delete Confirmation</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="mt-1">You are about to pemanantly delete this artist</p>
+                            <p class="mt-1">Once you have deleted it, you cannot get it back</p>
+                            <p class="mt-1">Are you sure that you wish to delete?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn mr-2" data-dismiss="modal">Cancel</button>
+                            <a href="{% url 'delete_artist' artist.id %}" class="btn modal-del-btn">Delete</a>
+                        </div>
                     </div>
                 </div>
+            </div>
             {% endif %}
         </div>
     </div>
     <div class="card-columns">
-    {% for product in products %}
+        {% for product in products %}
         {% if product.artist|lower == artist.name|lower %}
-                <div class="card">
-                    <a href="{% url 'product_detail' product.id %}">
-                        <img src="{{ product.image.url }}" alt="{{ product.name }}" class="artist-gallery-img img-fluid item">
-                    </a>
-                </div>
-            {% endif %}
+        <div class="card">
+            <a href="{% url 'product_detail' product.id %}">
+                <img src="{{ product.image.url }}" alt="{{ product.name }}" class="artist-gallery-img img-fluid item">
+            </a>
+        </div>
+        {% endif %}
         {% endfor %}
     </div>
 </div>
 
 
+
+
+
 {% endblock %}
 
 {% block postloadjs %}
-    {{ block.super }}
-        <script type="text/javascript">
-            const img = document.getElementById('artist-img')
-            let width = img.clientWidth;
-            let height = img.clientHeight;
-            if (width < height ) {
-                img.classList.add("portrait")
-            } else {
-                img.classList.add("landscape")
-            }
-        </script>
+{{ block.super }}
+<script type="text/javascript">
+    const img = document.getElementById('artist-img')
+    let width = img.clientWidth;
+    let height = img.clientHeight;
+    if (width < height) {
+        img.classList.add("portrait")
+    } else {
+        img.classList.add("landscape")
+    }
+</script>
 {% endblock %}

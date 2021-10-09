@@ -44,18 +44,28 @@
                         Delete Class
                     </button>
                 </div>
-
-                <div class="modal" id="delete_class{{class.id}}">
+                <div class="modal fade mt-5" id="delete_class{{class.id}}" tabindex="-1" role="dialog"
+                aria-labelledby="delete_class{{class.id}}Label" aria-hidden="true">
+                <div class="modal-dialog" role="document">
                     <div class="modal-content">
-                        <p>You are about to pemanantly delete this class</p>
-                        <p>Once you have deleted it, you cannot get it back</p>
-                        <p>Are you sure that you wish to delete?</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn" data-dismiss="modal">Cancel</button>
-                        <a href="{% url 'delete_class' class.id %}" class="btn">Delete</a>
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="delete_class{{class.id}}Label">Delete Confirmation</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="mt-1">You are about to pemanantly delete this class</p>
+                            <p class="mt-1">Once you have deleted it, you cannot get it back</p>
+                            <p class="mt-1">Are you sure that you wish to delete?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn mr-2" data-dismiss="modal">Cancel</button>
+                            <a href="{% url 'delete_class' class.id %}" class="btn modal-del-btn">Delete</a>
+                        </div>
                     </div>
                 </div>
+            </div>
             {% endif %}
         </div>
     </div>
