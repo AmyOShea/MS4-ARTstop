@@ -1,15 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
-
 {% block content %}
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-12 col-md-4 text-right">
-            <h1>BEAUTY<br>OF<br>CREATION</h1>
-            <a class="btn" href="{% url 'products' %}">SHOP NOW</a>
+<div class="welcome-container">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-4 text-right welcome-content">
+                <h1>BEAUTY<br>OF<br>CREATION</h1>
+                <a class="btn" href="{% url 'products' %}">SHOP NOW</a>
+            </div>
         </div>
     </div>
 </div>
+
 {% endblock %}
