@@ -6,8 +6,6 @@
     <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
 
-
-
 {% block content %}
 
 <div class="checkout-container">
@@ -48,10 +46,10 @@
                             <div id="card-errors" role="alert"></div>
                             <input type="hidden" value="{{ client_secret }}" name="client_secret">
                         </fieldset>
-                        <div class="submit-button text-right">
+                        <div class="submit-button text-right bottom-info mt-2">
                             <a href="{% url 'view_bag' %}" class="btn">Adjust Bag</a>
                             <button id="submit-button" class="btn">Complete Order</button>
-                            <p>Your card will be charged <strong>${{ grand_total|floatformat:2 }}</strong></p>
+                            <p class="mt-2 mb-3">Your card will be charged <strong>€{{ grand_total|floatformat:2 }}</strong></p>
                         </div>
                     </form>
                 </div>

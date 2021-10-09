@@ -7,8 +7,8 @@
         <p><i class="fas fa-check"></i> {{ message }}</p>
         </div>
         <div class="col-2">
-        <button type="button" class="btn float-right" data-dismiss="toast" aria-label="Close">
-            <span aria-hidden="true">X</span>
+        <button type="button" class="btn float-right ml-1" data-dismiss="toast" aria-label="Close">
+            <span aria-hidden="true">x</span>
         </button>
     </div>
 
@@ -34,7 +34,7 @@
             {% endfor %}
             <a href="{% url 'view_bag' %}" id="toast-viewbag-btn" class="btn">View Bag</a>
             <a href="{% url 'products' %}" id="toast-cont-shopping-btn" class="btn">Continue Shoping</a>
-            <a href="{% url 'view_bag' %}" class="btn float-right">Checkout</a>
+            <a href="{% url 'checkout' %}" class="btn float-right">Checkout</a>
         {% endif %}
     </div>
 </div>
@@ -45,12 +45,12 @@
     const viewBag = document.getElementById("toast-viewbag-btn");
     let contShopping = document.getElementById("toast-cont-shopping-btn");
 
-    if (currentUrl === 'https://8000-tan-reptile-pak1u3u8.ws-eu16.gitpod.io/bag/' || currentUrl === 'https://ms4-artstop.herokuapp.com/bag/' ) {
+    if (currentUrl === 'https://8000-emerald-marlin-uaty91sq.ws-eu18.gitpod.io/bag/' || currentUrl === 'https://ms4-artstop.herokuapp.com/bag/' ) {
         viewBag.style.display = "none";
-        contShopping.style.display = "inline";
+        contShopping.style.display = "inline-block";
     } else {
         contShopping.style.display = "none";
-        viewBag.style.display = "inline";
+        viewBag.style.display = "inline-block";
     };
 
 </script>
