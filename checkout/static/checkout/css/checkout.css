@@ -8,36 +8,9 @@
   padding: 10px 5px !important;
 }
 
-.form-control:focus, 
-.form-control:active, 
-.StripeElement--focus {
-    box-shadow: 0px 0px 10px 0px #BE9485;
-}
-
-fieldset,
-.bottom-info {
-    margin-right: 10px !important;
-}
-
-.form-group {
-    margin-bottom: 1rem !important;
-}
-
-input,
-select,
-select option {
-    padding-left: 5px !important;
-    color: #000 !important;
-}
-
 select:invalid,
 select option[value=""] {
     color: #3D3D3D !important;
-}
-
-.form-control {
-    border: 1px solid #D8B646;
-    border-radius: 3px;
 }
 
 .checkout-img {

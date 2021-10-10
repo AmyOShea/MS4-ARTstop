@@ -292,6 +292,53 @@ footer a:hover {
     color: #FFF;
 }
 
+/* FORMS */
+
+.form-control {
+    border: 1px solid #D8B646;
+    border-radius: 3px;
+}
+
+.form-group {
+    margin-bottom: 1rem !important;
+}
+
+.form-control:focus, 
+.form-control:active, 
+.StripeElement--focus {
+    box-shadow: 0px 0px 10px 0px #BE9485;
+}
+
+fieldset,
+.bottom-info {
+    margin-right: 10px !important;
+}
+
+input,
+select,
+select option {
+    padding-left: 5px !important;
+    color: #000 !important;
+}
+
+.form-check {
+    position: relative;
+    display: block;
+    padding-left: 1.25rem !important;
+}
+
+.form-check-input {
+    position: absolute;
+    margin-top: .3rem !important;
+    margin-left: -1.25rem !important;
+}
+
+/* SIGN IN/SIGN UP */
+
+.authentication-container h2 {
+    font-size: 1.2rem;
+}
+
 /* HOME PAGE*/
 
 .welcome-container {
@@ -467,6 +514,9 @@ footer a:hover {
     .welcome-content {
         top: calc(15vh - 80px);
         margin-left: 10px !important;
+    }
+    .authentication-container {
+        margin: 0 15px !important;
     }
 }
 
