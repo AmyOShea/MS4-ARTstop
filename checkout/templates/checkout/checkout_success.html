@@ -17,9 +17,14 @@
             </div>
             <div class="row">
                 <div class="col-12 col-lg-6 order-info-container">
-                    <p><strong>Thank you for your order</strong></p>
-                    <p>A confirmation email has been sent to <strong>{{ order.email }}</strong></p>
-                    <p>Please find your order details below</p>
+                    {% if from_profile %}
+                        <p>A confirmation email was sent to <strong>{{ order.email }}</strong></p>
+                        <p>Please find the previous order details below:</p>
+                    {% else %}
+                        <p><strong>Thank you for your order</strong></p>
+                        <p>A confirmation email has been sent to <strong>{{ order.email }}</strong></p>
+                        <p>Please find your order details below:</p>
+                    {% endif %}
                 </div>
             </div>
             <div class="row">
@@ -65,7 +70,7 @@
             {% if from_profile %}
             <div class="row">
                 <div class="col-12 col-lg-6 order-info-container">
-                    <a href="{% url 'profile' %}">Back to Profile</a>
+                    <a href="{% url 'profile' %}" class="btn">Back to Profile</a>
                 </div>
             </div>
             {% endif %}

@@ -335,7 +335,8 @@ select option {
 
 /* SIGN IN/SIGN UP */
 
-.authentication-container h2 {
+.authentication-container h2,
+.profile-container h2 {
     font-size: 1.2rem;
 }
 
