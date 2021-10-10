@@ -25,22 +25,22 @@
                 </div>
                 <div class="col-12 col-lg-5 mx-auto">
                     <h2 class="mt-3 mb-2">Order History</h2>
-                    <hr>
                     <div class="order-history">
                         {% for order in orders %}
+                            <hr>
                             <div class="row mt-2">
-                                <div class="col-2">
+                                <div class="col-12 col-md-2">
                                     <a href="{% url 'order_history' order.order_number %}">{{ order.order_number|truncatechars:6 }}</a>
                                 </div>
-                                <div class="col-3">
-                                    {{ order.date }}
+                                <div class="col-12 col-md-3">
+                                    {{ order.date|date:"d/m/Y" }}
                                 </div>
-                                <div class="col-5">
+                                <div class="col-12 col-md-5">
                                     {% for item in order.lineitems.all %}
                                         {{ item.product.name }} x {{ item.quantity }}
                                     {% endfor %}
                                 </div>
-                                <div class="col-2">
+                                <div class="col-12 col-md-2">
                                     {{ order.grand_total }}
                                 </div>
                                 <hr class="checkout-hr">
