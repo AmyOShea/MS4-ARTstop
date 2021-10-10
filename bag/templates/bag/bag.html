@@ -2,64 +2,69 @@
 {% load static %}
 {% load bag_tools %}
 
-
-
 {% block content %}
 
-<div class="row col-12 col-lg-8 col-xl-6 col-xxl-4 mx-auto bag-container table-responsive">
-    {% if bag_items %}
-    <table class="table">
-        <tbody>
-            {% for item in bag_items %}
-            <tr>
-                <td>
-                    <img src="{{ item.product.image.url }}" class="bag-img" alt="{{ item.product.name }}">
-                </td>
-                <td>
-                    <p>"{{ item.product.name }}"</p>
-                </td>
-                <td>
-                    <p>€{{ item.product.price }}</p>
-                </td>
-                <td>
-                    <a class="update-link">Update</a>
-                    <form class="update-form" method="POST" action="{% url 'edit_bag' item.item_id %}">
-                        {% csrf_token %}
-                        <div class="form-group qty-form">
-                            <div class="input-group">
-                                <p>Qty:</p>
-                                <input class="form-control qty_input" type="number" name="quantity"
-                                    value="{{ item.quantity }}" min="0" max="99" data-item_id="{{ item.item_id }}"
-                                    id="id_qty_{{ item.item_id }}">
+<div class="bag-container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-xl-6 col-xxl-4 mx-auto">
+            <h1 class="page-title">Bag</h1>
+            <hr class="page-title-hr">
+            <div class="row">
+                <div class="col-12 mt-3">
+                    {% if bag_items %}
+                        {% for item in bag_items %}
+                            <div class="row">
+                                <div class="col-12 col-sm-3 mt-2">
+                                    <img src="{{ item.product.image.url }}" class="bag-img" alt="{{ item.product.name }}">
+                                </div>
+                                <div class="col-12 col-sm-2 mt-2">
+                                    "{{ item.product.name }}"
+                                </div>
+                                <div class="col-12 col-sm-2 mt-2">
+                                    €{{ item.product.price }}
+                                </div>
+                                <div class="col-12 col-sm-3 mt-2">
+                                    <a class="update-link">Update</a>
+                                    <form class="update-form" method="POST" action="{% url 'edit_bag' item.item_id %}">
+                                        {% csrf_token %}
+                                        <div class="form-group qty-form">
+                                            <div class="input-group">
+                                                <p>Qty:</p>
+                                                <input class="form-control qty_input" type="number" name="quantity"
+                                                    value="{{ item.quantity }}" min="0" max="99" data-item_id="{{ item.item_id }}"
+                                                    id="id_qty_{{ item.item_id }}">
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <a class="remove-item" id="remove_{{ item.item_id }}">Remove</a>
+                                </div>
+                                <div class="col-12 col-sm-2 mt-2">
+                                    €{{ item.product.price | calc_subtotal:item.quantity }}
+                                </div>
                             </div>
+                            <hr>
+                        {% endfor %}
+                        <div class="ml-auto text-right mt-3">
+                            <p>Subtotal: €{{ total|floatformat:2 }}</p>
+                            {% if delivery %}
+                                <p>Delivery: €{{ delivery|floatformat:2 }}</p>
+                            {% endif %}
+                            <p class="top-text"><strong>Grand Total: €{{ grand_total|floatformat:2 }}</strong></p>
+                            <a class="btn" href="{% url 'products' %}">Continue Shopping</a>
+                            {% if request.user.is_authenticated %}
+                                <a class="btn" href="{% url 'checkout' %}">Checkout</a>
+                            {% else %}
+                                <a class="btn" href="{% url 'signin_guest' %}">Checkout</a>
+                            {% endif %}
                         </div>
-                    </form>
-                    <a class="remove-item" id="remove_{{ item.item_id }}">Remove</a>
-                </td>
-                <td>
-                    <p>€{{ item.product.price | calc_subtotal:item.quantity }}</p>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <div class="ml-auto text-right">
-        <p>Subtotal: €{{ total|floatformat:2 }}</p>
-        {% if delivery %}
-            <p>Delivery: €{{ delivery|floatformat:2 }}</p>
-        {% endif %}
-        <p class="top-text"><strong>Grand Total: €{{ grand_total|floatformat:2 }}</strong></p>
-        <a class="btn" href="{% url 'products' %}">Continue Shopping</a>
-        {% if request.user.is_authenticated %}
-            <a class="btn" href="{% url 'checkout' %}">Checkout</a>
-        {% else %}
-            <a class="btn" href="{% url 'signin_guest' %}">Checkout</a>
-        {% endif %}
+                    {% else %}
+                        <h2>Your bag is empty</h2>
+                        <a class="btn" href="{% url 'products' %}">Shop Now!</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
     </div>
-    {% else %}
-        <p>Your bag is empty</p>
-        <a class="btn" href="{% url 'products' %}">Shop Now!</a>
-    {% endif %}
 </div>
 
 {% endblock %}
@@ -90,7 +95,4 @@
     })
 </script>
 
-
-
-</script>
 {% endblock %}

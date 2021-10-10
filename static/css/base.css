@@ -202,9 +202,7 @@ footer a:hover {
 }
 
 .update-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    max-width: 80px;
 }
 
 .update-link, .remove-item {
@@ -537,5 +535,7 @@ select option {
     .footer-container {
         width: 100vw;
     }
+    .update-link, .remove-item {
+        padding-left: 0 !important;
+    }
 }
-
