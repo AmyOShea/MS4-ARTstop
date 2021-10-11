@@ -338,12 +338,12 @@ select option {
     font-size: 1.2rem;
 }
 
-/* HOME PAGE*/
+/* HOME PAGE */
 
 .welcome-container {
-    height: 120vh;
+    height: 125vh;
     position: relative;
-    background: url('../../media/hero-image.png') no-repeat bottom left;
+    background: url('../../media/hero-image.png') no-repeat top left;
     background-size: cover;
     display: flex;
 }
@@ -370,6 +370,33 @@ select option {
     position: absolute;
     z-index: 10;
 }
+
+.home-info-cont {
+    position: relative;
+    top: -100px;
+}
+
+.home-info-cont img {
+    border-radius: 3px;
+    box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.2);
+}
+
+.home-info-text {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.home-info-text p {
+    font-size: 1.2rem;
+}
+
+.home-break {
+    width: 62%;
+    border-top: 1px solid #D8B646;
+    margin: auto !important;
+}
+
 
 /* ARTIST DETAILS PAGE*/
 
@@ -491,9 +518,12 @@ select option {
     .card-columns {
         column-count: 3;
     }
+    .home-info-cont {
+        margin: 0 30px !important;
+    }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
     .product-info-container {
         width: 70vw;
     }
@@ -504,21 +534,23 @@ select option {
         margin-top: 6px !important;
     }
     .welcome-container {
-        height: 120vh;
+        height: 110vh;
         position: relative;
-        background: url('../../media/mobile-hero-image.png') no-repeat bottom right;
+        background: url('../../media/mobile-hero-image.png') no-repeat top left;
         background-size: cover;
         display: flex;
     }
     .welcome-content {
         top: calc(15vh - 80px);
-        margin-left: 10px !important;
     }
     .authentication-container,
     .profile-container,
     .checkout-container,
     .bag-container {
         margin: 0 15px !important;
+    }
+    .home-break {
+        width: 78%;
     }
 }
 
@@ -537,5 +569,11 @@ select option {
     }
     .update-link, .remove-item {
         padding-left: 0 !important;
+    }
+    .home-break {
+        width: 90%;
+    }
+    .home-info-cont {
+        margin: 0 5px !important;
     }
 }
