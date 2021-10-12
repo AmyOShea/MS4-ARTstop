@@ -11,7 +11,6 @@
             <span aria-hidden="true">x</span>
         </button>
     </div>
-
     </div>
         {% if total and not on_profile_page %}
         <hr class="toast-hr">
@@ -38,19 +37,3 @@
         {% endif %}
     </div>
 </div>
-
-<script type="text/javascript">
-
-    const currentUrl = window.location.href;
-    const viewBag = document.getElementById("toast-viewbag-btn");
-    let contShopping = document.getElementById("toast-cont-shopping-btn");
-
-    if (currentUrl === 'https://8000-emerald-marlin-uaty91sq.ws-eu18.gitpod.io/bag/' || currentUrl === 'https://ms4-artstop.herokuapp.com/bag/' ) {
-        viewBag.style.display = "none";
-        contShopping.style.display = "inline-block";
-    } else {
-        contShopping.style.display = "none";
-        viewBag.style.display = "inline-block";
-    };
-
-</script>

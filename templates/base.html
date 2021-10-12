@@ -168,14 +168,7 @@
     </footer>
 
     {% block postloadjs %}
-    <script type="text/javascript">
-        $('.toast').toast('show')
-        const currentUrl = window.location.href;
-        const nav = document.getElementById("main-nav");
-        if (currentUrl === 'https://8000-emerald-marlin-uaty91sq.ws-eu18.gitpod.io/' || currentUrl === 'https://ms4-artstop.herokuapp.com/' ) {
-            nav.classList.add("home-main-nav")
-        }
-    </script>
+        <script src="{% static 'js/script.js' %}"></script>
     {% endblock %}
    
   </body>

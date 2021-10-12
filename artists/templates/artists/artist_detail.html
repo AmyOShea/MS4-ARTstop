@@ -124,22 +124,9 @@
     </div>
 </div>
 
-
-
-
-
 {% endblock %}
 
 {% block postloadjs %}
 {{ block.super }}
-<script type="text/javascript">
-    const img = document.getElementById('artist-img')
-    let width = img.clientWidth;
-    let height = img.clientHeight;
-    if (width < height) {
-        img.classList.add("portrait")
-    } else {
-        img.classList.add("landscape")
-    }
-</script>
+    <script src="{% static 'artists/js/artist-image.js' %}"></script>
 {% endblock %}
