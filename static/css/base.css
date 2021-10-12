@@ -450,6 +450,11 @@ select option {
     color: #D8B646 !important;
 }
 
+.backup-image-text {
+    position: relative;
+    top: -30px;
+}
+
 /* FAQS PAGE */
 
 .accordion {
@@ -508,6 +513,12 @@ select option {
 
 .video-container {
     text-align: center;
+}
+
+.video-container img {
+    outline-offset: 6px;
+    outline: #D8B646 1px solid;
+    border: 2px solid #D8B646;
 }
 
 /*MEDIA QUERIES*/

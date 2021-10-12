@@ -5,19 +5,22 @@
 <div class="container class-info-container mx-auto">
     <div class="row">
         <div class="col-12 col-md-6">
-        {% if request.user.is_authenticated %}
+            {% if request.user.is_authenticated %}
             <div class="video-container">
-                {% if class.video_url %}
-                    <iframe src="{{ class.video_url }}" allow="autoplay;" allowfullscreen></iframe>
-                {% endif %}
-
-                {% if class.video %}
-                    <video controls>
-                        <source src="{{ class.video.url }}" type="video/mp4">
-                    </video>
-                {% endif %}
+                {% if class.video_ul or class.video.ul %}
+                    {% if class.video_url %}
+                        <iframe src="{{ class.video_url }}" allow="autoplay;" allowfullscreen></iframe>
+                    {% endif %}
+                    {% if class.video %}
+                        <video controls>
+                            <source src="{{ class.video.url }}" type="video/mp4">
+                        </video>
+                    {% endif %}
+                {% else %}  
+                    <img src="{{ MEDIA_URL }}no-video.png">
+                {% endif %}    
             </div>
-        {% else %}
+            {% else %}
             <div class="text-center">
                 <p class="top-text mb-1">You need to be logged in in to view this class</p>
                 <a href="{% url 'account_login' %}" class="btn mb-3">Log In</a>

@@ -8,7 +8,11 @@
         <div class="col-12 col-md-6 lg-4">
             <div class="info-img-cont">
             <a href="{{ product.image.url }}" target="blank">
+                {% if product.image %}
                 <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid product-info-img">
+                {% else %}
+                <img src="{{ MEDIA_URL }}no-image.png" alt="{{ product.name }}" class="img-fluid product-info-img">
+                {% endif %}
             </a>
         </div>
         </div>
