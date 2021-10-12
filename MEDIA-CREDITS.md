@@ -4,6 +4,7 @@
 + [Images](#images)
   + [Artist Profile Images](#artist-profile-images)
   + [Product Images](#product-images)
+  + [Class Cover Images](#product-images)
 + [Videos](#videos)
   + [Class Videos](#class-videos)
 
@@ -68,16 +69,27 @@
 | Trivial Message      | [Unsplash](https://unsplash.com/photos/9sR0K4D1gNQ)     | [Jon Tyson](https://unsplash.com/@jontyson) |
 
 ---
+## Product Images
+
+| Class Name                | Image Source                                          | Created By                 |
+| --------------------------|-------------------------------------------------------| ---------------------------|
+| Charcoal Techniques       | [Unsplash](https://unsplash.com/photos/pyMbXQhPK0k)   | [Dusan Kipic](https://unsplash.com/@kipic) |
+| Mix Acrylic & Oil Paints  | [Unsplash](https://unsplash.com/photos/KtQSnF8GNcc)   | [Dan Cook](https://unsplash.com/@dan_scape) |
+| Pencil Drawing Techniques | [Unsplash](https://unsplash.com/photos/czXd0HQiHx0)   | [am JD](https://unsplash.com/@amjd159) |
+| Watercolour Introduction  | [Unsplash](https://unsplash.com/photos/VlXlW77swwY)   | [Rifqi Ali Ridho](https://unsplash.com/@rifqialiridho) |
+| Watercolour Supplies      | [Unsplash](https://unsplash.com/photos/Z1JEC3NxDE0)   | [pure julia](https://unsplash.com/@purejulia) |
+
+---
 # Videos
 ## Class Videos
 ---
 
-| Class Name                  | Video Source                                            | Created By  |
-| ----------------------------|---------------------------------------------------------| ------------|
-| Introduction to Watercolour | [YouTube](https://youtu.be/1Fgkwcym4j4) | [kelogsloops](https://www.youtube.com/channel/UC_9ObjTaq4kIvuVCJgHPPRw) |
-| Watercolour Supplies        | [YouTube](https://youtu.be/Vpar-ZWAgWY) | [kelogsloops](https://www.youtube.com/channel/UC_9ObjTaq4kIvuVCJgHPPRw) |
-| Pencil Drawing Techniques   | [YouTube](https://youtu.be/DaxL4gYwUrU) | [Drawing & Painting - The Virtual Instructor](https://www.youtube.com/channel/UCULpiAa8nIl_e68y59VYjHQ) |
-| Blending Acrylic Paints     | [YouTube](https://youtu.be/ZONVHAftzFg) | [Syndia Art](https://www.youtube.com/channel/UCSrNQJeH1sa3xyyO9GiJ0EA) |
-| Starting an Oil Painting    | [YouTube](https://youtu.be/XzYRCOGDa88) | [Florent Farges - arts](https://www.youtube.com/channel/UC5_awWGxcl0jQmVWfd_kJLQ) |
+| Class Name                | Video Source                                               | Created By                 |
+| --------------------------|------------------------------------------------------------| ---------------------------|
+| Charcoal Techniques       | [YouTube](https://www.youtube.com/watch?v=iZC30xwJLZg)     | [Kirsty Partridge Art](https://www.youtube.com/channel/UCSl51TSNCxLQJqLTQp0B6Cg) |
+| Mix Acrylic & Oil Paints  | [YouTube](https://www.youtube.com/watch?v=BOECqVGiG5s)     | [Florent Farges](https://www.youtube.com/channel/UC5_awWGxcl0jQmVWfd_kJLQ) |
+| Pencil Drawing Techniques | [YouTube](https://www.youtube.com/watch?v=DaxL4gYwUrU&t=1s)| [Drawing & Painting - The Virtual Instructor](https://www.youtube.com/channel/UCULpiAa8nIl_e68y59VYjHQ) |
+| Watercolour Introduction  | [YouTube](https://www.youtube.com/watch?v=1Fgkwcym4j4)     | [kelogsloops](https://www.youtube.com/channel/UC_9ObjTaq4kIvuVCJgHPPRw) |
+| Watercolour Supplies      | [YouTube](https://www.youtube.com/watch?v=Vpar-ZWAgWY)     | [kelogsloops](https://www.youtube.com/channel/UC_9ObjTaq4kIvuVCJgHPPRw) |
 
 
