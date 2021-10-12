@@ -7,7 +7,7 @@
         <div class="col-12 col-md-6">
             {% if request.user.is_authenticated %}
             <div class="video-container">
-                {% if class.video_ul or class.video.ul %}
+                {% if class.video_url or class.video.url %}
                     {% if class.video_url %}
                         <iframe src="{{ class.video_url }}" allow="autoplay;" allowfullscreen></iframe>
                     {% endif %}
