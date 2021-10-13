@@ -3,19 +3,39 @@
 
 {% block content %}
 
-<div>
-    <select id="sort-selector">
-        <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
-        <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
-        <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
-        <option value="length_asc" {% if current_sorting == 'length_asc' %}selected{% endif %}>Duration (Low-High)</option>
-        <option value="length_desc" {% if current_sorting == 'length_desc' %}selected{% endif %}>Duration (High-Low)</option>
-    </select>
-</div>
+
+
+        
+
+    
+
+
+        
+
+
+
 
 
 <div class="row mx-auto classes-cont">
     <div class="col-12 col-lg-8 mx-auto">
+        <div class="row text-center mb-5">
+            <div class="col-12 col-md-6">
+                {% for l in current_levels %}
+                    <a class="btn" href="{% url 'classes' %}?level={{ l.name }}">{{ l.friendly_name }}</a>
+                {% endfor %}
+            </div>
+            <div class="col-12 col-md-6">
+                <div>
+                    <select id="sort-selector">
+                        <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
+                        <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
+                        <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
+                        <option value="length_asc" {% if current_sorting == 'length_asc' %}selected{% endif %}>Duration (Low-High)</option>
+                        <option value="length_desc" {% if current_sorting == 'length_desc' %}selected{% endif %}>Duration (High-Low)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
         <div class="row">
             {% for class in classes %}
             <div class="col-12 col-sm-6 col-md-4 col-xl-3 d-flex justify-content-center">

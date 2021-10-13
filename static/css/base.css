@@ -521,6 +521,12 @@ select option {
     border: 2px solid #D8B646;
 }
 
+/* MISC */
+
+#sort-selector {
+    margin-left: 12px !important;
+}
+
 /*MEDIA QUERIES*/
 @media only screen and (max-width: 992px) {
     .product-info-container {
@@ -537,6 +543,11 @@ select option {
 @media only screen and (max-width: 767px) {
     .product-info-container {
         width: 70vw;
+    }
+    .product-info-text,
+    .class-info-container .top-text,
+    .artist-info-container .top-text {
+        margin-top: 10px !important;
     }
     .card-columns {
         column-count: 2;
@@ -586,5 +597,8 @@ select option {
     }
     .home-info-cont {
         margin: 0 5px !important;
+    }
+    .message-container {
+        right: 0px;
     }
 }

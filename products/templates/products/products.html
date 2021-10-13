@@ -3,26 +3,28 @@
 
 {% block content %}
 
-<div>
-    <select id="sort-selector">
-        <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
-        <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
-        <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
-        <option value="artist_asc" {% if current_sorting == 'artist_asc' %}selected{% endif %}>Artist (A-Z)</option>
-        <option value="artist_desc" {% if current_sorting == 'artist_desc' %}selected{% endif %}>Artist (Z-A)</option>
-        <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
-        <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
-    </select>
-</div>
-
-<div>
-    <p>
-        {{ products|length }} products
-    </p>
-</div>
-
 <div class="row mx-auto products-cont">
     <div class="col-12 col-lg-8 mx-auto">
+        <div class="row text-center mb-5">
+            <div class="col-12 col-md-6">
+                {% for c in current_categories %}
+                    <a class="btn" href="{% url 'products' %}?category={{ c.name }}">{{ c.friendly_name }}</a>
+                {% endfor %}
+            </div>
+            <div class="col-12 col-md-6">
+                <div>
+                    <select id="sort-selector">
+                        <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
+                        <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
+                        <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
+                        <option value="artist_asc" {% if current_sorting == 'artist_asc' %}selected{% endif %}>Artist (A-Z)</option>
+                        <option value="artist_desc" {% if current_sorting == 'artist_desc' %}selected{% endif %}>Artist (Z-A)</option>
+                        <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
+                        <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
         <div class="row">
         {% for product in products %}
             <div class="col-12 col-sm-6 col-md-4 col-xl-3 d-flex justify-content-center">
