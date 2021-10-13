@@ -13,6 +13,8 @@ if (currentUrl === 'https://8000-emerald-marlin-uaty91sq.ws-eu18.gitpod.io/bag/'
     viewBag.style.display = "none";
     contShopping.style.display = "inline-block";
 } else {
-    contShopping.style.display = "none";
-    viewBag.style.display = "inline-block";
+    if (contShopping) {
+        contShopping.style.display = "none";
+        viewBag.style.display = "inline-block";
+    }
 };
