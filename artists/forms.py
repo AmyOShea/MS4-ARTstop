@@ -10,4 +10,5 @@ class ArtistForm(forms.ModelForm):
         model = Artist
         fields = '__all__'
     
-    image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
+    image = forms.ImageField(label='Image', required=True,
+                             widget=CustomClearableFileInput)

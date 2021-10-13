@@ -10,5 +10,5 @@ class ClassForm(forms.ModelForm):
         model = Class
         fields = '__all__'
 
-    cover_image = forms.ImageField(label='Image', required=False,
-                             widget=CustomClearableFileInput)
+    cover_image = forms.ImageField(label='Image', required=True,
+                                   widget=CustomClearableFileInput)
