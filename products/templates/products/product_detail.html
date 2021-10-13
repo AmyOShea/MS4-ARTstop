@@ -6,7 +6,9 @@
 {% block content %}
 
 <div class="container product-info-container mx-auto">
-    <div class="row">
+    <h1 class="page-title">"{{ product.name }}"</h1>
+    <hr class="page-title-hr">
+    <div class="row mt-5">
         <div class="col-12 col-md-6 lg-4">
             <div class="info-img-cont">
             <a href="{{ product.image.url }}" target="blank">
@@ -19,13 +21,12 @@
         </div>
         </div>
         <div class="col-12 col-md-6 lg-4 product-info-text">
-            <p class="info-text2 mb-1 top-text">"{{ product.name }}"</p>
-            <p class="info-text2 mb-1">{{ product.artist }}</p>
-            <p class="info-text2 mb-1">{{ product.description }}</p>
+            <p class="info-text artist-name mb-2"><strong>{{ product.artist }}</strong></p>
+            <p class="info-text mb-1">{{ product.description }}</p>
             {% if product.category %}
-                <p class="info-text2 mb-1">{{ product.category.friendly_name }}</p>
+                <p class="info-text mb-1">{{ product.category.friendly_name }}</p>
             {% endif %}
-            <p class="info-text2 mb-1">€{{ product.price }}</p>
+            <p class="info-text mb-1"><strong>€{{ product.price }}</strong></p>
             <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                 {% csrf_token %}
                 <div class="form-row">

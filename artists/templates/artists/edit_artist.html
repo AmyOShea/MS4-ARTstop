@@ -11,7 +11,7 @@
             <h1 class="page-title">Artist Management</h1>
             <hr class="page-title-hr">
             <div class="row">
-                <div class="col-12 col-lg-5">
+                <div class="col-12 col-lg-5 mt-3">
                     <h2>Edit Artist</h2>
                     <form method="POST" action="{% url 'edit_artist' artist.id %}" enctype="multipart/form-data">
                         {% csrf_token %}

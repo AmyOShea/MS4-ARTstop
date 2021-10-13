@@ -7,6 +7,8 @@
 
 <div class="container artist-info-container mx-auto">
     <div class="row">
+        <h1 class="page-title">{{ artist.name }}</h1>
+        <hr class="page-title-hr mb-5">
         <div class="col-12 col-md-5">
             <div class="artist-img-cont">
                 {% if artist.image %}
@@ -22,7 +24,6 @@
             </div>
         </div>
         <div class="col-12 col-md-7">
-            <p class="mb-1 top-text">{{ artist.name }}</p>
             <p class="mb-1">{{ artist.artist_statement }}</p>
             <p class="mb-1">Contact the Artist</p>
             <ul class="list-unstyled artist-socials">

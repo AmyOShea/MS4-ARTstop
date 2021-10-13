@@ -7,10 +7,12 @@
 
 <div class="row mx-auto products-cont">
     <div class="col-12 col-lg-8 mx-auto">
-        <div class="row text-center mb-5">
+        <h1 class="page-title">Products</h1>
+        <hr class="page-title-hr">
+        <div class="row text-center mt-3 mb-2">
             <div class="col-12 col-md-6">
                 {% for c in current_categories %}
-                    <a class="btn" href="{% url 'products' %}?category={{ c.name }}">{{ c.friendly_name }}</a>
+                    <a class="btn mr-3" href="{% url 'products' %}?category={{ c.name }}">{{ c.friendly_name }}</a>
                 {% endfor %}
             </div>
             <div class="col-12 col-md-6">
