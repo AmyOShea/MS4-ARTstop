@@ -1,10 +1,13 @@
 <div class="collapse navbar-collapse" id="main-nav">
     <ul class="navbar-nav w-auto mx-auto mb-sm-2 mb-md-4">
+        <li class="nav-item d-block d-lg-none">
+            <a class="nav-link" href="{% url 'home' %}">Home</a>
+        </li>
         <li class="nav-item mr-5">
             <a class="nav-link" href="{% url 'products' %}">All Products</a>
         </li>
         <li class="nav-item dropdown">
-            <a class="nav-link mr-5" href="#" id="prints-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link mr-5 ml-lg-5" href="#" id="prints-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Prints
             </a>
             <div class="dropdown-menu" aria-labelledby="prints-link">
@@ -15,7 +18,7 @@
             </div>
         </li>
         <li class="nav-item dropdown">
-            <a class="nav-link mr-5" href="#" id="originals-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link mr-5 ml-lg-5" href="#" id="originals-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Originals
             </a>
             <div class="dropdown-menu" aria-labelledby="originals-link">
@@ -27,7 +30,7 @@
             </div>
         </li>
         <li class="nav-item dropdown">
-            <a class="nav-link mr-5" href="#" id="classes-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link mr-5 ml-lg-5" href="#" id="classes-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Classes
             </a>
             <div class="dropdown-menu" aria-labelledby="classes-link">
@@ -38,7 +41,7 @@
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link mr-5" href="{% url 'artists' %}">Artists</a>
+            <a class="nav-link ml-lg-5" href="{% url 'artists' %}">Artists</a>
         </li>
     </ul>
 </div>

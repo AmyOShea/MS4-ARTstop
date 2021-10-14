@@ -32,8 +32,15 @@
                 <hr class="toast-hr">
             {% endfor %}
             <a href="{% url 'view_bag' %}" id="toast-viewbag-btn" class="btn">View Bag</a>
-            <a href="{% url 'products' %}" id="toast-cont-shopping-btn" class="btn">Continue Shoping</a>
-            <a href="{% url 'checkout' %}" class="btn float-right">Checkout</a>
+            <a href="{% url 'products' %}" id="toast-cont-shopping-btn" class="btn">Continue Shopping</a>
+            {% if request.user.is_authenticated %}
+                <a class="btn float-right href="{% url 'checkout' %}">Checkout</a>
+            {% else %}
+                <a class="btn float-right" href="{% url 'signin_guest' %}">Checkout</a>
+            {% endif %}
+
+
+
         {% endif %}
     </div>
 </div>
