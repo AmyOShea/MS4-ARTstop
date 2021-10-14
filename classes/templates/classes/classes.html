@@ -14,6 +14,13 @@
                 {% for l in current_levels %}
                     <a class="btn mr-3" href="{% url 'classes' %}?level={{ l.name }}">{{ l.friendly_name }}</a>
                 {% endfor %}
+                {% if classes|length < 1%}
+                    <p class="mt-5">Sorry, there are no classes available at the moment</p>
+                    <a class="btn" href="{% url 'products' %}">Shop Products</a>
+                    <a class="btn" href="{% url 'artists' %}">Browse Artists</a>
+                {% else %}
+                    <p class="mt-4">{{ classes|length }} Classes</p>
+                {% endif %}
             </div>
             <div class="col-12 col-md-6">
                 <div>

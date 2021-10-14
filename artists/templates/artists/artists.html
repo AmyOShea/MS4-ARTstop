@@ -9,6 +9,13 @@
     <div class="col-12 col-lg-8 mx-auto">
         <h1 class="page-title">Artists</h1>
         <hr class="page-title-hr mb-5">
+        <div class="row text-center">
+            {% if artists|length < 1%}
+                <p class="mt-5">Sorry, there are no products available at the moment</p>
+                <a class="btn" href="{% url 'products' %}">Shop Products</a>
+                <a class="btn" href="{% url 'classes' %}">View Classes</a>
+            {% endif %}
+        </div>
         <div class="row">
         {% for artist in artists %}
             <div class="col-12 col-sm-6 col-md-4 col-xl-3 d-flex justify-content-center">

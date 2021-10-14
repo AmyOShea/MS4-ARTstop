@@ -14,6 +14,12 @@
                 {% for c in current_categories %}
                     <a class="btn mr-3" href="{% url 'products' %}?category={{ c.name }}">{{ c.friendly_name }}</a>
                 {% endfor %}
+                {% if products|length < 1%}
+                    <p class="mt-5">Sorry, there are no products available at the moment</p>
+                    <a class="btn" href="{% url 'products' %}">Shop Products</a>
+                {% else %}
+                    <p class="mt-4">{{ products|length }} Products</p>
+                {% endif %}
             </div>
             <div class="col-12 col-md-6">
                 <div>
