@@ -365,15 +365,6 @@ select option {
     font-size: 1.5rem;
 }
 
-.home-main-nav {
-    top: calc(85vh - 80px);
-    left: 0;
-    right: 0;
-    text-align: center;
-    position: absolute;
-    z-index: 10;
-}
-
 .home-info-cont {
     position: relative;
     top: -100px;
@@ -400,6 +391,14 @@ select option {
     margin: auto !important;
 }
 
+.home-main-nav {
+    top: calc(85vh - 80px);
+    left: 0;
+    right: 0;
+    text-align: center;
+    position: absolute;
+    z-index: 10;
+}
 
 /* ARTIST DETAILS PAGE*/
 
@@ -532,6 +531,7 @@ select option {
 }
 
 /*MEDIA QUERIES*/
+
 @media only screen and (max-width: 992px) {
     .product-info-container {
         width: 50vw;
@@ -541,6 +541,14 @@ select option {
     }
     .home-info-cont {
         margin: 0 30px !important;
+    }
+    .home-main-nav {
+        top: 0;
+        left: 0;
+        right: 0;
+        text-align: left;
+        position: relative;
+        z-index: 10;
     }
 }
 
@@ -606,3 +614,15 @@ select option {
         right: 0px;
     }
 }
+
+/* placing at end to override other rules */
+@media (width: 992px) {
+    .home-main-nav {
+        top: calc(85vh - 80px);
+        left: 0;
+        right: 0;
+        text-align: center;
+        position: absolute;
+        z-index: 10;
+    }
+  }
