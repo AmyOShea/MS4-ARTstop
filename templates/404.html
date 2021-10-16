@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_title %}404 Error{% endblock %}
+
+{% block content %}
+
+<div class="container mx-auto">
+    <h1 class="page-title">404 Error</h1>
+    <hr class="page-title-hr">
+    <div class="row mt-3">
+        <div class="col-12 col-md-6">
+            <h2 class="mb-3">Something went wrong</h2>
+            <p class="mb-3 error-text">The page you're looking for doesn't exist</p>
+            <p class="mb-3">But you can use one of the links below to find your way</p>
+            <div>
+                <a href="{% url 'home' %}" class="btn mr-2">Home</a>
+                <a href="{% url 'profile' %}" class="btn mr-2">Profile</a>
+                <a href="{% url 'products' %}" class="btn">Shop!</a>
+            </div>           
+        </div>
+    </div>
+</div>
+
+{% endblock %}

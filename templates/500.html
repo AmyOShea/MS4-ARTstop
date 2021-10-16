@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_title %}500 Error{% endblock %}
+
+{% block content %}
+
+<div class="container mx-auto">
+    <h1 class="page-title">500 Error</h1>
+    <hr class="page-title-hr">
+    <div class="row mt-3">
+        <div class="col-12 col-md-6">
+            <h2 class="mb-3">Something went wrong</h2>
+            <p class="mb-3 error-text">We seem to be having some techincal issues</p>
+            <p class="mb-3">If the problem persists you can <a href="{% url 'contact' %}"><strong>contact us here</strong></a></p>
+            <p class="mb-3">Or you can use one of the links below to find something cool</p>
+            <div>
+                <a href="{% url 'home' %}" class="btn mr-2">Home</a>
+                <a href="{% url 'profile' %}" class="btn mr-2">Profile</a>
+                <a href="{% url 'products' %}" class="btn">Shop!</a>
+            </div>           
+        </div>
+    </div>
+</div>
+
+{% endblock %}

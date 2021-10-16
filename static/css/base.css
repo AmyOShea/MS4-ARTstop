@@ -404,6 +404,12 @@ select option {
     font-weight: 900;
 }
 
+/* ERROR PAGES */
+
+.error-text {
+    font-size: 1.25rem;
+}
+
 /* ARTIST DETAILS PAGE*/
 
 .artist-img-cont {
