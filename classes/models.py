@@ -22,8 +22,7 @@ class Class(models.Model):
                               blank=True, on_delete=models.SET_NULL)
     name = models.CharField(max_length=254)
     description = models.TextField()
-    length = models.DecimalField(max_digits=6, decimal_places=2,
-                                 blank=True, null=True)
+    duration = models.TimeField(null=True, blank=True)
     cover_image = models.ImageField(null=True, blank=True)
     cover_image_url = models.URLField(max_length=1024, null=True, blank=True)
     video = models.FileField(null=True, blank=True,
