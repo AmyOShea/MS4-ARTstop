@@ -118,3 +118,10 @@ select option[value=""] {
 .guest-content {
     margin-top: 30px !important;
 }
+
+.form-check-input {
+    margin-left: 0 !important;
+}
+
+.form-check {
+    padding-left: 0 !important;
