@@ -62,7 +62,7 @@
                 <div id="collapseEleven" class="collapse" aria-labelledby="headingEleven" data-parent="#faqaccordion">
                     <div class="card-body">
                         No, you don't! We allow the option of not having to sign up for an account if you think that you
-                        will just be a one-time buyer.<br><br>However, if you sign up for an accout, you will be able to access the classes that we have to
+                        will just be a one-time buyer.<br><br>However, if you <a href="{% url 'account_signup' %}"><strong>sign up for an account</strong></a>, you will be able to access the classes that we have to
                         offer.<br> You will also have an easy record of all of your previous purchases.
                     </div>
                 </div>
@@ -78,7 +78,7 @@
                 </div>
                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#faqaccordion">
                     <div class="card-body">
-                        If you have fogotten your password, you can go to our forgotten password page and follow the instruction given.
+                        If you have forgotten your password, you can click the 'Forgot my Password' button and follow the instruction given.
                     </div>
                 </div>
             </div>
@@ -244,6 +244,6 @@
     </div>
 </div>
 <div class="text-center">
-    <p>Still have questions? <a href="{% url 'contact' %}">Contact us</a></p>
+    <p>Still have questions? <a href="{% url 'contact' %}"><strong>Contact us</strong></a></p>
 </div>
 {% endblock %}
