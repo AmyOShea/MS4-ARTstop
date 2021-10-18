@@ -53,11 +53,7 @@
                             {% endif %}
                             <p class="top-text"><strong>Grand Total: €{{ grand_total|floatformat:2 }}</strong></p>
                             <a class="btn" href="{% url 'products' %}">Continue Shopping</a>
-                            {% if request.user.is_authenticated %}
-                                <a class="btn" href="{% url 'checkout' %}">Checkout</a>
-                            {% else %}
-                                <a class="btn" href="{% url 'signin_guest' %}">Checkout</a>
-                            {% endif %}
+                            <a class="btn" href="{% url 'signin_guest' %}">Checkout</a>
                         </div>
                     {% else %}
                         <h2>Your bag is empty</h2>

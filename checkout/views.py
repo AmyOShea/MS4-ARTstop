@@ -33,6 +33,10 @@ def cache_checkout_data(request):
 
 
 def signin_guest(request):
+
+    if request.user.is_authenticated:
+        return redirect(reverse('checkout'))
+
     return render(request, 'checkout/signin_or_guest.html')
 
 
@@ -75,7 +79,7 @@ def checkout_view(request):
                 except Product.DoesNotExist:
                     messages.error(request, (
                         "A product in your bag wasn't found in our database. "
-                        "Please call us for assistance!")
+                        "Please contact us for assistance!")
                     )
                     order.delete()
                     return redirect(reverse('view_bag'))
