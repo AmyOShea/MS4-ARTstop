@@ -176,9 +176,10 @@ I used [PowerMapper](https://www.powermapper.com/) to test cross-browser compatb
 
 ### **Product Detail Page**
 
+
 | Element                   | Action | Expected Result         | Pass/Fail |
 |:-------------             |:-------|:-----                        |:-----|
-|Qty control buttons        |        |Increase/decrease quantity    |    |
+|Qty control buttons        |Click   |Increase/decrease quantity    |Pass|
 |Keep Shopping button       |Click   |Redirect to products page     |    |
 |Add to bag button          |Click   |Add item to bag               |Pass|
 |                           |        |Toast Success appears         |Pass|
@@ -268,8 +269,9 @@ I used [PowerMapper](https://www.powermapper.com/) to test cross-browser compatb
 |                               | |On Submit: error message on invalid field |Pass  |
 |                               |           |On Submit: error toast appears  |Pass  |
 |Form Number field              |Click up/down|increase/decrease value       |Pass  |
-|                               |Type into  |Accept value                    |Pass  |
-|Form image Select button       |Click      |Open device storage             |Pass  |
+|                               |Type into  |Correcct format:Accept value    |Pass  |
+|                               |Type into  |Incorrect format:Accept value   |Pass  |
+|Form image select button       |Click      |Open device storage             |Pass  |
 |                               |           |Chosen image name displayed     |Pass  |
 |Cancel button                  |Click      |Redirect to products page       |Pass  |
 |Add Product button(form valid) |Click      |Form submit                     |Pass  |
@@ -284,6 +286,7 @@ I used [PowerMapper](https://www.powermapper.com/) to test cross-browser compatb
 
 | Element                       | Action    | Expected Result                | Pass/Fail |
 |:-------------                 |:----------|:-----                          |:-----|
+|All form fields                |On load    |Populated with original values  |Pass  |
 |Form Dropdowns(x2)             |Click      |Show dropdown options           |Pass  |
 |Form Text Input (if required)  |Leave blank|On Submit: Warning appears, form won't submit |Pass  |
 |Form Text Input (if required)  |Fill In    |On Submit: Form submit          |Pass  |
@@ -291,62 +294,302 @@ I used [PowerMapper](https://www.powermapper.com/) to test cross-browser compatb
 |                               |           |On Submit: error message on invalid field |Pass  |
 |                               |           |On Submit: error toast appears  |Pass  |
 |Form Number field              |Click up/down|increase/decrease value       |Pass  |
-|                               |Type into  |Accept value                    |Pass  |
+|                               |Type into  |Correct format:Accept value     |Pass  |
+|                               |Type into  |Incorrect format:Accept value   |Pass  |
 |Form image Select button       |Click      |Open device storage             |Pass  |
+|                               |           |New image name displayed        |Pass  |
 |Cancel button                  |Click      |Redirect to products page       |Pass  |
-|Add Product button(form valid) |Click      |Form submit                     |Pass  |
+|Update Product button(form valid)|Click    |Form submit                     |Pass  |
 |                               |           |Redirect to product detail page |Pass  |
-|                               |           |Product uploaded toast appears  |Pass  |
-|Add Product button(form invalid)|Click     |Form doesn't submit             |Pass  |
+|                               |           |Product updated toast appears   |Pass  |
+|Update Product button(form invalid)|Click  |Form doesn't submit             |Pass  |
 |                               |           |Error messages on invalid fields|Pass  |
-
-### **Edit Product Page**
-
-| Element                   | Action | Expected Result         | Pass/Fail |
-|:-------------             |:-------|:-----                        |:-----|
-|**Login**                  |        |                              |      |
 
 ---
 
 ### **Add Artist Page**
 
-| Element                   | Action | Expected Result         | Pass/Fail |
-|:-------------             |:-------|:-----                        |:-----|
-|**Login**                  |        |                              |      |
+| Element                       | Action    | Expected Result                | Pass/Fail |
+|:-------------                 |:----------|:-----                          |:-----|
+|Form Text Input (if required)  |Leave blank|On Submit: Warning appears, form won't submit |Pass  |
+|Form Text Input (if required)  |Fill In    |On Submit: Form submit          |Pass  |
+|Form Text Input         |Just input whitespace|On Submit: Form won't submit |Pass  |
+|                               | |On Submit: error message on invalid field |Pass  |
+|                               |           |On Submit: error toast appears  |Pass  |
+|Form image select button       |Click      |Open device storage             |Pass  |
+|                               |           |Chosen image name displayed     |Pass  |
+|URL fields                     |Fill In<br>(incorrect format)|On submit:form won't submit|Pass  |
+|                               |           |Error message on invalid field  |Pass  |
+|                               |Fill In<br>(correct format)|Form submit     |Pass  |
+|Cancel button                  |Click      |Redirect to artists page        |Pass  |
+|Add Artist button(form valid)  |Click      |Form submit                     |Pass  |
+|                               |           |Redirect to artist  detail page |Pass  |
+|                               |           |Artist uploaded toast appears   |Pass  |
+|Add Artist button(form invalid)|Click      |Form doesn't submit             |Pass  |
+|                               |           |Error messages on invalid fields|Pass  |
 
 ---
 
 ### **Edit Artist Page**
 
-| Element                   | Action | Expected Result         | Pass/Fail |
-|:-------------             |:-------|:-----                        |:-----|
-|**Login**                  |        |                              |      |
+| Element                       | Action    | Expected Result                | Pass/Fail |
+|:-------------                 |:----------|:-----                          |:-----|
+|All form fields                |On load    |Populated with original values  |Pass  |
+|Form Text Input (if required)  |Leave blank|On Submit: Warning appears, form won't submit |Pass  |
+|Form Text Input (if required)  |Fill In    |On Submit: Form submit          |Pass  |
+|Form Text Input         |Just input whitespace|On Submit: Form won't submit |Pass  |
+|                               | |On Submit: error message on invalid field |Pass  |
+|                               |           |On Submit: error toast appears  |Pass  |
+|Form image select button       |Click      |Open device storage             |Pass  |
+|                               |           |New image name displayed        |Pass  |
+|URL fields                     |Fill In<br>(incorrect format)|On submit:form won't submit|Pass  |
+|                               |           |Error message on invalid field  |Pass  |
+|                               |Fill In<br>(correct format)|Form submit     |Pass  |
+|Cancel button                  |Click      |Redirect to artists page        |Pass  |
+|Update Artist button(form valid)|Click     |Form submit                     |Pass  |
+|                               |           |Redirect to artist  detail page |Pass  |
+|                               |           |Artist updated toast appears    |Pass  |
+|Update Artist button(form invalid)|Click   |Form doesn't submit             |Pass  |
+|                               |           |Error messages on invalid fields|Pass  |
 
 ---
 
 ### **Add Class Page**
 
-| Element                   | Action | Expected Result         | Pass/Fail |
-|:-------------             |:-------|:-----                        |:-----|
-|**Login**                  |        |                              |      |
+| Element                       | Action    | Expected Result                | Pass/Fail |
+|:-------------                 |:----------|:-----                          |:-----|
+|All form fields                |On load    |Populated with original values  |Pass  |
+|Form Dropdown                  |Click      |Show dropdown options           |Pass  |
+|Form Text Input (if required)  |Leave blank|On Submit: Warning appears, form won't submit |Pass  |
+|Form Text Input (if required)  |Fill In    |On Submit: Form submit          |Pass  |
+|Form Text Input         |Just input whitespace|On Submit: Form won't submit |Pass  |
+|                               | |On Submit: error message on invalid field |Pass  |
+|Form Time Input         |Fill in<br>(Incorrect format)|On Submit: Form won't submit |Pass  |
+|                               |           |Error message on invalid field  |Pass  |
+|                        |Fill in<br>(Correct format)|On Submit: Form submit |Pass  |
+|                               |           |On Submit: error toast appears  |Pass  |
+|Form image select button       |Click      |Open device storage             |Pass  |
+|Form video select button       |Click      |Open device storage             |Pass  |
+|                               |           |Chosen file name displayed      |Pass  |
+|Form video upload   |On submit<br>(incorrect file format)|Form won't submit |Pass  |
+|                               |           |Error message on invalid field  |Pass  |
+|                               |           |Error toast appears             |Pass  |
+|                    |On submit<br>(Correct file format) |Form submit        |Pass  |
+|URL fields                     |Fill In<br>(incorrect format)|On submit:form won't submit|Pass  |
+|                               |           |Error message on invalid field  |Pass  |
+|                               |Fill In<br>(correct format)|Form submit     |Pass  |
+|Cancel button                  |Click      |Redirect to classes page        |Pass  |
+|Add Class button(form valid)   |Click      |Form submit                     |Pass  |
+|                               |           |Redirect to class  detail page  |Pass  |
+|                               |           |Class uploaded toast appears    |Pass  |
+|Add Class button(form invalid) |Click      |Form doesn't submit             |Pass  |
+|                               |           |Error messages on invalid fields|Pass  |
 
 ---
 
 ### **Edit Class Page**
 
-| Element                   | Action | Expected Result         | Pass/Fail |
-|:-------------             |:-------|:-----                        |:-----|
-|**Login**                  |        |                              |      |
+| Element                       | Action    | Expected Result                | Pass/Fail |
+|:-------------                 |:----------|:-----                          |:-----|
+|Form Dropdown                  |Click      |Show dropdown options           |Pass  |
+|Form Text Input (if required)  |Leave blank|On Submit: Warning appears, form won't submit |Pass  |
+|                               |Fill In    |On Submit: Form submit          |Pass  |
+|Form Text Input         |Just input whitespace|On Submit: Form won't submit |Pass  |
+|                               | |On Submit: error message on invalid field |Pass  |
+|Form Time Input         |Fill in<br>(Incorrect format)|On Submit: Form won't submit |Pass  |
+|                               |           |Error message on invalid field  |Pass  |
+|                        |Fill in<br>(Correct format)|On Submit: Form submit |Pass  |
+|                               |           |On Submit: error toast appears  |Pass  |
+|Form image select button       |Click      |Open device storage             |Pass  |
+|                               |           |New image name displayed        |Pass  |
+|Form video select button       |Click      |Open device storage             |Pass  |
+|                               |           |New file name displayed         |Pass  |
+|Form video upload   |On submit<br>(incorrect file format)|Form won't submit |Pass  |
+|                               |           |Error message on invalid field  |Pass  |
+|                               |           |Error toast appears             |Pass  |
+|                    |On submit<br>(Correct file format) |Form submit        |Pass  |
+|URL fields                     |Fill In<br>(incorrect format)|On submit:form won't submit|Pass  |
+|                               |           |Error message on invalid field  |Pass  |
+|                               |Fill In<br>(correct format)|Form submit     |Pass  |
+|Cancel button                  |Click      |Redirect to classes page        |Pass  |
+|Update Class button(form valid)|Click      |Form submit                     |Pass  |
+|                               |           |Redirect to class detail page   |Pass  |
+|                               |           |Class updated toast appears     |Pass  |
+|Update Class button(form invalid)|Click    |Form doesn't submit             |Pass  |
+|                               |           |Error messages on invalid fields|Pass  |
 
 ---
 
-### **Allauth Pages**
+### **Bag Page**
+
+| Element                   | Action | Expected Result               | Pass/Fail |
+|:-------------             |:-------|:-----                              |:-----|
+|**No Bag Items**           |        |                                    |      |
+|Shop button                |Click   |Redirect to products page           |Pass  |
+|**Bag Items**              |        |                                    |      |
+|Qty control buttons        |Click   |Increase/decrease quantity          |Pass  |
+|Update button              |Click   |Update bag item quantity            |Pass  |
+|                           |        |Updated confirmation toast appears  |Pass  |
+|Remove button              |Click   |Remove item from bag                |Pass  |
+|                           |        |Removed confirmation toast appears  |Pass  |
+|Continue shopping button   |Click   |Redirect to products page           |Pass  |
+|Checkout button     |Click<br>(user logged in)|Redirect to checkout page |Pass  |
+|       |Click<br>(user not logged in)|Redirect to continue as guest page |Pass  |
+
+---
+
+### **Continue as Guest Page**
+
+| Element                   | Action | Expected Result              | Pass/Fail |
+|:-------------             |:-------|:-----                             |:-----|
+|Page access      |On load<br>(user logged in)|Redirect to checkout page |Pass  |
+|Page access          |On load<br>(user logged in)|Page accessible       |Pass  |
+|Sign In button             |Click   |Redirect to log in page            |Pass  |
+|Register button            |Click   |Redirect to sign up page           |Pass  |
+|Continue as guest button   |Click   |Redirect to checkout page          |Pass  |
+
+---
+
+
+### **Checkout Page**
 
 | Element                   | Action | Expected Result         | Pass/Fail |
 |:-------------             |:-------|:-----                        |:-----|
 |**Login**                  |        |                              |      |
 |**Register**               |        |                              |      |
 |**Logout Conformation**    |        |                              |      |
+
+---
+
+### **Checkout Success Page**
+
+| Element                   | Action | Expected Result         | Pass/Fail |
+|:-------------             |:-------|:-----                        |:-----|
+|**Login**                  |        |                              |      |
+|**Register**               |        |                              |      |
+|**Logout Conformation**    |        |                              |      |
+
+---
+
+### **Profile Page**
+
+| Element                   | Action | Expected Result         | Pass/Fail |
+|:-------------             |:-------|:-----                        |:-----|
+|**Login**                  |        |                              |      |
+|**Register**               |        |                              |      |
+|**Logout Conformation**    |        |                              |      |
+
+---
+
+### **Previous Order Page**
+
+| Element                   | Action | Expected Result         | Pass/Fail |
+|:-------------             |:-------|:-----                        |:-----|
+|Toast                  |On load |Previous order info toast appears |      |
+|Back to Profile button     |Click   |Redirect to profile page      |Pass  |
+
+---
+
+### **FAQ's Page**
+
+| Element                   | Action | Expected Result         | Pass/Fail |
+|:-------------             |:-------|:-----                        |:-----|
+|Dropdown #3.Sign up link   |Click<br>(user logged in)|Redirect to home page |Pass  |
+|           |Click<br>(user not logged in)|Redirect to sign up page |Pass  |
+|Dropdown #11.Contact link  |Click   |Redirect to contact page      |Pass  |
+|Page bottom contact link   |Click   |Redirect to contact page      |Pass  |
+
+---
+
+### **Contact Page**
+
+| Element                   | Action | Expected Result         | Pass/Fail |
+|:-------------             |:-------|:-----                        |:-----|
+|**Login**                  |        |                              |      |
+|**Register**               |        |                              |      |
+|**Logout Conformation**    |        |                              |      |
+
+
+---
+
+### **Allauth Pages**
+
+| Element                   | Action | Expected Result                   | Pass/Fail |
+|:-------------             |:-------|:---------------------------------------|:-----|
+|**Register**               |        |                                        |      |
+|Sign in link               |Click   |Redirect to sign in page                |Pass  |
+|*Form*                     |        |                                        |      |
+|Email field        |Fill in<br>(incorrect format)|On submit: form wont'submit|Pass  |
+|                           |        |Error message on invalid field          |Pass  |
+|                          |Fill in<br>(correct format)|On submit: form submit|Pass  |
+|                 |Fill in<br>(email already used)|On submit: form wont'submit|Pass  |
+|                           |        |Error message on invalid field          |Pass  |
+|                  |Fill in<br>(email not already used)|On submit: form submit|Pass  |
+|Username field       |Fill in<br>(all whitespace)|On submit: form wont'submit|Pass  |
+|                           |        |Error message on invalid field          |Pass  |
+|                          |Fill in<br>(correct format)|On submit: form submit|Pass  |
+|              |Fill in<br>(username already used)|On submit: form wont'submit|Pass  |
+|                           |        |Error message on invalid field          |Pass  |
+|               |Fill in<br>(username not already used)|On submit: form submit|Pass  |
+|Password field         |Fill in<br>(incorrect format)|On submit: form wont'submit|Pass  |
+|                       |            |error message on invalid field          |Pass  |
+|                     |Fill in<br>(correct format)|On submit: form wont'submit|Pass  |
+|              |Fill in<br>(passwords don't match)|On submit: form wont'submit|Pass  |
+|                           |        |error message on invalid field          |Pass  |
+|                         |Fill in<br>(passwords match)|On submit: form submit|Pass  |
+|Sign Up button(form invalid)|Click  |Form wont'submit                        |Pass  |
+|                           |        |error message on invalid fields         |Pass  |
+|Sign Up button(form valid) |Click   |Form submit                             |Pass  |
+|                           |        |redirect to email verification page     |Pass  |
+|                           |        |email sent to user                      |Pass  |
+|**Email Verification**     |        |                                        |      |
+|Follow link from email     |Click   |redirect to confirm email page          |Pass  |
+|Confirm button             |Click   |redirect to log in page                 |Pass  |
+|                           |        |sign in form populated with user info   |Pass  |
+|                           |        |email confirmation toast appears        |Pass  |
+|**Login**                  |        |                                        |      |
+|Sign up link               |Click   |Redirect to sign up page                |Pass  |
+|*Form*                     |        |                                        |      |
+|Username Field     |Fill in<br>(just whitespace)|On submit:form won't submit |Pass  |
+|                           |        |error message on invalid field          |Pass  |
+|                    |Fill in<br>(wrong username)|On submit:form won't submit |Pass  |
+|                           |        |error message for username/password     |Pass  |
+|Password Field     |Fill in<br>(just whitespace)|On submit:form won't submit |Pass  |
+|                           |        |error message on invalid field          |Pass  |
+|                    |Fill in<br>(wrong password)|On submit:form won't submit |Pass  |
+|                           |        |error message for username/password     |Pass  |
+|Forgot Password button     |Click   |redirect to password reset page         |Pass  |
+|Sign In button(form invalid)|Click  |form won't submit                       |Pass  |
+|                           |        |error message on invalid field(s)       |Pass  |
+|Sign In button(form valid) |Click   |form submit                             |Pass  |
+|                           |        |redirect to home page                   |Pass  |
+|                           |        |sign in confirmation toast appears      |Pass  |
+|**Password Reset**         |        |                                        |      |
+|Email Field        |Fill in<br>(just whitespace)|On submit:form won't submit |Pass  |
+|                           |        |error message on invalid field          |Pass  |
+|                |Fill in<br>(incorrect email)|On submit:form won't submit    |Pass  |
+|                           |        |error message on invalid field          |Pass  |
+|                           |Fill in<br>(correct email)|On submit:form submit |Pass  |
+|Forgot Password button     |Click   |redirect to password reset page         |Pass  |
+|Reset password button(form invalid)|Click  |form won't submit                |Pass  |
+|                           |        |error message on invalid field          |Pass  |
+|Reset password button(form valid)|Click  |form submit                        |Pass  |
+|                           |        |redirect to password reset confirmation |Pass  |
+|                           |        |email sent to user                      |Pass  |
+|**Change Password**        |        |                                        |      |
+|Password reset link from email|Click|redirect to change password page        |Pass  |
+|Password input     |Fill in<br>(all whitespace)|On submit: form won't submit |Pass  |
+|                           |        |error message on field                  |Pass  |
+|           |Fill in<br>(passwords not matching)|On submit: form won't submit |Pass  |
+|                           |        |error message on field                  |Pass  |
+|                        |Fill in<br>(passwords match)|On submit: form submit |Pass  |
+|Change password button(form invalid)|Click|Redirect to change password confirmation|Pass  |
+|                           |      |Password change confirmation toast appears|Pass  |
+|**Logout Confirmation**    |        |                                        |      |
+|Sign out button            |Click   |Redirect to homepage                    |Pass  |
+|                           |        |Sign out confirmation toast appears     |Pass  |
+
+
 
 ---
 ---
