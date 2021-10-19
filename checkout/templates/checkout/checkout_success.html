@@ -33,7 +33,7 @@
                 <div class="col-12 col-lg-6 order-info-container">
                     <h2>Order Details</h2>
                     <p>Order Number: {{ order.order_number }}</p>
-                    <p>Order Date: {{ order.order_number }}</p>
+                    <p>Order Date: {{ order.date|date:"d/m/Y" }}</p>
                     <p>Order Items:</p>
                     {% for item in order.lineitems.all %}
                         <p class="product-list-item">"{{ item.product.name }}"  x {{ item.quantity}}</p>

@@ -58,16 +58,130 @@ I used [PowerMapper](https://www.powermapper.com/) to test cross-browser compatb
 ---
 ## Testing From User Stories
 
-### As a casual user: 
+
+### As an unregistered, I want to 
+
+  + *be able to browse through all products available.*
+
+All users, regardless of registered/logg in status, can browse through all products, add to bag and make a purchase:
+
+<img alt="Unregistered user story" src="docs/user-stories/unregistered-01.PNG" width="700">
+
+  + *have the ability browse through the artists promoted on the site.*
+
+All users, regardless of registered/logg in status, can browse through the promoted artists:
+
+<img alt="Unregistered user story" src="docs/user-stories/unregistered-02.PNG" width="700">
+
+  + *have the ability to contact the artists promoted on the site.*
+
+All users, regardless of registered/logg in status, can contact the promoted artist IF they have given contact information:
+
+<img alt="Unregistered user story" src="docs/user-stories/unregistered-03.PNG" width="700">
+
+  + *have the ability browse through the classes available on the site.*
+
+All users, regardless of registered/logg in status, can browse through the classes offered on the site:
+
+<img alt="Unregistered user story" src="docs/user-stories/unregistered-04a.PNG" width="700">
+
+However, class videos cannot be played without user authentication:
+
+<img alt="Unregistered user story" src="docs/user-stories/unregistered-04b.PNG" width="700">
+
+  + *have generic questions answered without having to contact the store owner/admin.*
+
+All users, regardless of registered/logg in status, can view the FAQ's page:
+
+<img alt="Unregistered user story" src="docs/user-stories/unregistered-08.PNG" width="700">
+
+  + *be able to add, edit quantity and remove items from my bag.*
+
+All users, regardless of registered/logg in status, can make changes to their shopping bag:
+
+<img alt="Unregistered user story" src="docs/user-stories/unregistered-05.PNG" width="700">
+
+  + *be able to purchase from the site without having to register for an account.*
+
+All users, regardless of registered/logg in status, can purchase from the store. Unregistered/unauthenticated users will be directed to the below page to either choose to sign up/sign in, or they can continue as guest:
+
+<img alt="Unregistered user story" src="docs/user-stories/unregistered-06.PNG" width="700">
+
+  + *have the ability to register to the site if I choose to.*
+
+As well as the page above, a user can go to the register page from the nav bar or page footer:
+
+<img alt="Unregistered user story" src="docs/user-stories/unregistered-07.PNG" width="700">
+
+### As a registered user, I want to
+
+  + *have the ability to log in to the site with my details.*
+
+A registered user can log in via the login page. This can be accessed from the nav bar, footer and various stages throughout purchase process/site browsing:
+
+<img alt="Registered user story" src="docs/user-stories/registered-01.PNG" width="700">
+
+  + *have a record of any purchases that I have made in the past and view them in detail.
+
+From a registered users profile page, previous order details can be accessed:
+
+<img alt="Registered user story" src="docs/user-stories/registered-02a.PNG" width="700">
+
+This will be a replica of the order confirmation page but with a few adjustments to the text & toast to confirm to the user that this is past order:
+
+<img alt="Registered user story" src="docs/user-stories/registered-02b.PNG" width="700">
+
+  + *be able to update my shipping information.*
+
+From a registered users profile page, default information can be added/updated:
+
+<img alt="Registered user story" src="docs/user-stories/registered-03.PNG" width="700">
+
+  + *be able to update my shipping information from the checkout page.*
+
+If a registered & logged in user has default delivery information saved in their profile, the checkout form will auto populate with this information. However, this can be overridden when a purchase is being made:
+
+<img alt="Registered user story" src="docs/user-stories/registered-04.PNG" width="700">
+
+Also, if the user wants to add the new delivery information to their account, they can check the below checkbox. When the purchse is complete, the information will be saved.
+
+  + *be able to view my bag and any items I currently have awaiting payment in my bag.*
+
+<img alt="Registered user story" src="docs/user-stories/registered-05.PNG" width="700">
+
+  + *be able to view the class videos offered.*
+
+<img alt="Registered user story" src="docs/user-stories/registered-06.PNG" width="700">
+
+
+### As the site administrator, I want to
+
+  + *be able to log in to an admin panel.*
+
+<img alt="Admin user story" src="docs/user-stories/admin-01.PNG" width="700">
+
+  + *be able to add, update or remove products, artists and classes without visiting the admin panel.*
+
+<img alt="Admin user story" src="docs/user-stories/admin-02.PNG" width="700">
+
+<img alt="Admin user story" src="docs/user-stories/admin-02a.PNG" width="400">
+<img alt="Admin user story" src="docs/user-stories/admin-02b.PNG" width="400">
+<img alt="Admin user story" src="docs/user-stories/admin-02c.PNG" width="400">
 
 ---
+<img alt="Admin user story" src="docs/user-stories/admin-02d.PNG" width="700">
+<img alt="Admin user story" src="docs/user-stories/admin-02e.PNG" width="700">
+<img alt="Admin user story" src="docs/user-stories/admin-02f.PNG" width="700">
+<img alt="Admin user story" src="docs/user-stories/admin-02g.PNG" width="700">
+<img alt="Admin user story" src="docs/user-stories/admin-02h.PNG" width="700">
+<img alt="Admin user story" src="docs/user-stories/admin-02i.PNG" width="700">
 
-### As a returning user: 
 
----
 
-### As the site owner/admin:
 
+
+
+  + *receive email notifications when a user submits through the contact page.*
 
 ---
 ---
@@ -450,14 +564,57 @@ I used [PowerMapper](https://www.powermapper.com/) to test cross-browser compatb
 
 ---
 
-
 ### **Checkout Page**
 
-| Element                   | Action | Expected Result         | Pass/Fail |
-|:-------------             |:-------|:-----                        |:-----|
-|**Login**                  |        |                              |      |
-|**Register**               |        |                              |      |
-|**Logout Conformation**    |        |                              |      |
+| Element                   | Action           | Expected Result                      | Pass/Fail |
+|:-------------             |:-----------------|:-----                                     |:-----|
+|Page accessible            |Direct URL input<br>(empty bag)|redirect to products page     |Pass  |
+|                           |                  |empty bag toast appears                    |Pass  |
+|Form fields(if user logged in)|On load |fields populated with user default info(if previously saved)|Pass  |
+|Text Input(if required)    |Leave blank       |On submit:form won't submit                |Pass  |
+|                           |                  |error message on invalid field(s)          |Pass  |
+|                           |Just whitespace   |On submit:form won't submit                |Pass  |
+|                           |                  |error message at bottom of page            |Pass  |
+|                           |Fill in correctly |On submit: form submits                    |Pass  |
+|Phone number Input         |Leave blank       |On submit:form won't submit                |Pass  |
+|                           |                  |error message on field                     |Pass  |
+|                           |Just whitespace   |On submit:form won't submit                |Pass  |
+|                           |                  |error message at bottom of page            |Pass  |
+|                   |Use non numeric characters|On submit: form submits   |**Fail**<br>(see known bugs)|
+|                           |                  |error on field            |**Fail**<br>(see known bugs)|
+|Email Input                |Leave blank       |On submit:form won't submit                |Pass  |
+|                           |                  |error message on field                     |Pass  |
+|                           |Just whitespace   |On submit:form won't submit                |Pass  |
+|                           |                  |error message at bottom of page            |Pass  |
+|                           |Fill in correctly |On submit: form submits                    |Pass  |
+|Form Dropdown              |Click             |Show dropdown options                      |Pass  |
+|Save to profile checkbox   |On load(user logged in)|Shown                                 |Pass  |
+|                           |On load(user not logged in)|Not shown                         |Pass  |
+|                           |Checked |On submit:Delivery information saved to user profile |Pass  |
+|                     |Unchecked |On submit:Delivery information not saved to user profile |Pass  |
+|Payment card input         |Input invalid card number|Error message on field              |Pass  |
+|                           |Input invalid card date|Error message on field                |Pass  |
+|                           |On load(user not logged in)|Not shown                         |Pass  |
+|Adjust Bag button          |Click             |Redirect to bag page                       |Pass  |
+|Complete Order button(form invalid)|Click     |Form won't submit                          |Pass  |
+|                           |                  |Error message on invalid fields            |Pass  |
+|Complete Order button(form valid)|Click       |                                           |      |
+|                           |Payment succeeds  |loading screen reappears                   |Pass  |
+|                           |                  |form submits                               |Pass  |
+|                           |                  |redirect to order confirmation page        |Pass  |
+|                           |(if user logged in)|order saved to user profile               |Pass  |
+|                           |Payment failed    |Loading animation appears                  |Pass  |
+|                           |                  |form won't submit                          |Pass  |
+|                           |                  |error message at bottom of form            |Pass  |
+|              |Payment Requires authentication|Loading animation appears                  |Pass  |
+|                           |                  |Authentication box appears                 |Pass  |
+|Fail Authentication button |Click             |Authentication box closes                  |Pass  |
+|                           |                  |User directed back to form                 |Pass  |
+|                           |                  |error message at bottom of form            |Pass  |
+|Complete Authentication button|Click          |loading screen reappears                   |Pass  |
+|                           |                  |form submits                               |Pass  |
+|                           |                  |redirect to order confirmation page        |Pass  |
+|                           |(if user logged in)|order saved to user profile               |Pass  |
 
 ---
 
@@ -465,19 +622,23 @@ I used [PowerMapper](https://www.powermapper.com/) to test cross-browser compatb
 
 | Element                   | Action | Expected Result         | Pass/Fail |
 |:-------------             |:-------|:-----                        |:-----|
-|**Login**                  |        |                              |      |
-|**Register**               |        |                              |      |
-|**Logout Conformation**    |        |                              |      |
 
 ---
 
 ### **Profile Page**
 
-| Element                   | Action | Expected Result         | Pass/Fail |
-|:-------------             |:-------|:-----                        |:-----|
-|**Login**                  |        |                              |      |
-|**Register**               |        |                              |      |
-|**Logout Conformation**    |        |                              |      |
+| Element                   | Action           | Expected Result                      | Pass/Fail |
+|:-------------             |:-----------------|:------------------------------------------|:-----|
+|Form fields         |On load |fields populated with user default info(if previously saved)|Pass  |
+|All input fields           |Leave blank       |On submit: form submits                    |Pass  |
+|                           |Just whitespace   |On submit: form submits                    |Pass  |
+|                           |Fill in correctly |On submit: form submits                    |Pass  |
+|Form Dropdown              |Click             |Show dropdown options                      |Pass  |
+|Update button              |Click             |Form submits                               |Pass  |
+|                           |                  |Form updated toast appears                 |Pass  |
+|Previous order number      |Click             |Redirect to previous order page            |Pass  |
+* *none of the form fields are required and don't have the same level of validation as the checkout form*
+* *If a user uses incorrect profile information on the checkout page, it will be validatied there*
 
 ---
 
@@ -505,10 +666,24 @@ I used [PowerMapper](https://www.powermapper.com/) to test cross-browser compatb
 
 | Element                   | Action | Expected Result         | Pass/Fail |
 |:-------------             |:-------|:-----                        |:-----|
-|**Login**                  |        |                              |      |
-|**Register**               |        |                              |      |
-|**Logout Conformation**    |        |                              |      |
-
+|Text Input                 |Leave blank       |On submit:form won't submit                |Pass  |
+|                           |                  |error message on invalid field(s)          |Pass  |
+|                           |Just whitespace   |On submit:form won't submit              |**FAIL**|
+|                           |                  |error message on field(s)                |**FAIL**|
+|                           |Fill in correctly |On submit: form submits                    |Pass  |
+|Email Input                |Leave blank       |On submit:form won't submit                |Pass  |
+|                           |                  |error message on field                     |Pass  |
+|                           |Just whitespace   |On submit:form won't submit                |Pass  |
+|                           |                  |error message at bottom of page            |Pass  |
+|                           |Wrong format      |On submit:form won't submit                |Pass  |
+|                           |                  |error message on field                     |Pass  |
+|                           |Fill in correctly |On submit: form submits                    |Pass  |
+|Form Dropdown              |Click             |Show dropdown options                      |Pass  |
+|Send button(form invalid)  |Click             |Form won't submit                          |Pass  |
+|                           |                  |error message on invalid field(s)          |Pass  |
+|Send button(form valid)    |Click             |Form submits                               |Pass  |
+|                           |                  |Mail sent toast appears                    |Pass  |
+|                           |                  |Email notificaiton sent to admin           |Pass  |
 
 ---
 
@@ -588,8 +763,6 @@ I used [PowerMapper](https://www.powermapper.com/) to test cross-browser compatb
 |**Logout Confirmation**    |        |                                        |      |
 |Sign out button            |Click   |Redirect to homepage                    |Pass  |
 |                           |        |Sign out confirmation toast appears     |Pass  |
-
-
 
 ---
 ---
