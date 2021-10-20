@@ -195,7 +195,7 @@ To ensure that an item isn't deleted by mistake, a confirmation has been added t
 
   + *receive email notifications when a user submits through the contact page.*
 
-When a message is sent via the contact form, an email is sent to the admins designated email. I decided that this would be more practical than sending them to the admin panel - email is something that is checked regularly in a business environment:
+When a message is sent via the contact form, an email is sent to the admins designated email:
 
 <img alt="Admin user story" src="docs/user-stories/admin-03.PNG" width="700">
 
@@ -812,7 +812,232 @@ Through devices that I have at home/readily available to me, I was able to conti
 ---
 ## Bugs and Fixes
 
+### **Bag Total Issue**
+
+I decided to use a specific delivery charge rather than a percentage of the order total. Because of this, the delivery charge was automatically added to the bag before and item had been added in:
+
+![Bag total issue](docs/bugs-and-fixes/bug-01.PNG)
+
+The issue was that the delivery charge was incorperated into the grand total and that was what was being used:
+
+![Bag total issue](docs/bugs-and-fixes/bug-01-code-01.PNG)
+
+I updated the code so that there would only be a display amount if there were items in the bag:
+
+![Bag total issue](docs/bugs-and-fixes/bug-01-code-fix-01.PNG)
+
+I also decided to display only the order total at this stage in the purchase process and not the delivery charge.
+
+---
+
+### **Delivery Cost Issue**
+
+When testing out the purchase functionality, I saw that the delivery was charging order_total + the base €15 delivery fee:
+
+![Delivery Cost Issue](docs/bugs-and-fixes/bug-02.PNG)
+
+I had accidentally added the ```self.order_total``` to the ```settings.STRANDARD_DELIVERY```:
+
+![Delivery Cost Issue](docs/bugs-and-fixes/bug-02-code.PNG)
+
+I removed the ```settings.STRANDARD_DELIVERY```:
+
+![Delivery Cost Issue](docs/bugs-and-fixes/bug-02-code-fix.PNG)
+
+This fixed the issue
+
+---
+
+### **Artist Detail Image Issue**
+
+When uploading the artist image to the artist detail page, there was an issue when the uploaded picture was in portrait:
+
+![Artist Detail Image Issue](docs/bugs-and-fixes/bug-03.PNG)
+
+This was the code that worked if the uploaded image was in landscape:
+
+![Artist Detail Image Issue](docs/bugs-and-fixes/bug-03-02.PNG)
+
+I'm sure there were other ways to fix this issue using just CSS but I wanted to practice my JavaScript:
+
+![Artist Detail Image Issue](docs/bugs-and-fixes/bug-03-fix-01.PNG)
+![Artist Detail Image Issue](docs/bugs-and-fixes/bug-03-fix-02.PNG)
+
+Adding different classes to the images based on the height:width sizes fixed this:
+
+![Artist Detail Image Issue](docs/bugs-and-fixes/bug-03-fix.PNG)
+
+This also adds the landscape class to a perfectly square image and the image layout works.
+
+---
+
+### **Classes Filter Issue**
+
+When I tested the filter for the class levels, no classes were showing on the screen - I had made sure that they had been added to the database:
+
+![Classes filter issue](docs/bugs-and-fixes/bug-04.PNG)
+
+I had removed the filter options and the classes were showing. When I checked the admin panel for any typos, I noticed that I had only created a ```name``` field and no accompanying ```friendly_name``` field and had capitalised the level name:
+
+![Classes filter issue](docs/bugs-and-fixes/bug-04-02.PNG)
+
+To test to see if this was causing the issue, I capitalised the filtername in the HTML template: 
+
+![Classes filter issue](docs/bugs-and-fixes/bug-04-fix-01.PNG)
+![Classes filter issue](docs/bugs-and-fixes/bug-04-fix-02.PNG)
+
+A quick fix would have been to just capitalise all of the filter name on the HTML template but to standardize the code, I added the ```friendly_name``` field to the model:
+
+![Classes filter issue](docs/bugs-and-fixes/bug-04-fix-03.PNG)
+
+I then updated the name to be lowercase and making it programatically friendly:
+
+![Classes filter issue](docs/bugs-and-fixes/bug-04-fix-04.PNG)
+
+This fixed the issue:
+
+![Classes filter issue](docs/bugs-and-fixes/bug-04-fix-05.PNG)
+
+*the card diplay level has since been updated to display the friendly name*
+
+---
+
+### **Side Nav at 992px Issue**
+
+For the home page, I wanted to have the main nav to sit at the bottom of the screen on large screens and up. Form medium screens and down, there's a side nav. But when the screen was exactly 992px the main nav position changed and jumped to the top of the screen:
+
+  + **at 991px**:
+
+![Side Nav at 992px issue](docs/bugs-and-fixes/bug-05-px991-01.PNG)
+  + **at 993px**:
+
+![Side Nav at 992px issue](docs/bugs-and-fixes/bug-05-px993-01.PNG)
+  + **at 992px**:
+
+![Side Nav at 992px issue](docs/bugs-and-fixes/bug-05-px992-01.PNG)
+
+I had a look and found a discrepency in my code - Bootstrap uses ```@media (min-width: 992px)``` while I had set my media queries to ```@media (man-width: 992px)``` so there was a conflict being created at exactly 992px.
+
+I was far enough into the project that changing my media queries to ```@media (min-width: ***px)``` and having to restyle the pages wouldn't have been the best idea(had it been caught earlier I would have). I decided that making a media query specifically for 992px would be the quickest and safest option:
+
+![Side Nav at 992px issue](docs/bugs-and-fixes/bug-05-code-fix-01.PNG)
+
+![Side Nav at 992px issue](docs/bugs-and-fixes/bug-05-code-fix-02.PNG)
+
+This is something that I will keep an eye on going forwards.
+
+---
+
+### **Autofocus Issue**
+
+On the signup form, if there was an error on the password field when the form submitted, the autofocus would be on the username field, causing confusion. 
+
+![Autofocus issue](docs/bugs-and-fixes/bug-07.PNG)
+
+Because the form was generated from allauth it was harder to understand where the issue was coming from or how to fix it. Rather than trying to rework where it was coming from, I used the ```.blur()``` method to remove the autofocus altogether:
+
+![Autofocus issue](docs/bugs-and-fixes/bug-07-fix.PNG)
+
+Now, regardless of the error, the autofocus doesn't direct the user anywhere specific but the error messages still let the user know wherer they went wrong:
+
+![Autofocus issue](docs/bugs-and-fixes/bug-07-fix-02.PNG)
 
 ---
 ---
+
 ## Known Bugs
+
+---
+
+### **Checkout Form Whitespace Issue**
+
+If the user inputs information in the wrong format or leaves a required field blank, the form validation doesn't allow the form to be submitted. However, when the user fills in just whitespace, the form is submitting to Stripe, Stripe sends it back and a user-unfriendly error is displayed:
+
+![Checkout form whitespace issue](docs/bugs-and-fixes/bug-06.PNG)
+
+---
+
+### **Stripe Test Webhook Issues**
+
+**not a bug but something that I had to query regardless**
+
+When initally setting up Stripe payments, I was not having any issues with either ```payment_intent.succeeded``` or ```payment_intent.payment_failed``` test webhooks. However, once the full payment system was in place and fully functional, I was having issues with ```payment_intent.succeeded``` test webhook. I would recieve a 500 error both in Stripe and the local terminal:
+
+![Stripe test webhook issue](docs/bugs-and-fixes/bug-08-01.PNG)
+
+![Autofocus Issue](docs/bugs-and-fixes/bug-08-02.PNG)
+
+The 500 error was pointing to the ```bag``` in the webhook_handler.py file. However, the ```bag``` variable was created in the views.py file. I didn't know how to solve this so I contected tutor support and the Full Stack Frameworks slack channel. <br>
+The general consensus was that this would be an expected behviour when sending a test ```payment_intent.succeeded``` webhook.<br>
+When sending a ```payment_intent.succeeded``` test webhook, Stripe sends default data, but the data held in the ```cache_checkout_data(request)``` would be different, causing the conflict.
+
+![Autofocus Issue](docs/bugs-and-fixes/bug-08-03.PNG)
+
+To test this theory, I commented out the ```cache_checkout_data(request)``` function and the test webhook worked.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
