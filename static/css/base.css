@@ -348,7 +348,7 @@ select option {
 }
 
 .welcome-container {
-    width: 100vw;
+    width: 100%;
     position: relative;
     background: url('../../media/hero-image.png') no-repeat top left;
     background-size: cover;
