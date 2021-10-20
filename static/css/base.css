@@ -343,7 +343,7 @@ select option {
 
 /* HOME PAGE */
 
-.abc {
+.hero-height {
     height: 100vh;
 }
 
@@ -578,7 +578,7 @@ select option {
         margin-top: 6px !important;
     }
     .welcome-container {
-        width: 100vw;
+        width: 100%;
         position: relative;
         background: url('../../media/mobile-hero-image.png') no-repeat top left;
         background-size: cover;

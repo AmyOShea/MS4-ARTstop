@@ -63,25 +63,25 @@ I used [PowerMapper](https://www.powermapper.com/) to test cross-browser compatb
 
   + *be able to browse through all products available.*
 
-All users, regardless of registered/logg in status, can browse through all products, add to bag and make a purchase:
+All users, regardless of registered/logged in status, can browse through all products, add to bag and make a purchase:
 
 <img alt="Unregistered user story" src="docs/user-stories/unregistered-01.PNG" width="700">
 
   + *have the ability browse through the artists promoted on the site.*
 
-All users, regardless of registered/logg in status, can browse through the promoted artists:
+All users, regardless of registered/logged in status, can browse through the promoted artists:
 
 <img alt="Unregistered user story" src="docs/user-stories/unregistered-02.PNG" width="700">
 
   + *have the ability to contact the artists promoted on the site.*
 
-All users, regardless of registered/logg in status, can contact the promoted artist IF they have given contact information:
+All users, regardless of registered/logged in status, can contact the promoted artist IF they have given contact information:
 
 <img alt="Unregistered user story" src="docs/user-stories/unregistered-03.PNG" width="700">
 
   + *have the ability browse through the classes available on the site.*
 
-All users, regardless of registered/logg in status, can browse through the classes offered on the site:
+All users, regardless of registered/logged in status, can browse through the classes offered on the site:
 
 <img alt="Unregistered user story" src="docs/user-stories/unregistered-04a.PNG" width="700">
 
@@ -91,27 +91,39 @@ However, class videos cannot be played without user authentication:
 
   + *have generic questions answered without having to contact the store owner/admin.*
 
-All users, regardless of registered/logg in status, can view the FAQ's page:
+All users, regardless of registered/logged in status, can view the FAQ's page:
 
 <img alt="Unregistered user story" src="docs/user-stories/unregistered-08.PNG" width="700">
 
+  + *be able to view my bag and any items I currently have awaiting payment in my bag.*
+
+<img alt="Registered user story" src="docs/user-stories/registered-05.PNG" width="700">
+
   + *be able to add, edit quantity and remove items from my bag.*
 
-All users, regardless of registered/logg in status, can make changes to their shopping bag:
+All users, regardless of registered/logged in status, can make changes to their shopping bag:
 
 <img alt="Unregistered user story" src="docs/user-stories/unregistered-05.PNG" width="700">
 
   + *be able to purchase from the site without having to register for an account.*
 
-All users, regardless of registered/logg in status, can purchase from the store. Unregistered/unauthenticated users will be directed to the below page to either choose to sign up/sign in, or they can continue as guest:
+All users, regardless of registered/logged in status, can purchase from the store. Unregistered/unauthenticated users will be directed to the below page to either choose to sign up/sign in, or they can continue as guest:
 
 <img alt="Unregistered user story" src="docs/user-stories/unregistered-06.PNG" width="700">
+
+  + *recieve email confirmation on any orsers that I placed.*
+
+Once a customer has placed an order and they are redirected to the confirmation page, they receive an email with their order and delivery information:
+
+<img alt="Unregistered user story" src="docs/user-stories/unregistered-09.PNG" width="700">
 
   + *have the ability to register to the site if I choose to.*
 
 As well as the page above, a user can go to the register page from the nav bar or page footer:
 
 <img alt="Unregistered user story" src="docs/user-stories/unregistered-07.PNG" width="700">
+
+---
 
 ### As a registered user, I want to
 
@@ -141,18 +153,15 @@ From a registered users profile page, default information can be added/updated:
 
 If a registered & logged in user has default delivery information saved in their profile, the checkout form will auto populate with this information. However, this can be overridden when a purchase is being made:
 
-<img alt="Registered user story" src="docs/user-stories/registered-04.PNG" width="700">
+Also, if the user wants to add the new delivery information to their account, they can use the checkout form checkbox. When the purchase is complete, the information will be saved.
 
-Also, if the user wants to add the new delivery information to their account, they can check the below checkbox. When the purchse is complete, the information will be saved.
-
-  + *be able to view my bag and any items I currently have awaiting payment in my bag.*
-
-<img alt="Registered user story" src="docs/user-stories/registered-05.PNG" width="700">
+<img alt="Registered user story" src="docs/user-stories/registered-04.PNG" width="400">
 
   + *be able to view the class videos offered.*
 
 <img alt="Registered user story" src="docs/user-stories/registered-06.PNG" width="700">
 
+---
 
 ### As the site administrator, I want to
 
@@ -161,27 +170,36 @@ Also, if the user wants to add the new delivery information to their account, th
 <img alt="Admin user story" src="docs/user-stories/admin-01.PNG" width="700">
 
   + *be able to add, update or remove products, artists and classes without visiting the admin panel.*
+ From the nav bar, the admin will have the option to add products, artists and classes:
 
 <img alt="Admin user story" src="docs/user-stories/admin-02.PNG" width="700">
+
+These options will open the follwing forms:
 
 <img alt="Admin user story" src="docs/user-stories/admin-02a.PNG" width="400">
 <img alt="Admin user story" src="docs/user-stories/admin-02b.PNG" width="400">
 <img alt="Admin user story" src="docs/user-stories/admin-02c.PNG" width="400">
 
----
+Once the items have been uploaded, the admin will be able to edit/delete from the item detail page:
+
 <img alt="Admin user story" src="docs/user-stories/admin-02d.PNG" width="700">
 <img alt="Admin user story" src="docs/user-stories/admin-02e.PNG" width="700">
 <img alt="Admin user story" src="docs/user-stories/admin-02f.PNG" width="700">
+
+The edit button will open a form that is a replica of the add form but with the previous information poulating the fields. 
+<br>
+To ensure that an item isn't deleted by mistake, a confirmation has been added to each item:
 <img alt="Admin user story" src="docs/user-stories/admin-02g.PNG" width="700">
 <img alt="Admin user story" src="docs/user-stories/admin-02h.PNG" width="700">
 <img alt="Admin user story" src="docs/user-stories/admin-02i.PNG" width="700">
 
-
-
-
-
-
   + *receive email notifications when a user submits through the contact page.*
+
+When a message is sent via the contact form, an email is sent to the admins designated email. I decided that this would be more practical than sending them to the admin panel - email is something that is checked regularly in a business environment:
+
+<img alt="Admin user story" src="docs/user-stories/admin-03.PNG" width="700">
+
+*I set up a specific email account for this prject to keep it sperate from my personal email account*
 
 ---
 ---
