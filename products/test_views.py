@@ -5,6 +5,7 @@ Testing views in the products app
 from django.test import TestCase
 
 from django.shortcuts import get_object_or_404
+from django.contrib.messages import get_messages
 
 from profiles.models import User
 from .models import Product, Category
@@ -18,7 +19,6 @@ class TestProductsViews(TestCase):
     def setUp(self):
         """
         Set up info needed for testing
-        
         """
 
         self.category1 = Category.objects.create(
@@ -83,27 +83,6 @@ class TestProductsViews(TestCase):
         response = self.client.get('/products/add/')
         self.assertEqual(response.status_code, 302)
 
-    # def test_add_product(self):
-    #     """
-    #     Test that admin can add products
-    # FORM VALIDATION CURRENTLY FAILING
-
-    #     """
-    #     self.client.force_login(self.admin_user)
-    #     add_product_form = ProductForm({
-    #         'category': self.category1.pk,
-    #         'name': 'testAddProduct',
-    #         'description': 'testAddDescription',
-    #         'price': '75',
-    #         'image': 'testAddImage'
-    #     })
-
-    #     self.client.post('/products/add/')
-    #     self.assertTrue(add_product_form.is_valid())
-    #     add_product_form.save()
-    #     add_product = Product.objects.all()
-    #     self.assertEqual(len(add_product), 2)
-
     def test_edit_product_view(self):
         """
         Test that only admin can access edit_product page.
@@ -147,3 +126,29 @@ class TestProductsViews(TestCase):
         self.client.post(f'/products/edit/{self.product1.id}/')
         updated_product = Product.objects.get(id=self.product1.id)
         self.assertEqual(updated_product.name, 'testEditProduct')
+
+    def test_delete_product_works_for_admin(self):
+        """
+        Test that admin can delete products
+        """
+        self.client.force_login(self.admin_user)
+        response = self.client.get(f'/products/delete/{self.product1.id}/')
+        messages = list(get_messages(response.wsgi_request))
+        self.assertEqual(messages[0].tags, 'success')
+        self.assertEqual(
+            str(messages[0]), 'Product Deleted')
+        self.assertEqual(response.status_code, 302)
+        self.client.logout()
+
+    def test_delete_product_doesnt_work_for_non_admin(self):
+        """
+        Test that non-admins cannot delete products
+        """
+        self.client.force_login(self.user)
+        response = self.client.get(f'/products/delete/{self.product1.id}/')
+        messages = list(get_messages(response.wsgi_request))
+        self.assertEqual(messages[0].tags, 'error')
+        self.assertEqual(
+            str(messages[0]), 'You are not authorized to do that.')
+        self.assertEqual(response.status_code, 302)
+        self.client.logout()
