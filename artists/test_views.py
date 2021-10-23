@@ -5,10 +5,11 @@ Testing views in the artists app
 from django.test import TestCase
 
 from django.shortcuts import get_object_or_404
+from django.contrib.messages import get_messages
 
 from profiles.models import User
 from .models import Artist
-from.forms import ArtistForm
+from .forms import ArtistForm
 
 
 class TestArtistsViews(TestCase):
@@ -74,25 +75,6 @@ class TestArtistsViews(TestCase):
         response = self.client.get('/artists/add/')
         self.assertEqual(response.status_code, 302)
 
-    # def test_add_artist(self):
-    #     """
-    #     Test that admin can add artist
-    # FORM VALIDATION CURRENTLY FAILING
-
-    #     """
-    #     self.client.force_login(self.admin_user)
-    #     add_artist_form = ArtistForm({
-    #         'name': 'testEditArtist',
-    #         'artist_statement': 'testEditStatement',
-    #         'image': 'testEditImage',
-    #     })
-
-    #     self.client.post('/artists/add/')
-    #     self.assertTrue(add_artist_form.is_valid())
-    #     add_artist_form.save()
-    #     add_artist = Artist.objects.all()
-    #     self.assertEqual(len(add_artist), 2)
-
     def test_edit_artist_view(self):
         """
         Test that only admin can access edit_artist page.
@@ -122,15 +104,41 @@ class TestArtistsViews(TestCase):
         """
         self.client.force_login(self.admin_user)
         artist = get_object_or_404(Artist, pk=self.artist1.id)
-        artist_form = ArtistForm({
+        form = ArtistForm({
             'name': 'testEditArtist',
             'artist_statement': 'testEditStatement',
             'image': 'testEditImage',
         },
             instance=artist
         )
-        self.assertTrue(artist_form.is_valid())
-        artist_form.save()
+        self.assertTrue(form.is_valid())
+        form.save()
         self.client.post(f'/artists/edit/{self.artist1.id}/')
         updated_artist = Artist.objects.get(id=self.artist1.id)
         self.assertEqual(updated_artist.name, 'testEditArtist')
+
+    def test_delete_artist_works_for_admin(self):
+        """
+        Test that admin can delete artist
+        """
+        self.client.force_login(self.admin_user)
+        response = self.client.get(f'/artists/delete/{self.artist1.id}/')
+        messages = list(get_messages(response.wsgi_request))
+        self.assertEqual(messages[0].tags, 'success')
+        self.assertEqual(
+            str(messages[0]), 'Artist Deleted')
+        self.assertEqual(response.status_code, 302)
+        self.client.logout()
+
+    def test_delete_artist_doesnt_work_for_non_admin(self):
+        """
+        Test that non-admins cannot delete artist
+        """
+        self.client.force_login(self.user)
+        response = self.client.get(f'/artists/delete/{self.artist1.id}/')
+        messages = list(get_messages(response.wsgi_request))
+        self.assertEqual(messages[0].tags, 'error')
+        self.assertEqual(
+            str(messages[0]), 'You are not authorized to do that.')
+        self.assertEqual(response.status_code, 302)
+        self.client.logout()
