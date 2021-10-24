@@ -4,14 +4,14 @@
 {% block extra_title %}FAQ's{% endblock %}
 
 {% block content %}
-<div class="row justify-content-center">
+<div class="row justify-content-center main-container">
     <div class="col-12 col-md-10 col-xl-8 col-xxl-6 mx-auto">
         <h1 class="page-title">FAQ's</h1>
         <hr class="page-title-hr">
     </div>
 </div>
 
-<div class="row">
+<div class="row main-container">
     <div class="col-12 col-lg-6 mx-auto">
         <div class="accordion" id="faqaccordion">
             <div class="card">
@@ -61,8 +61,8 @@
                 </div>
                 <div id="collapseEleven" class="collapse" aria-labelledby="headingEleven" data-parent="#faqaccordion">
                     <div class="card-body">
-                        No, you don't! We allow the option of not having to sign up for an account if you think that you
-                        will just be a one-time buyer.<br><br>However, if you <a href="{% url 'account_signup' %}"><strong>sign up for an account</strong></a>, you will be able to access the classes that we have to
+                        No, you don't! We allow the option of not having to register for an account if you think that you
+                        will just be a one-time buyer.<br><br>However, if you <a href="{% url 'account_signup' %}"><strong>register for an account</strong></a>, you will be able to access the classes that we have to
                         offer.<br> You will also have an easy record of all of your previous purchases.
                     </div>
                 </div>

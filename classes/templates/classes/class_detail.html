@@ -4,7 +4,7 @@
 {% block extra_title %}Class Information{% endblock %}
 
 {% block content %}
-<div class="container class-info-container mx-auto">
+<div class="main-container class-info-container mx-auto">
     <h1 class="page-title">{{ class.name }}</h1>
     <hr class="page-title-hr">
     <div class="row mt-4">
@@ -35,10 +35,10 @@
         </div>
         <div class="col-12 col-lg-1 divider"></div>
         <div class="col-12 col-lg-1"></div>
-        <div class="col-12 col-md-4">
-            <p class="info-text2 mb-1">Level: {{ class.level.friendly_name }}</p>
-            <p class="info-text2 mb-1">{{ class.description }}</p>
-            <p class="info-text2 mb-1">Duration: {{ class.duration|time:"H:i:s" }}</p>
+        <div class="col-12 col-md-4 class-details-container">
+            <p class="info-text2 mb-2">Level: {{ class.level.friendly_name }}</p>
+            <p class="info-text2 mb-2">Duration: {{ class.duration|time:"H:i:s" }}</p>
+            <p class="info-text2 mb-2">{{ class.description }}</p>
             <div class="mt-2">
                 <a href="{% url 'classes' %}" class="btn">All Classes</a>
                 <a href="{% url 'products' %}" class="btn">Shop Now!</a>

@@ -589,9 +589,12 @@ select option {
     }
     .authentication-container,
     .profile-container,
-    .checkout-container,
-    .bag-container {
+    .main-container {
         margin: 0 15px !important;
+    }
+    .artist-statement-container,
+    .class-details-container {
+        padding: 15px !important;
     }
     .home-break {
         width: 78%;
@@ -626,6 +629,10 @@ select option {
     }
     .message-container {
         right: 0px;
+    }
+    .artist-img-cont {
+        height: 280px;
+        width: 280px;
     }
 }
 
