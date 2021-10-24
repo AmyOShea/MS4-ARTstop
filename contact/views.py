@@ -40,7 +40,8 @@ def contact(request):
     form = ContactForm
 
     context = {
-        'form': form
+        'form': form,
+        'on_contact_page': True
     }
 
     return render(request, 'contact/contact.html', context)
