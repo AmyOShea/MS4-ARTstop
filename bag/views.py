@@ -6,10 +6,13 @@ from products.models import Product
 
 
 def view_bag(request):
+    """ A view to return the bag """
+
     return render(request, 'bag/bag.html')
 
 
 def add_to_bag(request, item_id):
+    """ Add product to bag """
 
     product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity'))
@@ -29,6 +32,7 @@ def add_to_bag(request, item_id):
 
 
 def edit_bag(request, item_id):
+    """ Edit products in bag """
 
     product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity'))
@@ -47,6 +51,7 @@ def edit_bag(request, item_id):
 
 
 def remove_from_bag(request, item_id):
+    """ Remove product from bag """
 
     product = get_object_or_404(Product, pk=item_id)
 
