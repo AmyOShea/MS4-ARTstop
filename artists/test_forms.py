@@ -4,14 +4,13 @@ Testing forms in the artists app
 
 from django.test import TestCase
 from .forms import ArtistForm
-from .models import Artist
 
 
 class TestArtistForm(TestCase):
     """
     Test that the artist form works
     """
-    
+
     def test_name_is_required(self):
         """
         Test if form submits without name field

@@ -2,12 +2,13 @@ from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
-from .models import Artist
 from products.models import Product
+from .models import Artist
 from .forms import ArtistForm
 
 
 def all_artists(request):
+    """ A view to show all artists """
 
     artists = Artist.objects.all()
     context = {
@@ -18,6 +19,7 @@ def all_artists(request):
 
 
 def artist_detail(request, artist_id):
+    """ A view to show artist details """
 
     artist = get_object_or_404(Artist, pk=artist_id)
     products = Product.objects.all()
@@ -32,6 +34,7 @@ def artist_detail(request, artist_id):
 
 @login_required
 def add_artist(request):
+    """ Add a artists to the store """
 
     if not request.user.is_superuser:
         messages.error(request, 'You are not authorized to do that.')
@@ -59,6 +62,7 @@ def add_artist(request):
 
 @login_required
 def edit_artist(request, artist_id):
+    """ Edit an artist """
 
     if not request.user.is_superuser:
         messages.error(request, 'You are not authorized to do that.')
@@ -88,6 +92,7 @@ def edit_artist(request, artist_id):
 
 @login_required
 def delete_artist(request, artist_id):
+    """ Delete an artist """
 
     if not request.user.is_superuser:
         messages.error(request, 'You are not authorized to do that.')
