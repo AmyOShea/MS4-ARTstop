@@ -1,5 +1,5 @@
 """
-This module tests the views in the home app
+Tests views in the faqs app
 """
 
 from django.test import TestCase
@@ -11,7 +11,7 @@ class TestFAQsViews(TestCase):
     """
     def test_page_access(self):
         """
-        Test faq page is accessible
+        Test faq's page is accessible
         """
-        response = self.client.get('/faqs/')
+        response = self.client.get('/')
         self.assertEqual(response.status_code, 200)
