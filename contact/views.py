@@ -8,11 +8,14 @@ from .forms import ContactForm
 
 
 def contact(request):
+    """
+    View to allow user to contact store owner
+    """
 
     cust_email = request.POST.get('contact_email')
 
     if request.method == 'POST':
-        contact = {
+        contact_form = {
             'name': request.POST.get('name'),
             'email': request.POST.get('contact_email'),
             'contact_as': request.POST.get('contact_as'),
@@ -20,11 +23,11 @@ def contact(request):
             }
         subject = render_to_string(
             'contact/contact_emails/contact_email_subject.txt',
-            {'contact': contact}
+            {'contact': contact_form}
         )
         body = render_to_string(
             'contact/contact_emails/contact_email_body.txt',
-            {'contact': contact}
+            {'contact': contact_form}
         )
         send_mail(
             subject,
