@@ -8,7 +8,10 @@ from .forms import ProductForm
 
 
 def all_products(request):
-
+    """
+    A view to show all products
+    including filtering & sorting
+    """
     products = Product.objects.all()
     categories = None
     sort = None
@@ -45,6 +48,7 @@ def all_products(request):
 
 
 def product_detail(request, product_id):
+    """ A view to show product details """
     product = get_object_or_404(Product, pk=product_id)
 
     context = {
@@ -55,6 +59,7 @@ def product_detail(request, product_id):
 
 @login_required
 def add_product(request):
+    """ Add product """
     if not request.user.is_superuser:
         messages.error(request, 'You are not authorized to do that.')
         return redirect(reverse('home'))
@@ -81,6 +86,7 @@ def add_product(request):
 
 @login_required
 def edit_product(request, product_id):
+    """ Edit product """
     if not request.user.is_superuser:
         messages.error(request, 'You are not authorized to do that.')
         return redirect(reverse('home'))
@@ -109,6 +115,7 @@ def edit_product(request, product_id):
 
 @login_required
 def delete_product(request, product_id):
+    """ Delete product """
     if not request.user.is_superuser:
         messages.error(request, 'You are not authorized to do that.')
         return redirect(reverse('home'))

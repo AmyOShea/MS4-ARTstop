@@ -4,7 +4,6 @@ Testing forms in the products app
 
 from django.test import TestCase
 from .forms import ProductForm
-from .models import Product
 
 
 class TestProductForm(TestCase):
