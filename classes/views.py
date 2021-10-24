@@ -8,6 +8,10 @@ from .forms import ClassForm
 
 
 def all_classes(request):
+    """
+    View to return all classes
+    including filtering & sorting
+    """
 
     classes = Class.objects.all()
     levels = None
@@ -44,6 +48,7 @@ def all_classes(request):
 
 
 def class_detail(request, class_id):
+    """ A view to show class details """
 
     # can't use 'class' as variable name as is reserved word
     a_class = get_object_or_404(Class, pk=class_id)
@@ -58,6 +63,7 @@ def class_detail(request, class_id):
 
 @login_required
 def add_class(request):
+    """ Add classes """
     if not request.user.is_superuser:
         messages.error(request, 'You are not authorized to do that.')
         return redirect(reverse('home'))
@@ -84,6 +90,7 @@ def add_class(request):
 
 @login_required
 def edit_class(request, class_id):
+    """ Edit classes """
 
     if not request.user.is_superuser:
         messages.error(request, 'You are not authorized to do that.')
@@ -113,6 +120,7 @@ def edit_class(request, class_id):
 
 @login_required
 def delete_class(request, class_id):
+    """ Delete classes """
 
     if not request.user.is_superuser:
         messages.error(request, 'You are not authorized to do that.')

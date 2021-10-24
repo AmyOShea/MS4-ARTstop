@@ -4,7 +4,6 @@ Testing forms in the classes app
 
 from django.test import TestCase
 from .forms import ClassForm
-from .models import Class
 
 
 class TestClassForm(TestCase):
