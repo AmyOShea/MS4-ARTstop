@@ -4,10 +4,7 @@ This module tests the views in the checkout app
 
 from django.test import TestCase
 
-from django.contrib.auth.models import User
 from django.contrib.messages import get_messages
-
-from products.models import Product, Category
 
 
 class TestCheckoutViews(TestCase):
