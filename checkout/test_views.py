@@ -5,6 +5,8 @@ This module tests the views in the checkout app
 from django.test import TestCase
 
 from django.contrib.messages import get_messages
+from django.shortcuts import reverse
+from django.contrib.auth.models import User
 
 
 class TestCheckoutViews(TestCase):
@@ -12,12 +14,25 @@ class TestCheckoutViews(TestCase):
     Test that the checkout works properly
     """
 
-    def test_cache_checkout_data(self):
+    def test_signin_or_guest_view(self):
         """
-        Test that the cache_checkout_data function responds correctly
+        Test the signin_or_guest page view
         """
-        response = self.client.get('/checkout/cache_checkout_data/')
-        self.assertEqual(response.status_code, 405)
+
+        # test user cannot access page if logged in
+        self.reg_user = User.objects.create_user(
+            username='admin',
+            password='0123',
+            email='admin@test.com',
+            )
+        self.client.force_login(self.reg_user)
+        response = self.client.get(reverse('signin_guest'))
+        self.assertEqual(response.status_code, 302)
+        self.client.logout()
+
+        # test user can access is not logged in
+        response = self.client.get(reverse('signin_guest'))
+        self.assertEqual(response.status_code, 200)
 
     def test_the_checkout_page_url_exists(self):
         """
