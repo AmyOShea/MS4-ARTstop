@@ -273,8 +273,6 @@ The checkout page allows the user to:
 
 ---
 
-
-
 ### **Contact page**
 
 The user can fill out a contact form and send a message to the site admin. This will send an email directly to the admin's email rather than to the admin console. 
@@ -288,6 +286,13 @@ The user can browse through the FAQ's page and have generic questions answered r
 ---
 
 ### **Emails**
+
+The site will send real emails when needed:
+
++ New customer registration
++ Order confirmation
++ User submits a query through the contact page
++ A user needs to update their password
 ---
 
 ### **Toasts**
@@ -309,7 +314,6 @@ There are four types of toasts that are displayed to the user when specific acti
 *These are just a few examples*
 
 ---
-
 
 ## Possible Future Features
 + A rating system that allows users to rate products after they have purchased. 

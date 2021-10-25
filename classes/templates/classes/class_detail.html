@@ -4,7 +4,7 @@
 {% block extra_title %}Class Information{% endblock %}
 
 {% block content %}
-<div class="main-container class-info-container mx-auto">
+<div class="container main-container class-info-container mx-auto">
     <h1 class="page-title">{{ class.name }}</h1>
     <hr class="page-title-hr">
     <div class="row mt-4">
@@ -41,7 +41,6 @@
             <p class="info-text2 mb-2">{{ class.description }}</p>
             <div class="mt-2">
                 <a href="{% url 'classes' %}" class="btn">All Classes</a>
-                <a href="{% url 'products' %}" class="btn">Shop Now!</a>
             </div>
             {% if request.user.is_superuser %}
                 <div class="mt-5">
