@@ -109,12 +109,215 @@ All Wireframes were designed for laptop/computer, iPad/tablet and phone display.
 ---
 # Features
 ## Current Features
+### **Navigation menu displayed across all pages**
+
+The navigation menu will help the user move easily across all pages.
+
+The navigation buttons update depending on whether a user is logged in or not, and whether that user is the admin:
+
+| Nav Link              |Not logged in  |Logged in as user|Logged in as admin
+|:-------------         |:------------- |:----------------|:------------- |
+|Logo(back to home)     |&#9989;        |&#9989;          |&#9989;
+|Product Management     |&#10060;       |&#10060;         |&#9989;
+|Artist Management      |&#10060;       |&#10060;         |&#9989;
+|Class Management       |&#10060;       |&#10060;         |&#9989;
+|My Profile             |&#10060;       |&#9989;          |&#9989;
+|Sign Out               |&#10060;       |&#9989;          |&#9989;
+|Register               |&#9989;        |&#10060;         |&#10060;
+|Sign In                |&#9989;        |&#10060;         |&#10060;
+|All Products           |&#9989;        |&#9989;          |&#9989;
+|Prints                 |&#9989;        |&#9989;          |&#9989;
+|Originals              |&#9989;        |&#9989;          |&#9989;
+|Classes                |&#9989;        |&#9989;          |&#9989;
+|Artists                |&#9989;        |&#9989;          |&#9989;
 
 
+### **User registration not required**
+
+It was important that the user was given the option to purchase from the store without having to register for an account. It's a personal pet peeve of mine to have to make accounts on online stores when I'm not guaranteed to go back again and art isn't necessarily a regular purchase. 
+
+Even if a user doesn't have an account, they are still able to purchase, input a delivery address and have a confirmation email sent to them when they have completed a purchase. 
+
+### **User profile creation**
+
+A user has an option to create an account if they want to. 
+Registration process:
+
++ Username
+   + A user can choose a username as long as it hasn't already been taken
+   + The user will receive an error notification immediately if their username has already been taken
+
++ Email address
+   + A user needs to sign up using an email address
+   + The email has to be inputted twice to avoid typo issues
+   + This triggers an automatic email to be sent to the user to confirm the email address as correct and set up the account. 
+
++ Password
+   + The password has to be inputted twice to avoid typo issues
+
+With a user profile: 
++ the user has access to the class videos. 
++ order history is saved & displayed in their profile.
++ Save default delivery information to their profile from the checkout page.
++ Update default delivery information to their profile from their profile page.
+
+---
+
+### **Products Page**
+
+All users can browse through the available products.
+Products can be sorted by:
++ Price
++ Name
++ Artist
+
+All products fall into either **originals** or **prints** and are then filtered by their categories:
+
++ Originals:
+   + Watercolour Paintings
+   + Acrylic Paintings
+   + Oil Paintings
+   + Mixed Media
+
++ Prints:
+   + Photographs
+   + Art Prints
+   + Digital Art
+
+If a user wants to know more about a product, they can click it and open the product detail page.
+
+---
+
+### **Product Details Page**
+
+From the product detail page, the user can view:
++ Product name
++ Product artist
++ Product category
++ Product price 
++ Product description 
+
+The user can can then either go back to the products page, add a single item to ther bag or adjust the quantity to add to the bag
+
+---
+
+### **Artists Page**
+
+All users can browse through the artists. If a user wants to know more about a artist, they can click it and open the artist detail page.
+
+---
+
+### **Artist Details Page**
+
+From the product detail page, the user can view:
++ Artist name
++ Artist statement
++ Artist's external contact links
+
+At the bottom of the artist detail page the user can view images of the work that the particular artist has for sale on the site. The user can click on any of the images an be directed to that product's detail page.
+
+---
+
+### **Classes Page**
+
+All users can browse through the classes available. The classes categories are **beginner**, **intermediate*** and **advanced** and can be filtered as such. If a user wants to know more about a class, they can click it and open the class detail page.
+
+---
+
+### **Class Details Page**
+
+From the product detail page, the user can view:
++ Class name
++ Class level
++ Class duration
++ Class descripton
+
+If the user is logged in, they will be able to access the video file and play it. 
+
+If the user is not logged in, they will be asked to either sign in or register for an account - links to both options are provided.
+
+---
+
+### **Admin CRUD functionality**
+
+As well as all of the abpve features(read), the admin can add, edit and delete products, artists and classes from the site - they don't have to visit the admin panel for this. 
++ Add(*Create*): 
+From the 'My Account' dropdown, the admin can choose 'Product Management', 'Artists Management' or 'Class Management'. This allows them to create the item by filling in the form.
+
++ Edit(*Update*): 
+From the item detail page, the admin has an edit button that will direct them to the edit page. All of the form fields wil be populated with the item information that can then be updated and saved. 
+
++ Delete(*Delete*)
+From the item detail page, the admin has a delete button that will trigger a confirmation modal. Once the admin confirms deletion, the item will be removed from the database
+
+---
+
+### **Bag**
+
+A user can open the bag page at any point and see what items thay have in there. 
+
+From here a user can update product quantities, remove items from the bag or access the checkout page. 
+
+---
+
+### **Checkout**
+
+The checkout page allows the user to:
++ use their default delivery address(if they have an account, are logged in and have saved those details)
++ input new delivery information if needed or are checking out as a guest
++ update their profile with the inputted edlivery information(if they have an account and are logged in)
++ Pay via Stripe for secure payments
++ A loading screen will appear when a payment is being processed to stop the user clicking away
++ If the payment form doesn't submit properly or the user closes the browser during the wait animation, Stripe will still create the order for the user. 
++ An email wil be sent to the user with their order confirmation
+
+---
+
+
+
+### **Contact page**
+
+The user can fill out a contact form and send a message to the site admin. This will send an email directly to the admin's email rather than to the admin console. 
+
+---
+
+### **FAQ's page**
+
+The user can browse through the FAQ's page and have generic questions answered rather than have to contact the site admin.
+
+---
+
+### **Emails**
+---
+
+### **Toasts**
+
+There are four types of toasts that are displayed to the user when specific actions happen. This keeps the user informed about what is happening when it happens. The toasts are:
+
++ Success
+   + When a user sucessfuly signs in/signs out
+   + When a user adds a product to a bag
+   + When an admin adds/edits items
++ Info
+   + When a user is viewing previous order details
++ Warning
+   + Stripe key not found 
++ Error
+   + When a user is trying to access a page they are not autorized to
+   + When an admin's CRUD action fails
+
+*These are just a few examples*
+
+---
 
 
 ## Possible Future Features
-
++ A rating system that allows users to rate products after they have purchased. 
+  + This could lead to sorting by top-rated products.
++ Ability to 'save' products to a users own account to refer back to.
++ Users ability to delete their account.
++ Admin controlled 'featured' products, artists and classes.
++ Subscriptions for full length courses rather than just individual one-off classes.
 
 ---
 ---
