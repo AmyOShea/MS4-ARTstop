@@ -4,7 +4,7 @@ ARTstop is an online shop that allows users to purchase a variety of art works f
 
 You can find the live site [here](https://ms4-artstop.herokuapp.com/)
 
-![Main site image](#)
+![Main site image](docs/readme-header-image.PNG)
 
 ---
 ---
@@ -331,12 +331,35 @@ There are four types of toasts that are displayed to the user when specific acti
 ---
 ---
 # Technologies Used
+# Technologies Used
 ## Languages
-
++ [HTML5](https://en.wikipedia.org/wiki/HTML5)
++ [CSS3](https://en.wikipedia.org/wiki/CSS)
++ [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
++ [Python3](https://www.python.org/)
 
 ## Frameworks and Libraries
++ [Django](https://www.djangoproject.com/)
++ [Pip3](https://pip.pypa.io/en/stable/)
++ [jQuery](https://jquery.com/)
++ [FontAwesome](https://fontawesome.com/)
++ [Google Fonts](https://fonts.google.com/) 
 
 ## All Others
++ [Heroku](https://www.heroku.com/) used to deploy live site.
++ [Stripe] (https://stripe.com/en-ie) used for the payments system.
++ [AWS](https://aws.amazon.com/) used for file storage.
++ [GitHub](https://github.com/) used to host repository.
++ [GitPod](https://www.gitpod.io/) used to develop project and organise version control.
++ [Adobe Photoshop](https://www.adobe.com/ie/products/photoshop.html) used to cut and re-frame site images. 
++ [Balsamiq](https://balsamiq.com/) used to create wireframes.
++ [RandomKeygen](https://randomkeygen.com/) used to create a strong password for required  `<SECRET_KEY>`.
++ [Transfonter](https://transfonter.org/) used to convert font from .tff to .woff and .woff2.
++ [Lighthouse](https://developers.google.com/web/tools/lighthouse) for performance review.
++ [PowerMapper](https://www.powermapper.com/) used to check compatibility with older browsers.
++ [Responsinator](https://www.responsinator.com/) used to check site was responsive on different screen sizes.
++ [Am I Responsive](http://ami.responsivedesign.is/) used to generate README intro image.
++ [favicon.io](https://favicon.io/) used to create a site favicon.
 
 ---
 ---
