@@ -22,6 +22,7 @@ You can find the live site [here](https://ms4-artstop.herokuapp.com/)
 + [Features](#features)
   + [Current Features](#current-features)
   + [Possible Future Features](#possible-future-features)
+  + [Defensive Design Features](#defensive-design-features)
 + [Database](#database)
 + [Technologies Used](#technologies-used)
   + [Languages](#languages)
@@ -322,6 +323,35 @@ There are four types of toasts that are displayed to the user when specific acti
 + Users ability to delete their account.
 + Admin controlled 'featured' products, artists and classes.
 + Subscriptions for full length courses rather than just individual one-off classes.
+
+## Defensive Design Features
+
+Below are the steps that I have taken with regards to defensive design:
+
++ Form validation:
+   + If incorrect data is added to a form, the form won't submit and a warning will appear to the user
+   + Image files are vefified by Django's ImageField
+   + Video files are verified by the FileExtensionValidator in the models.py file
+
++ Adding products to bag:
+   + A user cannot add more than 99 quantity of a product
+   + A user cannot add 0 quantity of a product
+   + If an item is in a bag an the user changes the quantity to 0, the item will be removed
+
++ Default images:
+   + The images have been set to required but if for any reason this fails, there is a default image that will take it's place
+   + A default image has been created for the event that a video is not uploaded or a URL link added
+
++ Custom error pages:
+   + A 404 error page will show if the user treis to visit a page that doesn't exist. There are buttons on the page for the user to redirect themselves
+   + A 500 error page will show if an internal server error occurs on the site. There are buttons on the page for the user to redirect themselves
+
++ Authenticated vs unauthenticated user pages:
+   + The @login_required decorator has been used to make sure that secure pages stay off limites to unauthenticated users
+   + If an authenticted user tries to access the 'signin_or_guest' page via URL, they will be redirected to the checkout page(if they have items in their bag)
+   + If a user with no bag items tries to access the checkout page via URL, they will be redirected to the products page and receive a notification
+   + If an unauthenticted user tries to access a restricted page they will be redirected
+   + If an authenticted user without admin privilege tried to go to an admin-only page via a URL, they will be redirected to the home page and receive a notification
 
 ---
 ---
