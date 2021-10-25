@@ -13,10 +13,10 @@ class TestLevelModel(TestCase):
 
     def test_string_method_returns_name(self):
         """ Test level name returns as string """
-        level = Level.objects.create(name='test_level_name')
+        level = Level.objects.create(name='test_level_name', friendly_name='Test level name')
         self.assertEqual(str(level), 'test_level_name')
-
-
+        self.assertEqual(level.get_friendly_name(), 'Test level name')
+    
 class TestClassModel(TestCase):
     """
     Test Class model
