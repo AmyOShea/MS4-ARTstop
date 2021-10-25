@@ -560,6 +560,10 @@ select option {
         position: relative;
         z-index: 10;
     }
+    .class-info-container,
+    .artist-info-container {
+        width: auto !important;
+    }
 }
 
 @media only screen and (max-width: 767px) {

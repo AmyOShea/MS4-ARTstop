@@ -16,16 +16,14 @@
                     {% if bag_items %}
                         {% for item in bag_items %}
                             <div class="row">
-                                <div class="col-12 col-sm-3 mt-2">
+                                <div class="col-6 col-sm-3 mt-2">
                                     <img src="{{ item.product.image.url }}" class="bag-img" alt="{{ item.product.name }}">
                                 </div>
-                                <div class="col-12 col-sm-2 mt-2">
-                                    "{{ item.product.name }}"
+                                <div class="col-6 col-sm-2 mt-2">
+                                    <p>"{{ item.product.name }}"</p>
+                                    <p>€{{ item.product.price }}</p>
                                 </div>
-                                <div class="col-12 col-sm-2 mt-2">
-                                    €{{ item.product.price }}
-                                </div>
-                                <div class="col-12 col-sm-3 mt-2">
+                                <div class="col-6 col-sm-3 mt-2">
                                     <a class="update-link">Update</a>
                                     <form class="update-form" method="POST" action="{% url 'edit_bag' item.item_id %}">
                                         {% csrf_token %}
@@ -40,11 +38,12 @@
                                     </form>
                                     <a class="remove-item" id="remove_{{ item.item_id }}">Remove</a>
                                 </div>
-                                <div class="col-12 col-sm-2 mt-2">
-                                    €{{ item.product.price | calc_subtotal:item.quantity }}
+                                <div class="col-6 col-sm-2 mt-2">
+                                    <p>Subtotal:</p>
+                                    <p>€{{ item.product.price | calc_subtotal:item.quantity }}</p>
                                 </div>
                             </div>
-                            <hr>
+                            <hr class="page-title-hr mt-3">
                         {% endfor %}
                         <div class="ml-auto text-right mt-3">
                             <p>Subtotal: €{{ total|floatformat:2 }}</p>
