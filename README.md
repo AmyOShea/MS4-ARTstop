@@ -328,9 +328,68 @@ There are four types of toasts that are displayed to the user when specific acti
 
 # Database
 
+Two relational databases were used to create this site - during production SQLite was used and then Postgres was used for the deployed Heroku version. 
+Below is an image of how the database models relate to each other:
+
+![Main site image](docs/database-schema.png)
+
+## Products
+
++ This model stores the product details that the user can buy from the site
++ This model pulls information from the categories model to catagorize the type of product being sold
++ This model pulls information from the artists model to determine who made the product
++ This model sends information to the OrderLineItem model to create the purchase
+
+
+## Categories
+
++ This model stores the product category details
++ This model sends information to the products model to catagorize the type of product being sold
+
+## Artists
+
++ This model stores the artist details that the user can browse through
++ This model sends information to the products model to determine who made the product
+
+
+## OrderLineItem
+
++ This model stores a product that has been added to the users bag
++ This model pulls information from the products model to add them to the users order
++ This model sends information to the Order model to update the order information
+
+## Order
+
++ This model stores the full order information
++ This model pulls information from the OrderLineItem model to add products to the order
++ This model pulls information from the UserProfile model to attach the order to their profile
+
+## UserProfile
+
++ This model stores the users delivery and order information
++ This model pulls information from the User model to create the profile
++ This model sends information to the Order model to attach the order to their profile
+
+## User
+
++ This model stores the user registration information
++ This model sends information to the UserProfile model to create the profile
+
+<br>*the two models below are not connected to the models above*
+
+## Classes
+
++ This model stores the class details that the user can watch
++ This model pulls information from the Levels model to catagorize the difficuly level
+
+## Levels
+
++ This model stores the class difficulty level details
++ This model sends information to the Classes model to catagorize the difficuly level
+
 ---
 ---
-# Technologies Used
+
 # Technologies Used
 ## Languages
 + [HTML5](https://en.wikipedia.org/wiki/HTML5)
@@ -347,7 +406,7 @@ There are four types of toasts that are displayed to the user when specific acti
 
 ## All Others
 + [Heroku](https://www.heroku.com/) used to deploy live site.
-+ [Stripe] (https://stripe.com/en-ie) used for the payments system.
++ [Stripe](https://stripe.com/en-ie) used for the payments system.
 + [AWS](https://aws.amazon.com/) used for file storage.
 + [GitHub](https://github.com/) used to host repository.
 + [GitPod](https://www.gitpod.io/) used to develop project and organise version control.

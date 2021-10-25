@@ -23,6 +23,9 @@
         <div class="col-12 col-md-6 lg-4 product-info-text">
             <p class="info-text artist-name mb-2"><strong>{{ product.artist }}</strong></p>
             <p class="info-text mb-1">{{ product.description }}</p>
+            {% if product.size %}
+                <p class="info-text mb-1">{{ product.size }}</p>
+            {% endif %}
             {% if product.category %}
                 <p class="info-text mb-1">{{ product.category.friendly_name }}</p>
             {% endif %}
