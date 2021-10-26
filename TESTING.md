@@ -4,6 +4,7 @@
 + [Lighthouse Testing](#lighthouse-testing)
 + [PowerMapper Compatibility](#powermapper-compatibility)
 + [Testing From User Stories](#testing-from-user-stories)
++ [Automated Testing](#automated-testing)
 + [Manually Testing Functionality](#manually-testing-functionality)
 + [Responsive Testing](#responsive-testing)
 + [Bugs and Fixes](#bugs-and-fixes)
@@ -15,16 +16,13 @@
 
  I checked all of the HTML pages using [W3C Markup Validation Service](https://validator.w3.org/)
 
-
  All pages passed all checks. 
 
 ### **CSS**
 
-
 ### **JavaScript**
 
 I checked the script.js file using [JSHint](https://jshint.com/)
-
 
 ### **Python**
 I checked the app.py file using [PEP8 online](http://pep8online.com/)
@@ -35,18 +33,13 @@ The code passed all checks.
 ---
 ## Lighthouse Testing
 
-
-
 ### **Performance**
 
-
 ### **Accessibility**
-
 
 ### **Best Practices**
 
 ### **SEO**
-
 
 ---
 ---
@@ -58,7 +51,6 @@ I used [PowerMapper](https://www.powermapper.com/) to test cross-browser compatb
 ---
 ## Testing From User Stories
 
-
 ### As an unregistered, I want to 
 
   + *be able to browse through all products available.*
@@ -67,17 +59,23 @@ All users, regardless of registered/logged in status, can browse through all pro
 
 <img alt="Unregistered user story" src="docs/user-stories/unregistered-01.PNG" width="700">
 
+---
+
   + *have the ability browse through the artists promoted on the site.*
 
 All users, regardless of registered/logged in status, can browse through the promoted artists:
 
 <img alt="Unregistered user story" src="docs/user-stories/unregistered-02.PNG" width="700">
 
+---
+
   + *have the ability to contact the artists promoted on the site.*
 
 All users, regardless of registered/logged in status, can contact the promoted artist IF they have given contact information:
 
 <img alt="Unregistered user story" src="docs/user-stories/unregistered-03.PNG" width="700">
+
+---
 
   + *have the ability browse through the classes available on the site.*
 
@@ -89,15 +87,21 @@ However, class videos cannot be played without user authentication:
 
 <img alt="Unregistered user story" src="docs/user-stories/unregistered-04b.PNG" width="700">
 
+---
+
   + *have generic questions answered without having to contact the store owner/admin.*
 
 All users, regardless of registered/logged in status, can view the FAQ's page:
 
-<img alt="Unregistered user story" src="docs/user-stories/unregistered-08.PNG" width="700">
+<img alt="Unregistered user story" src="docs/user-stories/unregistered-08.png" width="700">
+
+---
 
   + *be able to view my bag and any items I currently have awaiting payment in my bag.*
 
 <img alt="Registered user story" src="docs/user-stories/registered-05.PNG" width="700">
+
+---
 
   + *be able to add, edit quantity and remove items from my bag.*
 
@@ -105,17 +109,23 @@ All users, regardless of registered/logged in status, can make changes to their 
 
 <img alt="Unregistered user story" src="docs/user-stories/unregistered-05.PNG" width="700">
 
+---
+
   + *be able to purchase from the site without having to register for an account.*
 
 All users, regardless of registered/logged in status, can purchase from the store. Unregistered/unauthenticated users will be directed to the below page to either choose to sign up/sign in, or they can continue as guest:
 
 <img alt="Unregistered user story" src="docs/user-stories/unregistered-06.PNG" width="700">
 
+---
+
   + *recieve email confirmation on any orsers that I placed.*
 
 Once a customer has placed an order and they are redirected to the confirmation page, they receive an email with their order and delivery information:
 
 <img alt="Unregistered user story" src="docs/user-stories/unregistered-09.PNG" width="700">
+
+---
 
   + *have the ability to register to the site if I choose to.*
 
@@ -133,7 +143,9 @@ A registered user can log in via the login page. This can be accessed from the n
 
 <img alt="Registered user story" src="docs/user-stories/registered-01.PNG" width="700">
 
-  + *have a record of any purchases that I have made in the past and view them in detail.
+---
+
+  + *have a record of any purchases that I have made in the past and view them in detail.*
 
 From a registered users profile page, previous order details can be accessed:
 
@@ -143,11 +155,15 @@ This will be a replica of the order confirmation page but with a few adjustments
 
 <img alt="Registered user story" src="docs/user-stories/registered-02b.PNG" width="700">
 
+---
+
   + *be able to update my shipping information.*
 
 From a registered users profile page, default information can be added/updated:
 
 <img alt="Registered user story" src="docs/user-stories/registered-03.PNG" width="700">
+
+---
 
   + *be able to update my shipping information from the checkout page.*
 
@@ -157,6 +173,8 @@ Also, if the user wants to add the new delivery information to their account, th
 
 <img alt="Registered user story" src="docs/user-stories/registered-04.PNG" width="400">
 
+---
+
   + *be able to view the class videos offered.*
 
 <img alt="Registered user story" src="docs/user-stories/registered-06.PNG" width="700">
@@ -164,6 +182,8 @@ Also, if the user wants to add the new delivery information to their account, th
 ---
 
 ### As the site administrator, I want to
+
+---
 
   + *be able to log in to an admin panel.*
 
@@ -193,16 +213,150 @@ To ensure that an item isn't deleted by mistake, a confirmation has been added t
 <img alt="Admin user story" src="docs/user-stories/admin-02h.PNG" width="700">
 <img alt="Admin user story" src="docs/user-stories/admin-02i.PNG" width="700">
 
+---
+
   + *receive email notifications when a user submits through the contact page.*
 
 When a message is sent via the contact form, an email is sent to the admins designated email:
 
 <img alt="Admin user story" src="docs/user-stories/admin-03.PNG" width="700">
 
-*I set up a specific email account for this prject to keep it sperate from my personal email account*
+*I set up a specific email account for this prject to keep it seperate from my personal email account*
 
 ---
 ---
+
+## Automated Testing
+
+Automated Unit Testing was carried out with Djangos testing tools and written to cover as much of the site as possible. Below is an overview of each app and what was tested.
+
+### Artists App
+
++ Models
+   + test that name is returned as string
+
++ Views
+   + test that the all artists view works
+   + test that the artist detail view works
+   + test that the artist detail view works
+   + test that the add_artist view ony works for admins
+   + test that the edit_artist view ony works for admins
+   + test that the admin can edit an artist
+   + test that only the admin can delete an artist
+
++ Forms
+   + test that specific fields are required
+   + test that an error message appears if form is incorrect
+
+![coverage report](docs/coverage-reports/artists.PNG)
+
+### Bag App
+
++ Models
+   + test the bag url exists
+   + test item can be added to bag
+
+![coverage report](docs/coverage-reports/bag.PNG)
+
+### Checkout App
+
++ Models
+   + test that order number is returned as string
+
++ Views
+   + test that the signin_guest view only viewable for unauthenticated users
+   + test that the checkout page url exists
+   + test that the user gets an error message if they try to access the checkout with an empty bag
+
++ Forms
+   + test that specific fields are required
+   + test that correct fields are being displayed to the user on the form
+
+![coverage report](docs/coverage-reports/checkout.PNG)
+
+### Classes App
+
++ Models
+   + test that level name is returned as string
+   + test that level friendly name is returned
+   + test that class name is returned as string
+
++ Views
+   + test that the all artists view works
+   + test that the artist detail view works
+   + test that the artist detail view works
+   + test that the add_artist view ony works for admins
+   + test that the edit_artist view ony works for admins
+   + test that the admin can edit an artist
+   + test that only the admin can delete an artist
+
++ Forms
+   + test that specific fields are required
+   + test that an error message appears if form is incorrect
+
+![coverage report](docs/coverage-reports/classes.PNG)
+
+### Contact App
+
++ Models
+   + test that name is returned as string
+
++ Views
+   + test home url
+
++ Forms
+   + test that all fields are required
+   + test that an error message appears if form is incorrect
+
+![coverage report](docs/coverage-reports/contact.PNG)
+
+### FAQ's App
+
++ Views
+   + test home url
+
+![coverage report](docs/coverage-reports/faqs.PNG)
+
+### Home App
+
++ Views
+   + test home url
+
+![coverage report](docs/coverage-reports/home.PNG)
+
+### Products App
+
++ Models
+   + test that category name is returned as string
+
++ Views
+   + test that the all products view works
+   + test that the product detail view works
+   + test that the product detail view works
+   + test that the add_product view ony works for admins
+   + test that the edit_product view ony works for admins
+   + test that the admin can edit a product
+   + test that only the admin can delete a product
+
++ Forms
+   + test that specific fields are required
+   + test that an error message appears if form is incorrect
+
+![coverage report](docs/coverage-reports/products.PNG)
+
+### Profiles App
+
++ Views
+   + test that user can access profile page if logged in
+   + test that unauthenticated user gets redirected when trying to access the profile page
+   + test that user can update default delivery information
+   + test that user can view order history
+
++ Forms
+   + test that no form fields are required
+
+![coverage report](docs/coverage-reports/profiles.PNG)
+
 ## Manually Testing Functionality
 ### **Navigation**
 
