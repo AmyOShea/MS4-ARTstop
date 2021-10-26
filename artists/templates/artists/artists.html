@@ -23,9 +23,9 @@
                     <a href="{% url 'artist_detail' artist.id %}">
                         <div>
                             {% if artist.image %}
-                                <img src="{{ artist.image.url }}" alt="{{ artist.name }}"class="card-img img-fluid">
+                                <img src="{{ artist.image.url }}" alt="{{ artist.name }}" class="card-img img-fluid">
                             {% else %}
-                                <img src="{{ MEDIA_URL }}no-image.png" alt="{{ artist.name }}"class="card-img img-fluid">
+                                <img src="{{ MEDIA_URL }}no-image.png" alt="{{ artist.name }}" class="card-img img-fluid">
                             {% endif %}
                         </div>
                         <div class="card-text">

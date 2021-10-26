@@ -1,7 +1,7 @@
 {% if widget.is_initial %}
     <p>{{ widget.initial_text }}:</p>
     <a href="{{ widget.value.url }}" target="blank">
-        <img width="100" src="{{ widget.value.url }}">
+        <img width="100" src="{{ widget.value.url }}" alt="artist image">
     </a>
     <br>
     {{ widget.input_text }}
@@ -9,4 +9,4 @@
 <span class="btn btn-file">
     Select Artist Image <input id="new-image" type="{{ widget.type }}" name="{{ widget.name }}"{% include "django/forms/widgets/attrs.html" %}>
 </span>
-<strong><p id="filename"></p></strong>
+<p id="filename"><strong></strong></p>
