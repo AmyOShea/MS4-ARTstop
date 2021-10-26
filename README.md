@@ -1,7 +1,6 @@
 # ARTstop
 ARTstop is an online shop that allows users to purchase a variety of art works from different artists. It also promotes artists and lets registered users take online classes to improve their own artistic skills. 
 
-
 You can find the live site [here](https://ms4-artstop.herokuapp.com/)
 
 ![Main site image](docs/readme-header-image.PNG)
@@ -87,6 +86,9 @@ The dark grey will be used for the majority of the text.
 ### Typography
 I chose the [Abel](https://fonts.google.com/specimen/Abel) font for the text throughout the site. I like the simplicity of a san serif font but Able has a little bit of personality. 
 
+I chose the [Milstone Outline](https://www.dafont.com/milestone-outline.font) font for the hero section of the home page. I thought it was an interesting font that added a little bit of flair to the site. 
+
+I chose the [Yaldevi](https://fonts.google.com/specimen/Yaldevi?query=Yaldevi) font for the logo text in the header. I think it works well with the Able font.
 
 ### Imagery
 
@@ -99,12 +101,12 @@ The home page uses shapes in the accent colours and a few selected works to give
 
 ## Wireframes and Initial Design
 
-### Wireframes
-All Wireframes were designed for laptop/computer, iPad/tablet and phone display.
-+ All wireframes [here](#)
+[Initial wireframes here](docs/MS4-wireframes.pdf)
+All Wireframes were designed for laptop/computer, iPad/tablet and phone display:
 
-### Design Mock Up
-+ All designs [here](#)
+[Initial design idea here](docs/MS4-design.pdf)
+
+As the project progressed, some element placement was tweaked and updated. However, I think that the layout changes were not so drastic that they warrented new wireframes to be designed. 
 
 ---
 ---
@@ -634,6 +636,8 @@ The following videos were used to gain a better understanding of automated testi
 + Artists statements were taken from [here](https://www.examples.com/business/artist-statement.html) except Holly Marie Ingrams statement which was taken from [her website](https://hollyartist.com/about)
 
 + All images have been credited in the [MEDIA-CREDITS](https://github.com/AmyOShea/MS4-ARTstop/blob/main/MEDIA-CREDITS.md) file
+
++ The fonts that were used are credited in the [Typography](#typography) section
 
 ### Media
 
