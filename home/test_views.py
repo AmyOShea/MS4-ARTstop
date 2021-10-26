@@ -5,13 +5,13 @@ This module tests the views in the home app
 from django.test import TestCase
 
 
-class TestFAQsViews(TestCase):
+class TestHomeViews(TestCase):
     """
-    Test the faq's views
+    Test the home page views
     """
     def test_page_access(self):
         """
-        Test faq page is accessible
+        Test home page is accessible
         """
-        response = self.client.get('/faqs/')
+        response = self.client.get('/')
         self.assertEqual(response.status_code, 200)

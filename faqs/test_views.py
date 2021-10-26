@@ -13,5 +13,5 @@ class TestFAQsViews(TestCase):
         """
         Test faq's page is accessible
         """
-        response = self.client.get('/')
+        response = self.client.get('/faqs/')
         self.assertEqual(response.status_code, 200)
