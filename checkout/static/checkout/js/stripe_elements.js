@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 /*
     Core taken from Stripe:
     https://stripe.com/docs/payments/accept-a-payment

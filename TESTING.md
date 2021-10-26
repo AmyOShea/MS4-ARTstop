@@ -14,23 +14,98 @@
 ## Validator Testing
 ### **HTML**
 
- I checked all of the HTML pages using [W3C Markup Validation Service](https://validator.w3.org/)
+I checked all of the HTML pages using [W3C Markup Validation Service](https://validator.w3.org/)
 
- All pages passed all checks. 
+Errors found & fixed: 
++ Base Tamplate:
+   + duplicate ID's
+
++ Home Page:
+   + Alt tags on images
+
++ Artists Page:
+   + No space between attributes
+
++ Add Artist Page
+   + Element p not allowed as child of element strong
+
++ Edit Artist Page
+   + Alt tag on image
+
++ Bag Page
+   + **The type attribute is unnecessary for JavaScript resources.**(keeping this)
+
++ Add Class Page
+   + Element p not allowed as child of element strong
+
++ Edit Class Page
+   + Alt tag on image
+
++ Add Product Page
+   + Element p not allowed as child of element strong
+
++ Edit Product Page
+   + Alt tag on image
+
++ Sign Out Page
+   + Stray div tag 
+
++ Password Reset Page
+   + Stray div tag
+
+While some of the errors were simple fixes, other were a lot harder to understand how to fix: 
+
+**Error: Duplicate attribute id**
+
+This error was noted on the following pages:
++ Add Artist Page
++ Edit Artist Page
++ Add Class Page
++ Edit Class Page
++ Add Product Page
++ Edit Product Page
+
+In the ``custom_clearable_file_input.html`` file in each of the 3 apps, the image input field has an *id="new-image"* attribute added. But there seems to be another one generated in the form: *id="id_image"*.
+
+If I remove the id from the widget, the file name won't display when uploaded to the form. 
+
+I can't find where the second id is being generated to be able to remove it or add *id_image* to the widget id. 
+
+**The value of the for attribute of the label element must be the ID of a non-hidden form control.**
+
+This error was noted on the following pages:
+
++ Add Class Page
++ Edit Class Page
+
+This was a lot harder to figure out as none of the form elements are hidden.  
+
+If I had more time I would work on resolving these issue but at this point it's a matter of a deadline, but they're something that I will definitely be going back over.
 
 ### **CSS**
 
+I had three CSS files that were checked using [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/)
+
 ### **JavaScript**
 
-I checked the script.js file using [JSHint](https://jshint.com/)
+I checked the all the JavaScript files using [JSHint](https://jshint.com/)
+
+There were a few missing semicolons and ES6 version issues but they were easy fixes. 
+
+One error that I found that I was in the checkout javascript file:
+
+![JS valiadation error](docs/bugs-and-fixes/js-validation-error.PNG)
+
+Because the code comes from Strip itself, I don't want to touch this and am happy to leave it alone. 
 
 ### **Python**
-I checked the app.py file using [PEP8 online](http://pep8online.com/)
+I checked the Py files using [PEP8 online](http://pep8online.com/)
 
 The code passed all checks.
 
 ---
 ---
+
 ## Lighthouse Testing
 
 ### **Performance**
@@ -43,12 +118,14 @@ The code passed all checks.
 
 ---
 ---
+
 ## PowerMapper Compatibility
 
 I used [PowerMapper](https://www.powermapper.com/) to test cross-browser compatbility on other browsers that I don't have access to.
 
 ---
 ---
+
 ## Testing From User Stories
 
 ### As an unregistered, I want to 
@@ -967,6 +1044,7 @@ Through devices that I have at home/readily available to me, I was able to conti
 
 ---
 ---
+
 ## Bugs and Fixes
 
 ### **Bag Total Issue**

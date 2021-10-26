@@ -1,9 +1,10 @@
+/*jshint esversion: 6 */
 
 // Update quantity of item in bag
 $('.update-link').click(function (e) {
     var form = $(this).next('.update-form');
     form.submit();
-})
+});
 
 // Remove item from bag
 $('.remove-item').click(function (e) {
@@ -18,4 +19,4 @@ $('.remove-item').click(function (e) {
         .done(function () {
             location.reload();
         });
-})
+    });

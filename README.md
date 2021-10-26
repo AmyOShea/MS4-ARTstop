@@ -372,7 +372,6 @@ Below is an image of how the database models relate to each other:
 + This model pulls information from the artists model to determine who made the product
 + This model sends information to the OrderLineItem model to create the purchase
 
-
 ## Categories
 
 + This model stores the product category details
@@ -382,7 +381,6 @@ Below is an image of how the database models relate to each other:
 
 + This model stores the artist details that the user can browse through
 + This model sends information to the products model to determine who made the product
-
 
 ## OrderLineItem
 
@@ -434,7 +432,8 @@ Below is an image of how the database models relate to each other:
 + [Pip3](https://pip.pypa.io/en/stable/)
 + [jQuery](https://jquery.com/)
 + [FontAwesome](https://fontawesome.com/)
-+ [Google Fonts](https://fonts.google.com/) 
++ [Google Fonts](https://fonts.google.com/)
++ [Bootstrap](https://getbootstrap.com/)
 
 ## All Others
 + [Heroku](https://www.heroku.com/) used to deploy live site.
@@ -442,7 +441,8 @@ Below is an image of how the database models relate to each other:
 + [AWS](https://aws.amazon.com/) used for file storage.
 + [GitHub](https://github.com/) used to host repository.
 + [GitPod](https://www.gitpod.io/) used to develop project and organise version control.
-+ [Adobe Photoshop](https://www.adobe.com/ie/products/photoshop.html) used to cut and re-frame site images. 
++ [ResizeImage.net](https://resizeimage.net/) used to cut and re-size site images. 
++ [Canva](https://www.canva.com/) used for the inital design. 
 + [Balsamiq](https://balsamiq.com/) used to create wireframes.
 + [RandomKeygen](https://randomkeygen.com/) used to create a strong password for required  `<SECRET_KEY>`.
 + [Transfonter](https://transfonter.org/) used to convert font from .tff to .woff and .woff2.
@@ -451,6 +451,8 @@ Below is an image of how the database models relate to each other:
 + [Responsinator](https://www.responsinator.com/) used to check site was responsive on different screen sizes.
 + [Am I Responsive](http://ami.responsivedesign.is/) used to generate README intro image.
 + [favicon.io](https://favicon.io/) used to create a site favicon.
++ [ClipConverter](https://www.clipconverter.cc/2/) used to download and convert YouTube videos.
++ [Autoprefixer](https://autoprefixer.github.io/) used to make CSS cross-browser compatible..
 
 ---
 ---
@@ -554,7 +556,6 @@ Heroku needs to know which technologies are being used and any requirements, so 
 + Add '/*' at the end of the 'Resource' key, and save.
 + Go to the 'Access Control List' section, and select 'List' next to 'Everyone'.
 
-
 ### AWS IAM (Identity and Access Management)
 + From the 'Services' tab on the AWS Management Console, search IAM and select it.
 + Go to 'User Groups' > 'Create New Group' > choose a name(associated with the S3 Bucket name) and click 'Create'.
@@ -629,7 +630,6 @@ The following videos were used to gain a better understanding of automated testi
 + [Automated Tests](https://youtu.be/5E_xLmQXOZg) by [CodingEntrepreneurs ](https://www.youtube.com/channel/UCWEHue8kksIaktO8KTTN_zg)
 
 + I used [this Stack Overflow](https://stackoverflow.com/questions/56969479/adding-video-field-in-django) post to understand how to upload and validate video files
-
 
 ## Content
 

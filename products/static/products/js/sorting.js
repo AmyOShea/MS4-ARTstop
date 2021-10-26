@@ -1,5 +1,5 @@
 $('#sort-selector').change(function() {
-    var selector = $(this)
+    var selector = $(this);
     var currentUrl = new URL(window.location);
 
     var selectedVal = selector.val();
@@ -17,4 +17,4 @@ $('#sort-selector').change(function() {
         window.location.replace(currentUrl);
     }
 
-})
+});
