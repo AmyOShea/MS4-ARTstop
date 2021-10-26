@@ -4,11 +4,11 @@
 {% block extra_title %}Class Information{% endblock %}
 
 {% block content %}
-<div class="container main-container class-info-container mx-auto">
+<div class="container class-info-container mx-auto">
     <h1 class="page-title">{{ class.name }}</h1>
     <hr class="page-title-hr">
     <div class="row mt-4">
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-md-5">
             {% if request.user.is_authenticated %}
             <div class="video-container">
                 {% if class.video_url or class.video.url %}
@@ -28,14 +28,15 @@
             <div class="text-center">
                 <p class="top-text mb-1">You need to be signed in in to view this class</p>
                 <a href="{% url 'account_login' %}" class="btn mb-3">Sign In</a>
-                <p class="mt-2">If you don't have an account, you can use the button below to create one<br>Once you have an account, you will be able to access all of the class content that we offer<br>And for a limited time, you will recieve 15% off your first order!</p>
+                <p class="mt-2">If you don't have an account, you can use the button below to create one<br>Once you have an account, you will be able to access all of the class content that we offer</p>
                 <a href="{% url 'account_signup' %}" class="btn">Register</a>
             </div>
         {% endif %}            
         </div>
-        <div class="col-12 col-lg-1 divider"></div>
-        <div class="col-12 col-lg-1"></div>
-        <div class="col-12 col-md-4 class-details-container">
+        <div class="col-12 col-md-1 d-none d-md-block divider"></div>
+        <div class="col-12 col-md-1 d-none d-md-block"></div>
+        <div class="col-12 col-md-5 class-details-container">
+            <hr class="page-title-hr d-block d-md-none mb-2">
             <p class="info-text2 mb-2">Level: {{ class.level.friendly_name }}</p>
             <p class="info-text2 mb-2">Duration: {{ class.duration|time:"H:i:s" }}</p>
             <p class="info-text2 mb-2">{{ class.description }}</p>

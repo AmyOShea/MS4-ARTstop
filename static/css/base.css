@@ -560,14 +560,19 @@ select option {
         position: relative;
         z-index: 10;
     }
-    .class-info-container,
-    .artist-info-container {
+    .products-cont,
+    .artists-cont {
         width: auto !important;
+    }
+    .main-container {
+        margin: 0 15px !important;
     }
 }
 
 @media only screen and (max-width: 767px) {
-    .product-info-container {
+    .product-info-container,
+    .artist-info-container,
+    .class-info-container {
         width: 70vw;
     }
     .product-info-text,
@@ -592,8 +597,7 @@ select option {
         top: calc(15vh - 80px);
     }
     .authentication-container,
-    .profile-container,
-    .main-container {
+    .profile-container {
         margin: 0 15px !important;
     }
     .artist-statement-container,
@@ -610,7 +614,9 @@ select option {
 }
 
 @media only screen and (max-width: 576px) {
-    .product-info-container {
+    .product-info-container,
+    .artist-info-container,
+    .class-info-container {
         width: 92vw;
     }
     .info-img-cont {
