@@ -2,6 +2,7 @@
 
 # Contents
 + [Images](#images)
+  + [Home Page Images](#home-page-images)
   + [Artist Profile Images](#artist-profile-images)
   + [Product Images](#product-images)
   + [Class Cover Images](#product-images)
@@ -10,6 +11,16 @@
 
 ---
 # Images
+
+## Home Page Images
+
+| Home Page Section Name   | Image Source                                            | Created By  |
+| ------------------------ |---------------------------------------------------------| ------------|
+| Changing Spaces          | [Unsplash](https://unsplash.com/photos/KSfe2Z4REEM)     | [Spacejoy](https://unsplash.com/@spacejoy) |
+| Promoting Artists        | [Unsplash](https://unsplash.com/photos/cw-cj_nFa14)     | [Antenna](https://unsplash.com/@antenna) |
+| Driving Your Passion     | [Unsplash](https://unsplash.com/photos/1nkqtBfYkm4)     | [Ramona Balaban](https://unsplash.com/@ramonablb) |
+
+---
 ## Artist Profile Images
 
 | Artist Name              | Image Source                                            | Created By  |

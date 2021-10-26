@@ -794,6 +794,9 @@ Automated Unit Testing was carried out with Djangos testing tools and written to
 
 | Element                   | Action | Expected Result         | Pass/Fail |
 |:-------------             |:-------|:-----                        |:-----|
+|Shop Again! button         |Click   |Redirect to products page       |Pass|
+|View Classes button        |Click   |Redirect to classes page        |Pass|
+|Browse Artists button      |Click   |Redirect to artists page        |Pass|
 
 ---
 
