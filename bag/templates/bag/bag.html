@@ -23,6 +23,7 @@
                                     <p>"{{ item.product.name }}"</p>
                                     <p>€{{ item.product.price }}</p>
                                 </div>
+                                <!-- Quantity update box -->
                                 <div class="col-6 col-sm-3 mt-2">
                                     <a class="update-link">Update</a>
                                     <form class="update-form" method="POST" action="{% url 'edit_bag' item.item_id %}">

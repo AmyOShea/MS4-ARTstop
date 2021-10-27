@@ -10,6 +10,7 @@
     <div class="row mt-4">
         <div class="col-12 col-md-5">
             {% if request.user.is_authenticated %}
+            <!-- Video Display -->
             <div class="video-container">
                 {% if class.video_url or class.video.url %}
                     {% if class.video_url %}
@@ -25,6 +26,7 @@
                 {% endif %}    
             </div>
             {% else %}
+            <!-- Redirect to sign in/registration pages  -->
             <div class="text-center">
                 <p class="top-text mb-1">You need to be signed in in to view this class</p>
                 <a href="{% url 'account_login' %}" class="btn mb-3">Sign In</a>
@@ -33,8 +35,10 @@
             </div>
         {% endif %}            
         </div>
+        <!-- Page layout spacers -->
         <div class="col-12 col-md-1 d-none d-md-block divider"></div>
         <div class="col-12 col-md-1 d-none d-md-block"></div>
+        <!-- Class Details -->
         <div class="col-12 col-md-5 class-details-container">
             <hr class="page-title-hr d-block d-md-none mb-2">
             <p class="info-text2 mb-2">Level: {{ class.level.friendly_name }}</p>
@@ -50,6 +54,7 @@
                         Delete Class
                     </button>
                 </div>
+                <!-- Delete Modal -->
                 <div class="modal fade mt-5" id="delete_class{{class.id}}" tabindex="-1" role="dialog"
                 aria-labelledby="delete_class{{class.id}}Label" aria-hidden="true">
                 <div class="modal-dialog" role="document">

@@ -11,6 +11,7 @@
         <hr class="page-title-hr">
         <div class="row text-center mt-3 mb-2">
             <div class="col-12 col-md-6">
+                <!-- Catagory selector buttons -->
                 {% for c in current_categories %}
                     <a class="btn mr-3" href="{% url 'products' %}?category={{ c.name }}">{{ c.friendly_name }}</a>
                 {% endfor %}
@@ -21,6 +22,7 @@
                     <p class="mt-4">{{ products|length }} Products</p>
                 {% endif %}
             </div>
+            <!-- Product sort-by box -->
             <div class="col-12 col-md-6">
                 <div>
                     <select id="sort-selector">
@@ -36,6 +38,7 @@
             </div>
         </div>
         <div class="row">
+        <!-- Product cards -->
         {% for product in products %}
             <div class="col-12 col-sm-6 col-md-4 col-xl-3 d-flex justify-content-center">
                 <div class="card item">

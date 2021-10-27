@@ -10,6 +10,7 @@
         <h1 class="page-title">Classes</h1>
         <hr class="page-title-hr">
         <div class="row text-center mt-3 mb-2">
+            <!-- Category buttons -->
             <div class="col-12 col-md-6">
                 {% for l in current_levels %}
                     <a class="btn mr-3" href="{% url 'classes' %}?level={{ l.name }}">{{ l.friendly_name }}</a>
@@ -22,6 +23,7 @@
                     <p class="mt-4">{{ classes|length }} Classes</p>
                 {% endif %}
             </div>
+            <!-- Class sort-by box -->
             <div class="col-12 col-md-6">
                 <div>
                     <select id="sort-selector">
@@ -36,6 +38,7 @@
         </div>
         <div class="row">
             {% for class in classes %}
+            <!-- Class Cards -->
             <div class="col-12 col-sm-6 col-md-4 col-xl-3 d-flex justify-content-center">
                 <div class="card item">
                     <a href="{% url 'class_detail' class.id %}">

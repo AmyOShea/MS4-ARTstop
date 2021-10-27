@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     {% block meta %}
@@ -16,7 +17,8 @@
 
     {% block corecss %}
         <link rel="shortcut icon" href="{% static 'favicon/favicon.ico' %}" type="image/x-icon">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abel&display=swap">
         <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
@@ -26,28 +28,37 @@
 
     {% block corejs %}
         <script src="https://kit.fontawesome.com/e25f7ae12d.js" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+        </script>
         <script src="https://js.stripe.com/v3/"></script>
-        {% endblock %}
+    {% endblock %}
 
     {% block extra_js %}
     {% endblock %}
 
     <title>ARTstop - {% block extra_title %}{% endblock %}</title>
 </head>
+
 <body>
     <div class="content">
         <header class="container-fluid pt-2 pr-4 pl-3">
             <div class="row d-none d-lg-flex">
+                <!-- Logo area -->
                 <div class="col-12 col-lg-6">
                     <a href="{% url 'home' %}" class="logo-text">ARTstop</a>
                 </div>
                 <div class="col-12 col-lg-6">
                     <ul class="list-inline list-unstyled text-right">
+                        <!-- User profile dropdown -->
                         <li class="list-inline-item dropdown">
-                            <a class="nav-link mr-4" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link mr-4" href="#" id="user-options" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
                                 <div class="text-center">
                                     <div><i class="far fa-user fa-lg"></i></div>
                                     <p>My Account</p>
@@ -68,8 +79,10 @@
                                 {% endif %}
                             </div>
                         </li>
+                        <!-- Bag link/info -->
                         <li class="list-inline-item">
-                            <a class="{% if bag_items %}font-weight-bold{% else %}font-weight-normal{% endif %} nav-link" href="{% url 'view_bag' %}">
+                            <a class="{% if bag_items %}font-weight-bold{% else %}font-weight-normal{% endif %} nav-link"
+                                href="{% url 'view_bag' %}">
                                 <div class="text-center">
                                     <div>
                                         <i class="fas fa-shopping-bag fa-lg"></i>
@@ -88,35 +101,38 @@
                 </div>
             </div>
             <nav class="navbar navbar-expand-lg navbar-light w-100">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav"
+                    aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 {% include 'includes/mobile-top-header.html' %}
                 {% include 'includes/main-nav.html' %}
             </nav>
         </header>
-
+        <!-- Toasts -->
         {% if messages %}
-            <div class="message-container">
-                {% for message in messages %}
-                    {% with message.level as level %}
-                        {% if level == 40 %}
-                            {% include 'includes/toasts/toast_error.html' %}
-                        {% elif level == 30 %}
-                            {% include 'includes/toasts/toast_warning.html' %}
-                        {% elif level == 25 %}
-                            {% include 'includes/toasts/toast_success.html' %}
-                        {% else %}
-                            {% include 'includes/toasts/toast_info.html' %}
-                        {% endif %}
-                    {% endwith %}
-                {% endfor %}
-            </div>
+        <div class="message-container">
+            {% for message in messages %}
+                {% with message.level as level %}
+                    {% if level == 40 %}
+                        {% include 'includes/toasts/toast_error.html' %}
+                    {% elif level == 30 %}
+                        {% include 'includes/toasts/toast_warning.html' %}
+                    {% elif level == 25 %}
+                        {% include 'includes/toasts/toast_success.html' %}
+                    {% else %}
+                    {   % include 'includes/toasts/toast_info.html' %}
+                    {% endif %}
+                {% endwith %}
+            {% endfor %}
+        </div>
         {% endif %}
 
         {% block content %}
         {% endblock %}
+
     </div>
+    <!-- Footer -->
     <footer>
         <div class="row footer-container mx-auto">
             <div class="col-12 col-md-4 d-flex justify-content-start justify-content-md-center">
@@ -124,10 +140,10 @@
                     <div class="col-12 md-4">
                         <p>Customer Care</p>
                         <ul class="list-unstyled">
-                        <li><a href="{% url 'contact' %}">Contact Us</a></li>
-                        <li><a href="{% url 'faqs' %}">FAQ's</a></li>
-                        <li><a href="{% url 'faqs' %}">Shipping & Handling</a></li>
-                        <li><a href="{% url 'faqs' %}">Returns & Exchanges</a></li>
+                            <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                            <li><a href="{% url 'faqs' %}">FAQ's</a></li>
+                            <li><a href="{% url 'faqs' %}">Shipping & Handling</a></li>
+                            <li><a href="{% url 'faqs' %}">Returns & Exchanges</a></li>
                         </ul>
                     </div>
                 </div>
@@ -154,10 +170,14 @@
                     <div class="col-12 md-4">
                         <p>Socials</p>
                         <ul class="list-unstyled">
-                        <li><a href="https://www.facebook.com/" target="_blank" title="Facebook link" rel="noopener">Facebook</a></li>
-                        <li><a href="https://www.instagram.com/" target="_blank" title="Instagram link" rel="noopener">Instagram</a></li>
-                        <li><a href="https://www.twitter.com/" target="_blank" title="Twitter link" rel="noopener">Twitter</a></li>
-                        <li><a href="https://www.tiktok.com/" target="_blank" title="Tiktok link" rel="noopener">TikTok</a></li>
+                            <li><a href="https://www.facebook.com/" target="_blank" title="Facebook link"
+                                    rel="noopener">Facebook</a></li>
+                            <li><a href="https://www.instagram.com/" target="_blank" title="Instagram link"
+                                    rel="noopener">Instagram</a></li>
+                            <li><a href="https://www.twitter.com/" target="_blank" title="Twitter link"
+                                    rel="noopener">Twitter</a></li>
+                            <li><a href="https://www.tiktok.com/" target="_blank" title="Tiktok link"
+                                    rel="noopener">TikTok</a></li>
                         </ul>
                     </div>
                 </div>
@@ -168,6 +188,6 @@
     {% block postloadjs %}
         <script src="{% static 'js/script.js' %}"></script>
     {% endblock %}
-   
-  </body>
+
+</body>
 </html>

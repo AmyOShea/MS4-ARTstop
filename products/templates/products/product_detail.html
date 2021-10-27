@@ -9,6 +9,7 @@
     <h1 class="page-title">"{{ product.name }}"</h1>
     <hr class="page-title-hr">
     <div class="row mt-5">
+        <!-- Product image container -->
         <div class="col-12 col-md-6 lg-4">
             <div class="info-img-cont">
             <a href="{{ product.image.url }}" target="blank">
@@ -20,6 +21,7 @@
             </a>
         </div>
         </div>
+        <!-- Product info container -->
         <div class="col-12 col-md-6 lg-4 product-info-text">
             <p class="info-text artist-name mb-2"><strong>{{ product.artist }}</strong></p>
             <p class="info-text mb-1">{{ product.description }}</p>
@@ -54,6 +56,7 @@
                         Delete Product
                     </button>
                 </div>
+                <!-- Delete modal -->
                 <div class="modal fade mt-5" id="delete_product{{product.id}}" tabindex="-1" role="dialog"
                 aria-labelledby="delete_product{{product.id}}Label" aria-hidden="true">
                 <div class="modal-dialog" role="document">

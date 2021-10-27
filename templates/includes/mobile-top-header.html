@@ -3,25 +3,27 @@
         <a class="nav-link d-block d-lg-none" href="#" id="user-options-mobile" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">
             <div class="text-center">
+                <!-- User dropdown menu -->
                 <div><i class="far fa-user fa-lg"></i></div>
                 <p>My Account</p>
             </div>
         </a>
         <div class="dropdown-menu border-0" aria-labelledby="user-options-mobile">
             {% if request.user.is_authenticated %}
-            {% if request.user.is_superuser %}
-            <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
-            <a href="{% url 'add_artist' %}" class="dropdown-item">Artist Management</a>
-            <a href="{% url 'add_class' %}" class="dropdown-item">Class Management</a>
-            {% endif %}
-            <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
-            <a href="{% url 'account_logout' %}" class="dropdown-item">Sign Out</a>
+                {% if request.user.is_superuser %}
+                    <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
+                    <a href="{% url 'add_artist' %}" class="dropdown-item">Artist Management</a>
+                    <a href="{% url 'add_class' %}" class="dropdown-item">Class Management</a>
+                {% endif %}
+                <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
+                <a href="{% url 'account_logout' %}" class="dropdown-item">Sign Out</a>
             {% else %}
-            <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-            <a href="{% url 'account_login' %}" class="dropdown-item">Sign In</a>
+                <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                <a href="{% url 'account_login' %}" class="dropdown-item">Sign In</a>
             {% endif %}
         </div>
     </li>
+    <!-- Bag link/info -->
     <li class="list-inline-item">
         <a class="{% if bag_items %}font-weight-bold{% else %}text-black{% endif %} nav-link d-block d-lg-none"
             href="{% url 'view_bag' %}">
@@ -29,9 +31,9 @@
                 <div><i class="fas fa-shopping-bag fa-lg"></i></div>
                 <p class="my-0">
                     {% if bag_items %}
-                    €{{ total|floatformat:2 }}
+                        €{{ total|floatformat:2 }}
                     {% else %}
-                    €0.00
+                        €0.00
                     {% endif %}
                 </p>
             </div>

@@ -34,6 +34,7 @@
                             {{ order_form.postcode | as_crispy_field }}
                             {{ order_form.country | as_crispy_field }}
                             <div class="form-check form-check-inline">
+                                <!-- Save delivery information to profile -->
                                 {% if user.is_authenticated %}
                                 <label class="form-check-label" for="id-save-info">Save this delivery information to my
                                     profile</label>
@@ -50,12 +51,14 @@
                         </fieldset>
                         <div class="submit-button text-right bottom-info mt-2">
                             <a href="{% url 'view_bag' %}" class="btn">Adjust Bag</a>
+                            <!-- Submit Payment Button -->
                             <button id="submit-button" class="btn">Complete Order</button>
                             <p class="mt-2 mb-3">Your card will be charged <strong>€{{ grand_total|floatformat:2 }}</strong></p>
                         </div>
                     </form>
                 </div>
-                <div class="col-12 col-lg-5 mx-auto  mt-3">
+                <!-- Order Summary -->
+                <div class="col-12 col-lg-5 mx-auto mt-3">
                     <h2 class="checkout-sub-heading">Order Summary</h2>
                     <hr class="checkout-hr">
                     {% for item in bag_items %}
@@ -86,6 +89,7 @@
         </div>
     </div>
 </div>
+<!-- Loader screen -->
 <div id="loading-overlay">
     <div class="overlay-content mx-auto">
         <div class="loading-circle1"></div>

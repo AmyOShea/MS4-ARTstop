@@ -82,6 +82,7 @@
                     Delete Artist
                 </button>
             </div>
+            <!-- Delete Modal -->
             <div class="modal fade mt-5" id="delete_artist{{artist.id}}" tabindex="-1" role="dialog"
                 aria-labelledby="delete_artist{{artist.id}}Label" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -107,6 +108,7 @@
             {% endif %}
         </div>
     </div>
+    <!-- Artists products -->
     <div class="card-columns">
         {% for product in products %}
             {% if product.artist|lower == artist.name|lower %}
