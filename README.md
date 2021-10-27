@@ -622,6 +622,8 @@ You will need to install all of the packages listed in the requirements file you
 # Credits
 ## Code
 
++ I used the code fixes from [this Slack post](https://code-institute-room.slack.com/archives/C7HS3U3AP/p1605222094452700) to fix an issue with the save-info checkbox.
+
 + The initial site functionality was made using the [Boutique Ado](https://github.com/ckz8780/boutique_ado_v1) walkthrough by [Chris Zielinski](https://github.com/ckz8780) via Code Institute. The code was adapted for what I needed.
 
 + I used [this W3Schools page](https://www.w3schools.com/css/css_outline.asp) to understand the CSS outline property
@@ -641,7 +643,7 @@ You will need to install all of the packages listed in the requirements file you
 
 + The fonts that were used are credited in the [Typography](#typography) section
 
-### Media
+## Media
 
 Due to the size of the media credits section, I have created a separate document for it. You can find it [here](https://github.com/AmyOShea/MS4-ARTstop/blob/master/MEDIA-CREDITS.md). 
 

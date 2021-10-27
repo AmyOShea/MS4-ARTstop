@@ -46,6 +46,7 @@ form.addEventListener('submit', function(e) {
     $('#payment-form').fadeToggle(100);
     $('#loading-overlay').fadeToggle(100);
 
+    // Code taken from https://code-institute-room.slack.com/archives/C7HS3U3AP/p1605222094452700
     var saveInfo = $('#id-save-info').is(':checked');
 
     var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();

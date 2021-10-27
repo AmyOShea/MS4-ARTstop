@@ -1200,6 +1200,16 @@ Because there are two versions of the nav bar for mobile vs desktop, I had dupli
 When I re-ran the HTML, it validated.
 
 ---
+
+### **Save Info Checkbox Issue**
+
+When initially testing all of the site functionality, the save-info checkbox was working as expected. WHen checked, it save the delivery information to the user profile. And if not checked, the default delivery information isn't saved. 
+
+But when testing on the deployed site, the information was being saved regardless of the buttone being checked or not. I found [this Slack post](https://code-institute-room.slack.com/archives/C7HS3U3AP/p1605222094452700) that pointed to a few solutions.
+
+I updates the JS code, the webhook handler AND moved the JS file to the top of the page. The combination of all 3 worked and the save-info checkbox works as needed.
+
+---
 ---
 
 ## Known Bugs

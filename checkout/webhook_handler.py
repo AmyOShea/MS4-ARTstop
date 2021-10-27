@@ -62,6 +62,8 @@ class StripeWH_Handler:
         username = intent.metadata.username
         if username != 'AnonymousUser':
             profile = UserProfile.objects.get(user__username=username)
+            # Code taken from
+            # https://code-institute-room.slack.com/archives/C7HS3U3AP/p1605222094452700
             if save_info == "true":
                 profile.default_phone_number = shipping_details.phone
                 profile.default_street_address1 = (
