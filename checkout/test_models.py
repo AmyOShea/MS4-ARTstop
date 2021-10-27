@@ -3,9 +3,7 @@ Test models in checkout app
 """
 
 from django.test import TestCase
-from django.conf import settings
 
-from products.models import Product
 from .models import Order
 
 

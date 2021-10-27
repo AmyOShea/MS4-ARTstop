@@ -313,7 +313,7 @@ When a message is sent via the contact form, an email is sent to the admins desi
 
 ## Automated Testing
 
-Automated Unit Testing was carried out with Djangos testing tools and written to cover as much of the site as possible. Below is an overview of each app and what was tested.
+Automated Unit Testing was carried out with Djangos testing tools and written to cover as much of the site as possible. Below is an overview of each app and what was tested:
 
 ### Artists App
 
@@ -441,6 +441,10 @@ Automated Unit Testing was carried out with Djangos testing tools and written to
    + test that no form fields are required
 
 ![coverage report](docs/coverage-reports/profiles.PNG)
+
+The biggest struggle that I had with testing was the bag and checkout app. Creating a bag with items proved to be more difficult than I thought it would be.
+
+Overall I'm happy with the amount of testing that I managed to get done, It's by no means perfect and there's a lot that needs improving but for a first atempt I'm happy with how much I was able to do. It's definitely something that I would like to focus on improving in the future.
 
 ## Manually Testing Functionality
 ### **Navigation**
@@ -1054,6 +1058,30 @@ Through devices that I have at home/readily available to me, I was able to conti
 ---
 
 ## Bugs and Fixes
+
+### **Pylint & Flake8 Errors**
+
+When refactoring the code I was able to reduce the amout of pylint erros that were in the code. However, there are some that have been left in:
+
++ *Avoid using null=True on string-based fields such CharField*
+
+The forms that I have in place sometimes need to allow for the fields to be left blank so I need to use null=true combined with blank=true
+
++ *line too long*
+
+In the code that I have written, I have followed the line length rule. However, in Django generated files like migrations, I have left them as they were created. The migration files aren't generally going to be edited by humans so I feel comfortable leaving them as they are.
+
++ *'django.contrib.admin' imported but unused*
+
+Not specific to 'django.contrib.admin' but to all imports in files that were created when the app was created and never used. I don't want to delete the files or their auto imports in case they're needed in the future. 
+
++ *Missing module docstring*
+
+I have added docstrings to the views.py for all apps and all the tests that I wrote. I didn't add them to the models or forms files because:
+1. They tended to be smaller than the views
+2. The information on teh pages was a lot more self explanitory than the views
+
+---
 
 ### **Bag Total Issue**
 
