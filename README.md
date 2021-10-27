@@ -29,9 +29,11 @@ You can find the live site [here](https://ms4-artstop.herokuapp.com/)
   + [All Others](#all-others)
 + [Testing](#testing)
 + [Deployment](#deployment)
-  + [Deployment through GitHub Pages](#deployment)
+  + [Heroku Deployment](#heroku-deployment)
+  + [Set up AWS](#set-up-aws)
+  + [Set up Emails](#set-up-emails)
   + [Forking the Repository](#forking-the-repository)
-  + [Cloning Project](#cloning-project)
+  + [Making a Local Clone](#making-a-local-clone)
 + [Credits](#credits)
   + [Content](#content)
   + [Media](#media)
@@ -102,6 +104,7 @@ The home page uses shapes in the accent colours and a few selected works to give
 ## Wireframes and Initial Design
 
 [Initial wireframes here](docs/MS4-wireframes.pdf)
+
 All Wireframes were designed for laptop/computer, iPad/tablet and phone display:
 
 [Initial design idea here](docs/MS4-design.pdf)
@@ -110,6 +113,7 @@ As the project progressed, some element placement was tweaked and updated. Howev
 
 ---
 ---
+
 # Features
 ## Current Features
 ### **Navigation menu displayed across all pages**
@@ -133,7 +137,6 @@ The navigation buttons update depending on whether a user is logged in or not, a
 |Originals              |&#9989;        |&#9989;          |&#9989;
 |Classes                |&#9989;        |&#9989;          |&#9989;
 |Artists                |&#9989;        |&#9989;          |&#9989;
-
 
 ### **User registration not required**
 
@@ -623,10 +626,10 @@ You will need to install all of the packages listed in the requirements file you
 
 + I used [this W3Schools page](https://www.w3schools.com/css/css_outline.asp) to understand the CSS outline property
 
-The following videos were used to gain a better understanding of automated testing:
++ The following videos were used to gain a better understanding of automated testing:
 
-+ [Django Testing Tutorial Series](https://youtube.com/playlist?list=PLbpAWbHbi5rMF2j5n6imm0enrSD9eQUaM) by [The Dumbfounds](https://www.youtube.com/channel/UC33uwXXDrI5TxG4IXnjS28g)
-+ [Automated Tests](https://youtu.be/5E_xLmQXOZg) by [CodingEntrepreneurs ](https://www.youtube.com/channel/UCWEHue8kksIaktO8KTTN_zg)
+   + [Django Testing Tutorial Series](https://youtube.com/playlist?list=PLbpAWbHbi5rMF2j5n6imm0enrSD9eQUaM) by [The Dumbfounds](https://www.youtube.com/channel/UC33uwXXDrI5TxG4IXnjS28g)
+   + [Automated Tests](https://youtu.be/5E_xLmQXOZg) by [CodingEntrepreneurs ](https://www.youtube.com/channel/UCWEHue8kksIaktO8KTTN_zg)
 
 + I used [this Stack Overflow](https://stackoverflow.com/questions/56969479/adding-video-field-in-django) post to understand how to upload and validate video files
 
