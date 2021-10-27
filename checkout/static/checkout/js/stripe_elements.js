@@ -46,7 +46,7 @@ form.addEventListener('submit', function(e) {
     $('#payment-form').fadeToggle(100);
     $('#loading-overlay').fadeToggle(100);
 
-    var saveInfo = Boolean($('#id-save-info').attr('checked'));
+    var saveInfo = $('#id-save-info').is(':checked');
 
     var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
     var postData = {
