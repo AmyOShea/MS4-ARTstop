@@ -187,7 +187,8 @@ tr>td {
     padding: 3px 6px !important;
 }
 
-footer h5 {
+footer p {
+    font-size: 1.25rem;
     margin-bottom: 3px !important;
     padding: 3px 6px !important;
 }
@@ -577,7 +578,7 @@ select option {
 
 @media only screen and (max-width: 992px) {
     .product-info-container {
-        width: 50vw;
+        width: 60vw;
     }
     .card-columns {
         -webkit-column-count: 3;

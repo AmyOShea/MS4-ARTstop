@@ -5,10 +5,10 @@
 <head>
 
     {% block meta %}
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="An online art shop that promotes artists and encourages learning">
     {% endblock %}
 
     {% block extra_meta %}
@@ -122,7 +122,7 @@
             <div class="col-12 col-md-4 d-flex justify-content-start justify-content-md-center">
                 <div class="row">
                     <div class="col-12 md-4">
-                        <h5>Customer Care</h5>
+                        <p>Customer Care</p>
                         <ul class="list-unstyled">
                         <li><a href="{% url 'contact' %}">Contact Us</a></li>
                         <li><a href="{% url 'faqs' %}">FAQ's</a></li>
@@ -135,14 +135,11 @@
             <div class="col-12 col-md-4 d-flex justify-content-start justify-content-md-center">
                 <div class="row">
                     <div class="col-12 md-4">
-                        <h5>Account</h5>
+                        <p>Account</p>
                         <ul class="list-unstyled">
                             {% if request.user.is_authenticated %}
-                                    {% if request.user.is_superuser %}
-                                        <li><a href="" class="dropdown-item">Product Management</a></li>
-                                    {% endif %}
-                                    <li><a href="{% url 'profile' %}" class="dropdown-item">My Profile</a></li>
-                                    <li><a href="{% url 'account_logout' %}" class="dropdown-item">Sign Out</a></li>
+                                <li><a href="{% url 'profile' %}" class="dropdown-item">My Profile</a></li>
+                                <li><a href="{% url 'account_logout' %}" class="dropdown-item">Sign Out</a></li>
                             {% else %}
                                 <li><a href="{% url 'account_signup' %}" class="dropdown-item">Register</a></li>
                                 <li><a href="{% url 'account_login' %}" class="dropdown-item">Sign In</a></li>
@@ -155,9 +152,9 @@
             <div class="col-12 col-md-4 d-flex justify-content-start justify-content-md-center">
                 <div class="row">
                     <div class="col-12 md-4">
-                        <h5>Socials</h5>
+                        <p>Socials</p>
                         <ul class="list-unstyled">
-                        <li><a href="https://www.facebook.com/" target="_blank" title="Facebook link">Facebook</a></li>
+                        <li><a href="https://www.facebook.com/" target="_blank" title="Facebook link" rel="noopener">Facebook</a></li>
                         <li><a href="https://www.instagram.com/" target="_blank" title="Instagram link" rel="noopener">Instagram</a></li>
                         <li><a href="https://www.twitter.com/" target="_blank" title="Twitter link" rel="noopener">Twitter</a></li>
                         <li><a href="https://www.tiktok.com/" target="_blank" title="Tiktok link" rel="noopener">TikTok</a></li>
