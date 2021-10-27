@@ -619,6 +619,7 @@ You will need to install all of the packages listed in the requirements file you
 
 ---
 ---
+
 # Credits
 ## Code
 
@@ -633,7 +634,11 @@ You will need to install all of the packages listed in the requirements file you
    + [Django Testing Tutorial Series](https://youtube.com/playlist?list=PLbpAWbHbi5rMF2j5n6imm0enrSD9eQUaM) by [The Dumbfounds](https://www.youtube.com/channel/UC33uwXXDrI5TxG4IXnjS28g)
    + [Automated Tests](https://youtu.be/5E_xLmQXOZg) by [CodingEntrepreneurs ](https://www.youtube.com/channel/UCWEHue8kksIaktO8KTTN_zg)
 
-+ I used [this Stack Overflow](https://stackoverflow.com/questions/56969479/adding-video-field-in-django) post to understand how to upload and validate video files
++ I used [this Stack Overflow post](https://stackoverflow.com/questions/56969479/adding-video-field-in-django) to understand how to upload and validate video files
+
++ I used [this Stack Overflow post](https://stackoverflow.com/questions/2902008/django-how-do-i-add-arbitrary-html-attributes-to-input-fields-on-a-form) to get a better understanding of how to add HTML attributes to Django generated forms
+
++ The [Django Docs](https://docs.djangoproject.com/en/3.2/) were an invaluable source of information throughout this project
 
 ## Content
 
