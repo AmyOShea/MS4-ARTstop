@@ -33,3 +33,20 @@ class OrderForm(forms.ModelForm):
                     placeholder = placeholders[field]
                 self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].label = False
+
+        # adding regex to each field to avoid whitespace being
+        # submitted to Stripe
+        self.fields['full_name'].widget.attrs.update(
+            {'pattern': '.*\\S+.*'})
+        self.fields['phone_number'].widget.attrs.update(
+            {'pattern': '.*\\S+.*'})
+        self.fields['street_address1'].widget.attrs.update(
+            {'pattern': '.*\\S+.*'})
+        self.fields['street_address2'].widget.attrs.update(
+            {'pattern': '.*\\S+.*'})
+        self.fields['town_or_city'].widget.attrs.update(
+            {'pattern': '.*\\S+.*'})
+        self.fields['county'].widget.attrs.update(
+            {'pattern': '.*\\S+.*'})
+        self.fields['postcode'].widget.attrs.update(
+            {'pattern': '.*\\S+.*'})

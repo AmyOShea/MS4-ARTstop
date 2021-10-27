@@ -1238,19 +1238,25 @@ But when testing on the deployed site, the information was being saved regardles
 I updates the JS code, the webhook handler AND moved the JS file to the top of the page. The combination of all 3 worked and the save-info checkbox works as needed.
 
 ---
----
-
-## Known Bugs
-
----
 
 ### **Checkout Form Whitespace Issue**
 
-If the user inputs information in the wrong format or leaves a required field blank, the form validation doesn't allow the form to be submitted. However, when the user fills in just whitespace, the form is submitting to Stripe, Stripe sends it back and a user-unfriendly error is displayed:
+If the user inputs information in the wrong format or leaves a required field blank on the checkout page, the form validation doesn't allow the form to be submitted. However, when the user fills in just whitespace, the form is submitting to Stripe, Stripe sends it back and a user-unfriendly error is displayed:
 
 ![Checkout form whitespace issue](docs/bugs-and-fixes/bug-06.PNG)
 
-Ideally I would have like to have fixed this but it just became a time issue. I looked into it a found a way to add REGEX to the generated form fields, I just didn't have the time to implement it. I'll be going back in the future to take care of this issue. 
+I'm not sure why the form is lacking whitespace validaiton when the add item & edit item forms have it in place. Something that I have used in the pase for whitespace validation is REGEX but there was no HTML file for me to add it to - the form is generated automatically. 
+
+I decided to add the pattern attribute to each field that was not validating:
+
+![Checkout form whitespace issue](docs/bugs-and-fixes/bug-06-code-fix.PNG)
+
+I'm sure that there's a much more sophisicated way to do this using the ``clean()`` method but this was the quickest way to implement whitespace validation. The ``clean()`` method is something that I would like to become familiar with in the future. 
+
+---
+---
+
+## Known Bugs
 
 ---
 
