@@ -447,7 +447,6 @@ Below is an image of how the database models relate to each other:
 + [RandomKeygen](https://randomkeygen.com/) used to create a strong password for required  `<SECRET_KEY>`.
 + [Transfonter](https://transfonter.org/) used to convert font from .tff to .woff and .woff2.
 + [Lighthouse](https://developers.google.com/web/tools/lighthouse) for performance review.
-+ [PowerMapper](https://www.powermapper.com/) used to check compatibility with older browsers.
 + [Responsinator](https://www.responsinator.com/) used to check site was responsive on different screen sizes.
 + [Am I Responsive](http://ami.responsivedesign.is/) used to generate README intro image.
 + [favicon.io](https://favicon.io/) used to create a site favicon.

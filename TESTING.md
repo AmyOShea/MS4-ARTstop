@@ -108,20 +108,28 @@ The code passed all checks.
 
 ## Lighthouse Testing
 
+After getting the bulk of the site in place, I ran it through Chrome Lighthouse. While all of the elements were in green, I wanted to improve them:
+
+
 ### **Performance**
+
+I made no changes to the performance score. 
 
 ### **Accessibility**
 
+I changed the footer ``<h5>`` elements to ``<p>`` elements which improved the score.
+
 ### **Best Practices**
+
+I added ``rel="noopener"`` to the footer Facebook link
 
 ### **SEO**
 
----
----
+I added a meta decription to the base template. 
 
-## PowerMapper Compatibility
+### Final Lighthouse Score:
 
-I used [PowerMapper](https://www.powermapper.com/) to test cross-browser compatbility on other browsers that I don't have access to.
+![Lighthouse score](docs/lighthouse-desktop.PNG)
 
 ---
 ---
@@ -1178,6 +1186,20 @@ Now, regardless of the error, the autofocus doesn't direct the user anywhere spe
 ![Autofocus issue](docs/bugs-and-fixes/bug-07-fix-02.PNG)
 
 ---
+
+### **Duplicate ID Issue**
+
+When validating the HTML I had an issues with duplicate ID's:
+
+![Duplicate ID issue](docs/bugs-and-fixes/bug-10.PNG)
+
+Because there are two versions of the nav bar for mobile vs desktop, I had duplicated the samw one twice. I updated the ID in the mobile top header file and made sure to update the aria-labledby attr too:
+
+![Duplicate ID issue](docs/bugs-and-fixes/bug-10-code-fix.PNG)
+
+When I re-ran the HTML, it validated.
+
+---
 ---
 
 ## Known Bugs
@@ -1190,6 +1212,8 @@ If the user inputs information in the wrong format or leaves a required field bl
 
 ![Checkout form whitespace issue](docs/bugs-and-fixes/bug-06.PNG)
 
+Ideally I would have like to have fixed this but it just became a time issue. I looked into it a found a way to add REGEX to the generated form fields, I just didn't have the time to implement it. I'll be going back in the future to take care of this issue. 
+
 ---
 
 ### **Stripe Test Webhook Issues**
@@ -1200,79 +1224,12 @@ When initally setting up Stripe payments, I was not having any issues with eithe
 
 ![Stripe test webhook issue](docs/bugs-and-fixes/bug-08-01.PNG)
 
-![Autofocus Issue](docs/bugs-and-fixes/bug-08-02.PNG)
+![Stripe test webhook issue](docs/bugs-and-fixes/bug-08-02.PNG)
 
 The 500 error was pointing to the ```bag``` in the webhook_handler.py file. However, the ```bag``` variable was created in the views.py file. I didn't know how to solve this so I contected tutor support and the Full Stack Frameworks slack channel. <br>
 The general consensus was that this would be an expected behviour when sending a test ```payment_intent.succeeded``` webhook.<br>
 When sending a ```payment_intent.succeeded``` test webhook, Stripe sends default data, but the data held in the ```cache_checkout_data(request)``` would be different, causing the conflict.
 
-![Autofocus Issue](docs/bugs-and-fixes/bug-08-03.PNG)
+![Stripe test webhook issue](docs/bugs-and-fixes/bug-08-03.PNG)
 
 To test this theory, I commented out the ```cache_checkout_data(request)``` function and the test webhook worked.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
