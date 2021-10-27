@@ -6,6 +6,11 @@
     <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
 
+{% block extra_js %}
+    <!-- Moved JS to top of page to resolve save_info bug - more info in README -->
+    <script defer src="{% static 'checkout/js/stripe_elements.js' %}"></script>
+{% endblock %}
+
 {% block extra_title %}Checkout{% endblock %}
 
 {% block content %}
@@ -104,5 +109,4 @@
 {{ block.super }}
 {{ stripe_public_key|json_script:"id_stripe_public_key" }}
 {{ client_secret|json_script:"id_client_secret" }}
-    <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
 {% endblock %}
